@@ -608,7 +608,7 @@ table.dm-table{width:100%;border-collapse:collapse;font-size:12.8px;}
         </div>
         <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px;flex-wrap:wrap;gap:10px;">
           <div class="table-info" id="comparisonInfo"></div>
-          <button class="btn-clear" id="resetComparisonBtn"><i class="fa-solid fa-rotate-left"></i> Redefinir ponto de comparação</button>
+          <button class="btn-clear" id="resetComparisonBtn"><i class="fa-solid fa-rotate-left"></i> Recarregar comparativo</button>
         </div>
       </div>
     </section>
@@ -730,12 +730,11 @@ const STATUS_CONFIG = {
   "Concluído":                   { color:"var(--status-concluido)",    bg:"var(--status-concluido-bg)",    icon:"fa-circle-check" },
   "Reprovado":                   { color:"var(--status-reprovado)",    bg:"var(--status-reprovado-bg)",    icon:"fa-circle-xmark" },
   "Impedimento":                 { color:"var(--status-impedimento)",  bg:"var(--status-impedimento-bg)",  icon:"fa-triangle-exclamation" },
-  "Concluído ou Descontinuado":  { color:"var(--status-descontinuado)",bg:"var(--status-descontinuado-bg)",icon:"fa-box-archive" },
   "Backlog":                     { color:"var(--status-backlog)",      bg:"var(--status-backlog-bg)",      icon:"fa-layer-group" }
 };
 const KANBAN_COLUMNS = [
   "Caixa de Entrada","Não Iniciado","Em Andamento","Aguardando Validação","Em Análise",
-  "Pronto para Atuar","Concluído","Reprovado","Impedimento","Concluído ou Descontinuado"
+  "Pronto para Atuar","Concluído","Reprovado","Impedimento"
 ];
 
 /* ---------------------------------------------------------------
@@ -807,8 +806,8 @@ function weightedStatus(){
   // distribuição realista: mais itens em andamento/concluído, menos em impedimento
   const weights = [
     ["Caixa de Entrada",8],["Não Iniciado",10],["Em Andamento",18],["Aguardando Validação",9],
-    ["Em Análise",7],["Pronto para Atuar",6],["Concluído",22],["Reprovado",5],
-    ["Impedimento",4],["Concluído ou Descontinuado",11]
+    ["Em Análise",7],["Pronto para Atuar",6],["Concluído",33],["Reprovado",5],
+    ["Impedimento",4]
   ];
   const total = weights.reduce((a,w)=>a+w[1],0);
   let r = rnd()*total;
@@ -845,6 +844,10 @@ function normalizeHeader(h){
 
 const KNOWN_STATUSES_NORMALIZED = {};
 Object.keys(STATUS_CONFIG).forEach(s=>{ KNOWN_STATUSES_NORMALIZED[normalizeHeader(s)] = s; });
+// Aliases: variações que devem ser tratadas como o mesmo status final
+KNOWN_STATUSES_NORMALIZED[normalizeHeader("Concluído ou Descontinuado")] = "Concluído";
+KNOWN_STATUSES_NORMALIZED[normalizeHeader("Concluido ou Descontinuado")] = "Concluído";
+KNOWN_STATUSES_NORMALIZED[normalizeHeader("Descontinuado")] = "Concluído";
 
 function normalizeStatusValue(raw){
   const norm = normalizeHeader(String(raw||""));
@@ -872,10 +875,10 @@ function csvRowsToData(rows){
     .filter(item => item.idDm); // descarta linhas sem ID DM
 }
 
-function loadDataFromCsv(){
+function loadDataFromCsv(filename){
   return new Promise((resolve)=>{
-    // cache-busting para o botão "Atualizar" sempre pegar a versão mais recente do arquivo
-    const url = CSV_FILENAME + "?t=" + Date.now();
+    // cache-busting para sempre pegar a versão mais recente do arquivo no repositório
+    const url = filename + "?t=" + Date.now();
     Papa.parse(url, {
       download:true,
       header:false,
@@ -883,17 +886,16 @@ function loadDataFromCsv(){
       complete: (result)=>{
         try{
           const parsed = csvRowsToData(result.data);
-          if(parsed.length){ resolve(parsed); }
-          else { resolve(null); }
-        }catch(err){ console.warn("Erro ao interpretar dados.csv:", err); resolve(null); }
+          resolve(parsed.length ? parsed : null);
+        }catch(err){ console.warn(`Erro ao interpretar ${filename}:`, err); resolve(null); }
       },
-      error: (err)=>{ console.warn("dados.csv não encontrado ou ilegível, usando dados de demonstração.", err); resolve(null); }
+      error: (err)=>{ console.warn(`${filename} não encontrado ou ilegível.`, err); resolve(null); }
     });
   });
 }
 
 async function loadData(){
-  const csvData = await loadDataFromCsv();
+  const csvData = await loadDataFromCsv(CSV_FILENAME);
   if(csvData && csvData.length){
     DATA = csvData;
     DATA_SOURCE = "csv";
@@ -902,7 +904,7 @@ async function loadData(){
     DATA_SOURCE = "mock";
   }
   updateDataSourceBadge();
-  processComparison();
+  await processComparison();
 }
 
 function updateDataSourceBadge(){
@@ -918,41 +920,35 @@ function updateDataSourceBadge(){
 }
 
 /* ---------------------------------------------------------------
-   2b. COMPARATIVO COM A ATUALIZAÇÃO ANTERIOR (via localStorage)
-   Só se aplica quando os dados vêm de um dados.csv real — dados de
-   demonstração não são comparados nem salvos como referência.
+   2b. COMPARATIVO COM A ATUALIZAÇÃO ANTERIOR
+   Compara "dados.csv" (atual) com "dados_anterior.csv" (a versão de
+   antes), ambos arquivos reais no repositório. Assim o comparativo
+   é o mesmo para qualquer pessoa que abrir o link, em qualquer
+   navegador/computador — não depende de armazenamento local.
+
+   Fluxo de atualização sugerido, sempre que for atualizar:
+     1. Renomeie o "dados.csv" atual para "dados_anterior.csv"
+        (substituindo o antigo).
+     2. Exporte a planilha nova do SharePoint como "dados.csv".
+     3. Suba os dois arquivos para o repositório.
    --------------------------------------------------------------- */
-const SNAPSHOT_KEY = "demandflow_snapshot_v1";
+const CSV_ANTERIOR_FILENAME = "dados_anterior.csv";
+let COMPARISON_RAW = { noPrevious:true, newItems:[], changedItems:[] };
 
-function readSnapshot(){
-  try{
-    const raw = localStorage.getItem(SNAPSHOT_KEY);
-    return raw ? JSON.parse(raw) : null;
-  }catch(err){ console.warn("Não foi possível ler o snapshot salvo:", err); return null; }
-}
-function saveSnapshot(data){
-  try{
-    const minimal = data.map(i=>({ idDm:i.idDm, titulo:i.titulo, board:i.board, status:i.status }));
-    localStorage.setItem(SNAPSHOT_KEY, JSON.stringify({ savedAt: new Date().toISOString(), items: minimal }));
-  }catch(err){ console.warn("Não foi possível salvar o snapshot local:", err); }
-}
-function clearSnapshot(){
-  try{ localStorage.removeItem(SNAPSHOT_KEY); }catch(err){}
-}
-
-function processComparison(){
+async function processComparison(){
+  const section = document.getElementById("comparisonSection");
   if(DATA_SOURCE !== "csv"){
-    document.getElementById("comparisonSection").style.display = "none";
+    section.style.display = "none";
+    COMPARISON_RAW = { noPrevious:true, newItems:[], changedItems:[] };
     return;
   }
-  const previous = readSnapshot();
-  if(!previous){
-    // primeira carga: não há base anterior ainda — só grava a base e sai
-    saveSnapshot(DATA);
-    renderComparison({ firstLoad:true });
+  const previousData = await loadDataFromCsv(CSV_ANTERIOR_FILENAME);
+  if(!previousData){
+    COMPARISON_RAW = { noPrevious:true, newItems:[], changedItems:[] };
+    renderComparison();
     return;
   }
-  const prevMap = new Map(previous.items.map(i=>[i.idDm, i]));
+  const prevMap = new Map(previousData.map(i=>[i.idDm, i]));
   const newItems = [];
   const changedItems = [];
   DATA.forEach(item=>{
@@ -960,36 +956,46 @@ function processComparison(){
     if(!prev){ newItems.push(item); }
     else if(prev.status !== item.status){ changedItems.push({ ...item, statusAnterior: prev.status }); }
   });
-  saveSnapshot(DATA); // os dados atuais passam a ser a base ("anteriores") da próxima atualização
-  renderComparison({ firstLoad:false, newItems, changedItems, previousSavedAt: previous.savedAt });
+  COMPARISON_RAW = { noPrevious:false, newItems, changedItems };
+  renderComparison();
 }
 
-function renderComparison({ firstLoad, newItems=[], changedItems=[], previousSavedAt=null }){
+// Reaplica os filtros ativos (pesquisa, status, board, solicitante) sobre o comparativo.
+// Chamada tanto após carregar os dados quanto sempre que os filtros mudam (refreshAll).
+function renderComparison(){
   const section = document.getElementById("comparisonSection");
   const summary = document.getElementById("comparisonSummary");
   const body = document.getElementById("comparisonBody");
   const info = document.getElementById("comparisonInfo");
+
+  if(DATA_SOURCE !== "csv"){ section.style.display = "none"; return; }
   section.style.display = "block";
 
-  if(firstLoad){
+  if(COMPARISON_RAW.noPrevious){
     summary.innerHTML = `
       <div class="stat-chip">
-        <div class="stat-icon" style="background:var(--accent-dim);color:var(--accent);"><i class="fa-solid fa-flag-checkered"></i></div>
-        <div><div class="stat-value">${DATA.length}</div><div class="stat-label">itens salvos como ponto de partida</div></div>
+        <div class="stat-icon" style="background:var(--accent-dim);color:var(--accent);"><i class="fa-solid fa-circle-info"></i></div>
+        <div><div class="stat-value" style="font-size:13px;">Sem base anterior</div><div class="stat-label">arquivo dados_anterior.csv não encontrado</div></div>
       </div>`;
-    body.innerHTML = `<tr><td colspan="6"><div class="empty-state"><i class="fa-solid fa-circle-info"></i><p>Primeira carga registrada neste navegador. Da próxima vez que você atualizar o dados.csv, as diferenças aparecerão aqui.</p></div></td></tr>`;
+    body.innerHTML = `<tr><td colspan="6"><div class="empty-state"><i class="fa-solid fa-circle-info"></i><p>Adicione um arquivo <strong>dados_anterior.csv</strong> (com o mesmo layout de colunas) no repositório para habilitar a comparação.</p></div></td></tr>`;
     info.textContent = "";
     return;
   }
 
+  const hasActiveFilter = !!(state.filters.search || state.filters.status || state.filters.board || state.filters.solicitante);
+  const newItemsTotal = COMPARISON_RAW.newItems.length;
+  const changedItemsTotal = COMPARISON_RAW.changedItems.length;
+  const newItems = applyFilters(COMPARISON_RAW.newItems);
+  const changedItems = applyFilters(COMPARISON_RAW.changedItems);
+
   summary.innerHTML = `
     <div class="stat-chip">
       <div class="stat-icon badge-new"><i class="fa-solid fa-sparkles"></i></div>
-      <div><div class="stat-value">${newItems.length}</div><div class="stat-label">cards novos</div></div>
+      <div><div class="stat-value">${newItems.length}${hasActiveFilter ? ` <span style="font-size:12px;color:var(--text-muted);">/ ${newItemsTotal}</span>` : ""}</div><div class="stat-label">cards novos</div></div>
     </div>
     <div class="stat-chip">
       <div class="stat-icon badge-changed"><i class="fa-solid fa-arrows-rotate"></i></div>
-      <div><div class="stat-value">${changedItems.length}</div><div class="stat-label">mudanças de status</div></div>
+      <div><div class="stat-value">${changedItems.length}${hasActiveFilter ? ` <span style="font-size:12px;color:var(--text-muted);">/ ${changedItemsTotal}</span>` : ""}</div><div class="stat-label">mudanças de status</div></div>
     </div>`;
 
   const rows = [
@@ -998,7 +1004,7 @@ function renderComparison({ firstLoad, newItems=[], changedItems=[], previousSav
   ];
 
   if(!rows.length){
-    body.innerHTML = `<tr><td colspan="6"><div class="empty-state"><i class="fa-solid fa-circle-check"></i><p>Nenhuma novidade desde a última atualização.</p></div></td></tr>`;
+    body.innerHTML = `<tr><td colspan="6"><div class="empty-state"><i class="fa-solid fa-circle-check"></i><p>${hasActiveFilter ? "Nenhuma novidade encontrada com os filtros atuais." : "Nenhuma novidade em relação ao dados_anterior.csv."}</p></div></td></tr>`;
   } else {
     body.innerHTML = rows.map(item => `
       <tr>
@@ -1014,15 +1020,18 @@ function renderComparison({ firstLoad, newItems=[], changedItems=[], previousSav
     `).join("");
   }
 
-  info.textContent = previousSavedAt
-    ? `Comparando com a versão salva em ${new Date(previousSavedAt).toLocaleString("pt-BR")}`
-    : "";
+  info.textContent = hasActiveFilter
+    ? `Comparando dados.csv com dados_anterior.csv — filtros da tela aplicados`
+    : `Comparando dados.csv com dados_anterior.csv`;
 }
 
-document.getElementById("resetComparisonBtn").addEventListener("click", ()=>{
-  clearSnapshot();
-  processComparison();
+document.getElementById("resetComparisonBtn").addEventListener("click", async ()=>{
+  const icon = document.querySelector("#resetComparisonBtn i");
+  icon.className = "fa-solid fa-spinner fa-spin";
+  await processComparison();
+  icon.className = "fa-solid fa-rotate-left";
 });
+
 
 
 /* ---------------------------------------------------------------
@@ -1083,6 +1092,7 @@ function refreshAll(){
   renderActiveChips();
   renderKPIs();
   renderKanban();
+  renderComparison();
   state.table.page = 1;
   renderTable();
 }
@@ -1094,7 +1104,7 @@ const KPI_DEFS = [
   { key:"total",       label:"Total de Demandas",       icon:"fa-layer-group",        color:"var(--accent)",              bg:"var(--accent-dim)",
     calc:(d)=>d.length },
   { key:"concluidas",  label:"Concluídas",              icon:"fa-circle-check",       color:"var(--status-concluido)",    bg:"var(--status-concluido-bg)",
-    calc:(d)=>d.filter(i=>i.status==="Concluído"||i.status==="Concluído ou Descontinuado").length },
+    calc:(d)=>d.filter(i=>i.status==="Concluído").length },
   { key:"andamento",   label:"Em Andamento",            icon:"fa-spinner",            color:"var(--status-andamento)",    bg:"var(--status-andamento-bg)",
     calc:(d)=>d.filter(i=>i.status==="Em Andamento").length },
   { key:"naoiniciado", label:"Não Iniciadas",           icon:"fa-circle-pause",       color:"var(--status-nao-iniciado)", bg:"var(--status-nao-iniciado-bg)",
