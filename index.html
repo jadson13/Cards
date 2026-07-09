@@ -608,7 +608,7 @@ table.dm-table{width:100%;border-collapse:collapse;font-size:12.8px;}
         </div>
         <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px;flex-wrap:wrap;gap:10px;">
           <div class="table-info" id="comparisonInfo"></div>
-          <button class="btn-clear" id="resetComparisonBtn"><i class="fa-solid fa-rotate-left"></i> Recarregar comparativo</button>
+          <button class="btn-clear" id="resetComparisonBtn"><i class="fa-solid fa-rotate-left"></i> Redefinir ponto de comparação</button>
         </div>
       </div>
     </section>
@@ -872,10 +872,10 @@ function csvRowsToData(rows){
     .filter(item => item.idDm); // descarta linhas sem ID DM
 }
 
-function loadDataFromCsv(filename){
+function loadDataFromCsv(){
   return new Promise((resolve)=>{
-    // cache-busting para sempre pegar a versão mais recente do arquivo no repositório
-    const url = filename + "?t=" + Date.now();
+    // cache-busting para o botão "Atualizar" sempre pegar a versão mais recente do arquivo
+    const url = CSV_FILENAME + "?t=" + Date.now();
     Papa.parse(url, {
       download:true,
       header:false,
@@ -883,16 +883,17 @@ function loadDataFromCsv(filename){
       complete: (result)=>{
         try{
           const parsed = csvRowsToData(result.data);
-          resolve(parsed.length ? parsed : null);
-        }catch(err){ console.warn(`Erro ao interpretar ${filename}:`, err); resolve(null); }
+          if(parsed.length){ resolve(parsed); }
+          else { resolve(null); }
+        }catch(err){ console.warn("Erro ao interpretar dados.csv:", err); resolve(null); }
       },
-      error: (err)=>{ console.warn(`${filename} não encontrado ou ilegível.`, err); resolve(null); }
+      error: (err)=>{ console.warn("dados.csv não encontrado ou ilegível, usando dados de demonstração.", err); resolve(null); }
     });
   });
 }
 
 async function loadData(){
-  const csvData = await loadDataFromCsv(CSV_FILENAME);
+  const csvData = await loadDataFromCsv();
   if(csvData && csvData.length){
     DATA = csvData;
     DATA_SOURCE = "csv";
@@ -901,7 +902,7 @@ async function loadData(){
     DATA_SOURCE = "mock";
   }
   updateDataSourceBadge();
-  await processComparison();
+  processComparison();
 }
 
 function updateDataSourceBadge(){
@@ -917,32 +918,41 @@ function updateDataSourceBadge(){
 }
 
 /* ---------------------------------------------------------------
-   2b. COMPARATIVO COM A ATUALIZAÇÃO ANTERIOR
-   Compara "dados.csv" (atual) com "dados_anterior.csv" (a versão de
-   antes), ambos arquivos reais no repositório. Assim o comparativo
-   é o mesmo para qualquer pessoa que abrir o link, em qualquer
-   navegador/computador — não depende de armazenamento local.
-
-   Fluxo de atualização sugerido, sempre que for atualizar:
-     1. Renomeie o "dados.csv" atual para "dados_anterior.csv"
-        (substituindo o antigo).
-     2. Exporte a planilha nova do SharePoint como "dados.csv".
-     3. Suba os dois arquivos para o repositório.
+   2b. COMPARATIVO COM A ATUALIZAÇÃO ANTERIOR (via localStorage)
+   Só se aplica quando os dados vêm de um dados.csv real — dados de
+   demonstração não são comparados nem salvos como referência.
    --------------------------------------------------------------- */
-const CSV_ANTERIOR_FILENAME = "dados_anterior.csv";
+const SNAPSHOT_KEY = "demandflow_snapshot_v1";
 
-async function processComparison(){
-  const section = document.getElementById("comparisonSection");
+function readSnapshot(){
+  try{
+    const raw = localStorage.getItem(SNAPSHOT_KEY);
+    return raw ? JSON.parse(raw) : null;
+  }catch(err){ console.warn("Não foi possível ler o snapshot salvo:", err); return null; }
+}
+function saveSnapshot(data){
+  try{
+    const minimal = data.map(i=>({ idDm:i.idDm, titulo:i.titulo, board:i.board, status:i.status }));
+    localStorage.setItem(SNAPSHOT_KEY, JSON.stringify({ savedAt: new Date().toISOString(), items: minimal }));
+  }catch(err){ console.warn("Não foi possível salvar o snapshot local:", err); }
+}
+function clearSnapshot(){
+  try{ localStorage.removeItem(SNAPSHOT_KEY); }catch(err){}
+}
+
+function processComparison(){
   if(DATA_SOURCE !== "csv"){
-    section.style.display = "none";
+    document.getElementById("comparisonSection").style.display = "none";
     return;
   }
-  const previousData = await loadDataFromCsv(CSV_ANTERIOR_FILENAME);
-  if(!previousData){
-    renderComparison({ noPrevious:true });
+  const previous = readSnapshot();
+  if(!previous){
+    // primeira carga: não há base anterior ainda — só grava a base e sai
+    saveSnapshot(DATA);
+    renderComparison({ firstLoad:true });
     return;
   }
-  const prevMap = new Map(previousData.map(i=>[i.idDm, i]));
+  const prevMap = new Map(previous.items.map(i=>[i.idDm, i]));
   const newItems = [];
   const changedItems = [];
   DATA.forEach(item=>{
@@ -950,23 +960,24 @@ async function processComparison(){
     if(!prev){ newItems.push(item); }
     else if(prev.status !== item.status){ changedItems.push({ ...item, statusAnterior: prev.status }); }
   });
-  renderComparison({ noPrevious:false, newItems, changedItems });
+  saveSnapshot(DATA); // os dados atuais passam a ser a base ("anteriores") da próxima atualização
+  renderComparison({ firstLoad:false, newItems, changedItems, previousSavedAt: previous.savedAt });
 }
 
-function renderComparison({ noPrevious, newItems=[], changedItems=[] }){
+function renderComparison({ firstLoad, newItems=[], changedItems=[], previousSavedAt=null }){
   const section = document.getElementById("comparisonSection");
   const summary = document.getElementById("comparisonSummary");
   const body = document.getElementById("comparisonBody");
   const info = document.getElementById("comparisonInfo");
   section.style.display = "block";
 
-  if(noPrevious){
+  if(firstLoad){
     summary.innerHTML = `
       <div class="stat-chip">
-        <div class="stat-icon" style="background:var(--accent-dim);color:var(--accent);"><i class="fa-solid fa-circle-info"></i></div>
-        <div><div class="stat-value" style="font-size:13px;">Sem base anterior</div><div class="stat-label">arquivo dados_anterior.csv não encontrado</div></div>
+        <div class="stat-icon" style="background:var(--accent-dim);color:var(--accent);"><i class="fa-solid fa-flag-checkered"></i></div>
+        <div><div class="stat-value">${DATA.length}</div><div class="stat-label">itens salvos como ponto de partida</div></div>
       </div>`;
-    body.innerHTML = `<tr><td colspan="6"><div class="empty-state"><i class="fa-solid fa-circle-info"></i><p>Adicione um arquivo <strong>dados_anterior.csv</strong> (com o mesmo layout de colunas) no repositório para habilitar a comparação.</p></div></td></tr>`;
+    body.innerHTML = `<tr><td colspan="6"><div class="empty-state"><i class="fa-solid fa-circle-info"></i><p>Primeira carga registrada neste navegador. Da próxima vez que você atualizar o dados.csv, as diferenças aparecerão aqui.</p></div></td></tr>`;
     info.textContent = "";
     return;
   }
@@ -987,7 +998,7 @@ function renderComparison({ noPrevious, newItems=[], changedItems=[] }){
   ];
 
   if(!rows.length){
-    body.innerHTML = `<tr><td colspan="6"><div class="empty-state"><i class="fa-solid fa-circle-check"></i><p>Nenhuma novidade em relação ao dados_anterior.csv.</p></div></td></tr>`;
+    body.innerHTML = `<tr><td colspan="6"><div class="empty-state"><i class="fa-solid fa-circle-check"></i><p>Nenhuma novidade desde a última atualização.</p></div></td></tr>`;
   } else {
     body.innerHTML = rows.map(item => `
       <tr>
@@ -1003,16 +1014,15 @@ function renderComparison({ noPrevious, newItems=[], changedItems=[] }){
     `).join("");
   }
 
-  info.textContent = `Comparando dados.csv com dados_anterior.csv`;
+  info.textContent = previousSavedAt
+    ? `Comparando com a versão salva em ${new Date(previousSavedAt).toLocaleString("pt-BR")}`
+    : "";
 }
 
-document.getElementById("resetComparisonBtn").addEventListener("click", async ()=>{
-  const icon = document.querySelector("#resetComparisonBtn i");
-  icon.className = "fa-solid fa-spinner fa-spin";
-  await processComparison();
-  icon.className = "fa-solid fa-rotate-left";
+document.getElementById("resetComparisonBtn").addEventListener("click", ()=>{
+  clearSnapshot();
+  processComparison();
 });
-
 
 
 /* ---------------------------------------------------------------
