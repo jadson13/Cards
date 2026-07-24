@@ -1,34 +1,51 @@
 ﻿ID_DM;ID_AZURE;Título;Board;Status;Solicitante;Sistema
-#22831;24956;Documentos sem validação obrigatória são enviados indevidamente para fluxo de validação;FL - Correções de Bugs;Aguardando Validação;Hannah Moreira;DMNOW
-#29505;;Frota Legal- Ausência de dados na tabela inspeção para criação de relatório;ETL;Aguardando Validação;Jadson Oliveira;DMNOW
-#30271;;Frota Legal- Ausência de dados nas tabelas;ETL;Aguardando Validação;Jadson Oliveira;DMNOW
+#32619;;Remover dados de colaboradores cadastrados como ajudante na Tela Gerencial;DL;Aguardando Validação;Gabriel Costa;DMNOW
+#32142;;"Retirar o porte ""Em branco"" da tela Ranking de Pontuação";DL;Aguardando Validação;Gabriel Costa;DMNOW
+#32133;;Retirar dados pré-preenchidos no Dashboard;DL;Aguardando Validação;Gabriel Costa;DMNOW
+#32139;;"Incluir ""Cargo não operacional habilitado"" na tela gerencial.";DL;Aguardando Validação;Gabriel Costa;DMNOW
+#32037;26381;Falha no Upload de Planilha de CNH no Módulo de Performance;DMCenter, Gateway e Performance - Correções e Melhorias;Aguardando Validação;Guilherme Silva;DMNOW
+#28607;;Heinz - Nova Aba Qualidade;DL;Aguardando Validação;Hannah Moreira;DMNOW
+#29377;;DTO T2 - Acompanhamento de liderança;DL;Aguardando Validação;Stefane Cordeiro;DMNOW
 #887;;Migração: Mudança De Faixas;ETL;Aguardando Validação;Lais Barbosa;DMNOW
-#890;;Migração: Situação Situação do Condutor;ETL;Aguardando Validação;Lais Barbosa;DMNOW
-#889;;Migração: Situação do Ajudante;ETL;Aguardando Validação;Lais Barbosa;DMNOW
 #886;;Migração: Condutores ativos analítico;ETL;Aguardando Validação;Lais Barbosa;DMNOW
-#26657;25520;APP Demarco encerra durante inspeção causando perda de dados;FL - Correções de Bugs;Aguardando Validação;Maike Silva;DMNOW
-#26248;25494;Divergência de cálculo na Pontuação Ponderada (acréscimo de 0,01);DMCenter, Gateway e Performance - Correções e Melhorias;Aguardando Validação;Guilherme Silva;DMNOW
-#31012;;Migração - Relatório Condutores Ativos Analíticos Sharepoint;ETL;Em andamento;Guilherme Silva;DMNOW
-#20981;;Criação de uma tabela agregada de Jornada para o DMPeople;ETL;Em andamento;Lucas Colares;DMNOW
-#30091;;Alterar nomenclatura de faixas no relatório;ETL;Em andamento;Gabriel Costa;DMNOW
-#888;;Migração: Pontuação CNH;ETL;Concluído;Lais Barbosa;DMNOW
-#17402;;Gerenciamento T1- Replicar Dash atual puxando os dados do DmPeople;DL;Concluído;Lais Barbosa;DMNOW
-#18181;;Migração – Alteração da origem - Monitoramento Oficina - T1;ETL;Concluído;Lais Barbosa;DMNOW
-#18176;;Migração – Alteração da origem - Monitoramento de Armazém - T1;ETL;Concluído;Lais Barbosa;DMNOW
-#18170;;Migração – Alteração da origem DTO - T1 OFICIAL TRANSPORTE;ETL;Concluído;Stefane Cordeiro;DMNOW
-#18168;;Migração – Alteração da origem DTO - T1 OFICIAL ARMAZEM;ETL;Concluído;Stefane Cordeiro;DMNOW
-#24940;;Placa cadastrada em duas unidades no dashboard MBRF - Fretamento;DL;Em andamento;Lilian Rodrigues;DMNOW
-#29503;;Atualização da Nomenclatura das Faixas;DL;Em andamento;Gabriel Costa;DMNOW
-#18369;;Prontuario Condutor> Atualizar Dash para check pré migração;DL;Concluído;Stefane Cordeiro;DMNOW
+#32913;;Retirar quebra de linhas nas tabelas do Dashboard;DL;Em andamento;Gabriel Costa;DMNOW
+#32917;;"Ajustes na tela ""Prontuário"" do Dashboard";DL;Em andamento;Gabriel Costa;DMNOW
+#32919;;Gerar tabela somente após filtrar por algum colaborador nas telas de Histórico e Prontuário;DL;Em andamento;Gabriel Costa;DMNOW
+#32924;;"Ajustes na tela ""Gestão de Eventos""";DL;Em andamento;Gabriel Costa;DMNOW
 #28397;;Dashboard não exibe status correto do documento.;DL;Em andamento;Gabriel Costa;DMNOW
+#18369;;Prontuario Condutor> Atualizar Dash para check pré migração;DL;Concluído;Stefane Cordeiro;DMNOW
 #25208;;Amazon - Dash Acompanhamento Pré Uso;DL;Em andamento;Hannah Moreira;DMNOW
 #17400;;Gerenciamento Geral - Replicar Dash atual puxando os dados do DmPeople;DL;Em andamento;Lais Barbosa;DMNOW
+#32015;;Erro - Inspeções;DL;Em andamento;Thayná Santos;DMNOW
+#32603;;Atualizações na logo e horário de atualização do Dashboard;DL;Concluído;Gabriel Costa;DMNOW
+#32610;;Alterar o título do dashboard para Prontuário do Condutor – Frota Legal.;DL;Concluído;Gabriel Costa;DMNOW
+#32579;;Ajustar nomes de colaboradores demitidos no sistema;DMP-  Correções e Melhorias;Concluído;Gabriel Costa;DMNOW
+#32925;;Verificar regras na contrução de tabelas de verificcao no banco postgress Frota Legal;ETL;Não iniciado;Lucas Colares;DMNOW
+#32898;;Ajustar faixa dos colaboradores de acordo com a pontuação.;ETL;Em andamento;Gabriel Costa;DMNOW
+#32059;;Inconsistência na base do BI - Gerenciamento T1 ( GSA - GSO);DL;Concluído;Guilherme Silva;DMNOW
+#24564;25285;Usuário inativo no DMCenter impedindo acesso aos sistemas;DMCenter, Gateway e Performance - Correções e Melhorias;Em andamento;Hannah Moreira;DMNOW
+#26238;25495;Inclusão da coluna “Quantidade de Sonolência” no relatório de Situação do Ajudante;DMCenter, Gateway e Performance - Correções e Melhorias;Concluído;Stefane Cordeiro;DMNOW
+#889;;Migração: Situação do Ajudante;ETL;Concluído;Lais Barbosa;DMNOW
+#890;;Migração: Situação Situação do Condutor;ETL;Concluído;Lais Barbosa;DMNOW
+#32622;;Atualizar a nomenclatura e as cores das faixas conforme o novo padrão vigente.;DL;Não iniciado;Gabriel Costa;DMNOW
+#24019;;Ajuste de nomenclatura e cor de faixa;ETL;Em andamento;Thais Oliveira;DMNOW
 #30945;;Migração -  Alteração da origem Acidentes Credit;DL;Em andamento;Stefane Cordeiro;DMNOW
-#29377;;DTO T2 - Acompanhamento de liderança;DL;Em andamento;Stefane Cordeiro;DMNOW
-#28607;;Heinz - Nova Aba Qualidade;DL;Em andamento;Hannah Moreira;DMNOW
+#32125;;Atualizar logo da MBRF no Dashboard e incluir novo horário de atualização.;DL;Concluído;Gabriel Costa;DMNOW
+#32264;;Incluir calendário em filtro de data;DL;Em andamento;Gabriel Costa;DMNOW
+#28564;;Melhoria - Ativação de Integração Mônaco [DMGateway];FL - Projetos, Melhorias e APIs;Concluído;Thayná Santos;DMNOW
+#22831;24956;Documentos sem validação obrigatória são enviados indevidamente para fluxo de validação;FL - Correções de Bugs;Concluído;Hannah Moreira;DMNOW
+#19976;24533;Divergência na visualização de eventos entre usuários (Grupo Vyas);FL - Correções de Bugs;Reprovado;Daniel Souza;DMNOW
+#29503;;Atualização da Nomenclatura das Faixas;DL;Concluído;Gabriel Costa;DMNOW
+#32114;21615;Histórico do colaborador não salvo no banco de dados;FL - Correções de Bugs;Em andamento;Luisa Ferreira;DMNOW
+#32116;21560; [21560] Inconsistência na classificação de documentos (aprovados, pré-aprovados e reprovados);FL - Correções de Bugs;Em andamento;Luisa Ferreira;DMNOW
 #24612;;DTO OFICIAL -Replicar Dash atual puxando os dados do DmPeople;DL;Concluído;Stefane Cordeiro;DMNOW
-#24564;25285;Usuário inativo no DMCenter impedindo acesso aos sistemas;DMCenter, Gateway e Performance - Correções e Melhorias;Reprovado;Hannah Moreira;DMNOW
-#18109;;Piloto migração - Gabaritos de segurança - DTO OFICIAL - PILOTO FOZ;ETL;Concluído;Lais Barbosa;DMNOW
+#17402;;Gerenciamento T1- Replicar Dash atual puxando os dados do DmPeople;DL;Concluído;Lais Barbosa;DMNOW
+#26248;25494;Divergência de cálculo na Pontuação Ponderada (acréscimo de 0,01);DMCenter, Gateway e Performance - Correções e Melhorias;Concluído;Guilherme Silva;DMNOW
+#30271;;Frota Legal- Ausência de dados nas tabelas;ETL;Concluído;Jadson Oliveira;DMNOW
+#29505;;Frota Legal- Ausência de dados na tabela inspeção para criação de relatório;ETL;Concluído;Jadson Oliveira;DMNOW
+#24940;;Placa cadastrada em duas unidades no dashboard MBRF - Fretamento;DL;Concluído;Lilian Rodrigues;DMNOW
+#23641;25092;DMCenter - Não recebimento de Alertas;FL - Correções de Bugs;Concluído;Lilian Rodrigues;DMNOW
+#26657;25520;APP Demarco encerra durante inspeção causando perda de dados;FL - Correções de Bugs;Concluído;Maike Silva;DMNOW
 #18384;;GSDPQ DTO - Oficial | Ajuste de vínculo/cargo de colaboradores;DL;Concluído;Fernanda Mariante;DMNOW
 #24962;;Colaboradores Ambev com cargos alterados;DL;Concluído;Tallison de Jesus;DMNOW
 #22951;;Ajustes de Nomenclatura e Cores da Faixa Roxa no Dashboard;DL;Concluído;Gabriel Costa;DMNOW
@@ -61,84 +78,87 @@
 #12360;;ERRO - Documento CTP de Condutor;DL;Concluído;Thayná Santos;DMNOW
 #10161;;Gerenciamento T1 - Acrescentar uma coluna informando empresa do Avaliador;DL;Concluído;Fernanda Mariante;DMNOW
 #10862;;Gestão de Ocorrências T1 - Ajustes e Inclusões de Informações;DL;Concluído;Stefane Cordeiro;DMNOW
+#31012;;Migração - Relatório Condutores Ativos Analíticos Sharepoint;ETL;Em andamento;Guilherme Silva;DMNOW
+#20981;;Criação de uma tabela agregada de Jornada para o DMPeople;ETL;Em andamento;Lucas Colares;DMNOW
+#30091;;Alterar nomenclatura de faixas no relatório;ETL;Em andamento;Gabriel Costa;DMNOW
+#888;;Migração: Pontuação CNH;ETL;Concluído;Lais Barbosa;DMNOW
+#18181;;Migração – Alteração da origem - Monitoramento Oficina - T1;ETL;Concluído;Lais Barbosa;DMNOW
+#18176;;Migração – Alteração da origem - Monitoramento de Armazém - T1;ETL;Concluído;Lais Barbosa;DMNOW
+#18170;;Migração – Alteração da origem DTO - T1 OFICIAL TRANSPORTE;ETL;Concluído;Stefane Cordeiro;DMNOW
+#18168;;Migração – Alteração da origem DTO - T1 OFICIAL ARMAZEM;ETL;Concluído;Stefane Cordeiro;DMNOW
+#18109;;Piloto migração - Gabaritos de segurança - DTO OFICIAL - PILOTO FOZ;ETL;Concluído;Lais Barbosa;DMNOW
 #30303;;Mudar Logo - MBRF Frota Leve e retirar Qrcode;DL;Concluído;Thayná Santos;DMNOW
 #30305;;Mudar Logo - MBRF Fretamento;DL;Concluído;Thayná Santos;DMNOW
 #28990;26131;Inclusão da Coluna “Quantidade” no Relatório de Mudança de Faixas;DMCenter, Gateway e Performance - Correções e Melhorias;Em andamento;Guilherme Silva;DMNOW
-#12414;;Excesso de Peso / Spot Flex - Duplicidade no BI por ausência do campo de código.;DL;Não iniciado;Fernanda Mariante;DMNOW
-#4655;;Verificar atualização automática - Revenda Fipe;DL;Não iniciado;Stefane Cordeiro;DMNOW
-#20387;;Colaborador com faixa divergente.;DL;Não iniciado;Gabriel Costa;DMNOW
-#17469;;Alteração Regra FIPE - FABRICAÇÃO;DL;Não iniciado;Jadson Oliveira;DMNOW
-#23545;;Ajuste condutor bloqueado;DL;Não iniciado;Kezya Souza;DMNOW
 #10116;;Dashboard com dados incompletos;DL;Não iniciado;Sabrina Alcântara;DMNOW
+#12414;;Excesso de Peso / Spot Flex - Duplicidade no BI por ausência do campo de código.;DL;Não iniciado;Fernanda Mariante;DMNOW
+#23545;;Ajuste condutor bloqueado;DL;Não iniciado;Kezya Souza;DMNOW
+#4655;;Verificar atualização automática - Revenda Fipe;DL;Não iniciado;Stefane Cordeiro;DMNOW
+#17469;;Alteração Regra FIPE - FABRICAÇÃO;DL;Não iniciado;Jadson Oliveira;DMNOW
 #27901;;Criação de lista de distribuição;TI & Infraestrutura;Concluído;Jadson Oliveira;DMNOW
+#18560;;DM People - Usuário sem acesso, erro na ativação.;DMP-  Correções e Melhorias;Concluído;Daniel Souza;DMNOW
 #20306;;Erro no APP ao acessar produto DMPeople ;DMP-  Correções e Melhorias;Concluído;Fernanda Mariante;DMNOW
 #16933;;DM People - Inconsistência em cadastro de usuário ;DMP-  Correções e Melhorias;Concluído;Daniel Souza;DMNOW
-#18560;;DM People - Usuário sem acesso, erro na ativação.;DMP-  Correções e Melhorias;Concluído;Daniel Souza;DMNOW
-#24019;;Ajuste de nomenclatura e cor de faixa;ETL;Em andamento;Thais Oliveira;DMNOW
-#17396;;Acidente Credit Gerencial -Replicar Dash atual puxando os dados do DmPeople;DL;Concluído;Lais Barbosa;DMNOW
-#11368;;Gerenciamento T1 - Colaborador vinculado a dois cargos diferentes;DL;Concluído;Tallison de Jesus;DMNOW
-#12719;;Acidentes Credit – Inclusão de gráficos na aba Relatório com página de detalhes;DL;Concluído;Fernanda Mariante;DMNOW
-#9459;;BI - Gerenciamento T1 - Alteração de regras e nomenclaturas;DL;Concluído;Lais Barbosa;DMNOW
-#10292;;GSL - Erro na data de lançamento;DL;Concluído;Fernanda Mariante;DMNOW
-#3712;;Valor FIPE ZERO KM;DL;Concluído;Jadson Oliveira;DMNOW
-#5053;;Gestão de Ocorrências - T1;DL;Concluído;Fernanda Mariante;DMNOW
-#11182;;Colaborador de outra Transportadora aparecendo no BI;DL;Concluído;Tallison de Jesus;DMNOW
-#18499;;GSL- formularios que não refletiu;DL;Concluído;Stefane Cordeiro;DMNOW
-#9915;;Gerenciamento T1 - colaboradores Ambev não identificados.;DL;Concluído;Stefane Cordeiro;DMNOW
-#4713;;Ano Fabricação;DL;Concluído;Jadson Oliveira;DMNOW
-#8853;;Erro referente a nomes diferentes GENTE & GESTÃO X DMPEOPLE;DL;Concluído;Tallison de Jesus;DMNOW
 #28394;;Não mostrar dados de documentos de colabores afastados no DMPeople;DL;Concluído;Gabriel Costa;DMNOW
-#23793;;Divergência de informações entre as ocorrências registradas no Frota Legal e Dashboard;DL;Concluído;Lilian Rodrigues;DMNOW
-#9996;;Melhoria - Documentação de Condutores;DL;Concluído;Thayná Santos;DMNOW
+#4713;;Ano Fabricação;DL;Concluído;Jadson Oliveira;DMNOW
+#9915;;Gerenciamento T1 - colaboradores Ambev não identificados.;DL;Concluído;Stefane Cordeiro;DMNOW
 #13654;;Credit T2 - Taxa de Ocorrências por Cargo (%);DL;Concluído;Stefane Cordeiro;DMNOW
+#18499;;GSL- formularios que não refletiu;DL;Concluído;Stefane Cordeiro;DMNOW
+#9996;;Melhoria - Documentação de Condutores;DL;Concluído;Thayná Santos;DMNOW
+#11182;;Colaborador de outra Transportadora aparecendo no BI;DL;Concluído;Tallison de Jesus;DMNOW
+#17396;;Acidente Credit Gerencial -Replicar Dash atual puxando os dados do DmPeople;DL;Concluído;Lais Barbosa;DMNOW
+#8853;;Erro referente a nomes diferentes GENTE & GESTÃO X DMPEOPLE;DL;Concluído;Tallison de Jesus;DMNOW
+#23793;;Divergência de informações entre as ocorrências registradas no Frota Legal e Dashboard;DL;Concluído;Lilian Rodrigues;DMNOW
 #12404;;GSL - Registros não refletidos no BI;DL;Concluído;Fernanda Mariante;DMNOW
-#25106;;"Ajuste Dados Avulsos Checklist - Criar opção ""Item Obrigatório""";FL - Projetos, Melhorias e APIs;Não iniciado;Hannah Moreira;DMNOW
-#30349;;Melhoria - Parametrização do Gatilho de Desbloqueio de Veículos por Inspeção;FL - Projetos, Melhorias e APIs;Não iniciado;Thayná Santos;DMNOW
-#30488;;Melhoria - Criação de Tela de Transferência de Veículos e Condutores;FL - Projetos, Melhorias e APIs;Não iniciado;Thayná Santos;DMNOW
+#5053;;Gestão de Ocorrências - T1;DL;Concluído;Fernanda Mariante;DMNOW
+#3712;;Valor FIPE ZERO KM;DL;Concluído;Jadson Oliveira;DMNOW
+#10292;;GSL - Erro na data de lançamento;DL;Concluído;Fernanda Mariante;DMNOW
+#9459;;BI - Gerenciamento T1 - Alteração de regras e nomenclaturas;DL;Concluído;Lais Barbosa;DMNOW
+#12719;;Acidentes Credit – Inclusão de gráficos na aba Relatório com página de detalhes;DL;Concluído;Fernanda Mariante;DMNOW
+#11368;;Gerenciamento T1 - Colaborador vinculado a dois cargos diferentes;DL;Concluído;Tallison de Jesus;DMNOW
 #30298;;"Melhoria - Inclusão do campo ""Status"" nas exportações de PDF e Excel de Inspeções";FL - Projetos, Melhorias e APIs;Não iniciado;Thayná Santos;DMNOW
-#28564;;Melhoria - Ativação de Integração Mônaco;FL - Projetos, Melhorias e APIs;Não iniciado;Thayná Santos;DMNOW
+#30349;;Melhoria - Parametrização do Gatilho de Desbloqueio de Veículos por Inspeção;FL - Projetos, Melhorias e APIs;Não iniciado;Thayná Santos;DMNOW
+#25106;;"Ajuste Dados Avulsos Checklist - Criar opção ""Item Obrigatório""";FL - Projetos, Melhorias e APIs;Não iniciado;Hannah Moreira;DMNOW
+#30488;;Melhoria - Criação de Tela de Transferência de Veículos e Condutores;FL - Projetos, Melhorias e APIs;Não iniciado;Thayná Santos;DMNOW
 #18167;;Migração – Alteração da origem Checklist Amarração T1;ETL;Concluído;Stefane Cordeiro;DMNOW
-#7285;;Relatório Frota Legal - Inspeção - Dash_Revenda;ETL;Concluído;Jadson Oliveira;DMNOW
-#18111;;Piloto migração - Gabaritos de segurança - GSA 2023 - PILOTO FOZ ;ETL;Concluído;Lais Barbosa;DMNOW
 #18113;;Piloto migração - Gabaritos de segurança - Mapeamento de PDV com Risco de Atropelamento 2023 - PILOT;ETL;Concluído;Lais Barbosa;DMNOW
-#22773;;Colaborades com cadastrados duplicados no relatório;ETL;Concluído;Gabriel Costa;DMNOW
-#18116;;Piloto migração - Gabaritos de segurança - GSO OFICIAL - PILOTO FOZ;ETL;Concluído;Lais Barbosa;DMNOW
+#18111;;Piloto migração - Gabaritos de segurança - GSA 2023 - PILOTO FOZ ;ETL;Concluído;Lais Barbosa;DMNOW
 #28051;;Base Frota Legal - Fechamento Mensal;ETL;Concluído;Hannah Moreira;DMNOW
 #18105;;Piloto migração - Gabaritos de segurança -  Avaliação de Risco - PDV 2023 - PILOTO FOZ;ETL;Concluído;Lais Barbosa;DMNOW
 #23037;;Atualização do Motivo de Bloqueio para Faixa Roxa nos Relatórios;ETL;Concluído;Gabriel Costa;DMNOW
-#20878;;Regularização de competências no relatório;ETL;Concluído;Gabriel Costa;DMNOW
 #11889;;Checklist Amarração T1- Criar tabela para o novo formulario;ETL;Concluído;Stefane Cordeiro;DMNOW
+#22773;;Colaborades com cadastrados duplicados no relatório;ETL;Concluído;Gabriel Costa;DMNOW
+#7285;;Relatório Frota Legal - Inspeção - Dash_Revenda;ETL;Concluído;Jadson Oliveira;DMNOW
+#18116;;Piloto migração - Gabaritos de segurança - GSO OFICIAL - PILOTO FOZ;ETL;Concluído;Lais Barbosa;DMNOW
+#20878;;Regularização de competências no relatório;ETL;Concluído;Gabriel Costa;DMNOW
 #28934;;Criar usuário DMnow;Inovação/Pesquisa;Concluído;Jadson Oliveira;DMNOW
 #29986;26161;Usuário sem permissão para acessar cliente no App Demarco;FL - Correções de Bugs;Em andamento;Maike Silva;DMNOW
-#24324;25195;Erro de acesso ao clicar em “Entrar” ou ao validar token (Frota Legal);DMCenter, Gateway e Performance - Correções e Melhorias;Concluído;Hannah Moreira;DMNOW
-#18882;;DM People - Falha no acesso;DMCenter, Gateway e Performance - Correções e Melhorias;Concluído;Daniel Souza;DMNOW
 #23708;25103;Usuários conseguem logar, mas não possuem acesso às funcionalidades;DMCenter, Gateway e Performance - Correções e Melhorias;Concluído;Hannah Moreira;DMNOW
+#24324;25195;Erro de acesso ao clicar em “Entrar” ou ao validar token (Frota Legal);DMCenter, Gateway e Performance - Correções e Melhorias;Concluído;Hannah Moreira;DMNOW
 #23746;;ERRO | FALHA NA REUTILIZAÇÃO DE SENHA APÓS LOGOUT - ACESSO APP CONDUTOR;DMCenter, Gateway e Performance - Correções e Melhorias;Concluído;Gabrielle Andrade;DMNOW
+#18882;;DM People - Falha no acesso;DMCenter, Gateway e Performance - Correções e Melhorias;Concluído;Daniel Souza;DMNOW
 #13221;23451;Duplicidade no registro de Consulta de CNH;FL - Correções de Bugs;Em andamento;Thayná Santos;DMNOW
-#23641;25092;DMCenter - Não recebimento de Alertas;FL - Correções de Bugs;Em andamento;Lilian Rodrigues;DMNOW
 #27486;25724;código SMS de validação não é recebido impedindo acesso no Aplicativo Demarco;FL - Correções de Bugs;Em andamento;Maike Silva;DMNOW
-#26238;25495;Inclusão da coluna “Quantidade de Sonolência” no relatório de Situação do Ajudante;DMCenter, Gateway e Performance - Correções e Melhorias;Em andamento;Stefane Cordeiro;DMNOW
 #28787;25960;Integração via API entre G-Info e Gente e Gestão para Eventos GSD de Ajudantes;DMCenter, Gateway e Performance - Correções e Melhorias;Em andamento;Fernanda Mariante;DMNOW
-#28938;25959;Falha na Integração e Processamento das Entrevistas de Fadiga e Mudança de Faixa;DMCenter, Gateway e Performance - Correções e Melhorias;Em andamento;Gabriela Correa;DMNOW
-#25480;25496;Integração via API entre G‑Info e Módulo de Performance (GSD Ajudante);DMCenter, Gateway e Performance - Correções e Melhorias;Em andamento;Stefane Cordeiro;DMNOW
 #23705;25091;Exposição indevida de todos os clientes para usuários Demarco no Frota Legall;DMCenter, Gateway e Performance - Correções e Melhorias;Em andamento;Hannah Moreira;DMNOW
+#25480;25496;Integração via API entre G‑Info e Módulo de Performance (GSD Ajudante);DMCenter, Gateway e Performance - Correções e Melhorias;Em andamento;Stefane Cordeiro;DMNOW
+#28938;25959;Falha na Integração e Processamento das Entrevistas de Fadiga e Mudança de Faixa;DMCenter, Gateway e Performance - Correções e Melhorias;Em andamento;Gabriela Correa;DMNOW
 #18263;24351;Falha na exibição: Usuários ativos não aparecem na tela de consulta;FL - Correções de Bugs;Em andamento;Thayná Santos;DMNOW
 #22950;24977;Nome da unidade não atualiza nos transportadores após alteração do cadastro;FL - Correções de Bugs;Em andamento;Hannah Moreira;DMNOW
 #21323;24770;| Divergência de data/hora na inspeção entre histórico e exportações;FL - Correções de Bugs;Concluído;Gabrielle Andrade;DMNOW
-#21408;24779;Grupo vyas - Expurgo de eventos em banco de dados;FL - Correções de Bugs;Concluído;Daniel Souza;DMNOW
-#12521;23353;Divergência na exibição de faixa no histórico de prontuário (Grupo Vyas);FL - Correções de Bugs;Concluído;Daniel Souza;DMNOW
-#13601;23560;Falha ao acessar e exportar o histórico de validações no Frota Legal;FL - Correções de Bugs;Concluído;Daniel Souza;DMNOW
-#20856;24674;aplicativo não reconhece vínculo de condutor com cliente e bloqueia acesso.;FL - Correções de Bugs;Concluído;Larice Nunes;DMNOW
-#23442;25091;Erro DM Center -Todos os clientes Demarco aparecendo no Frota Legal;FL - Correções de Bugs;Concluído;Hannah Moreira;DMNOW
-#12061;23142;Erro APP Demarco - Gerenciamento de Inspeções por Perfil;FL - Correções de Bugs;Concluído;Thayná Santos;DMNOW
-#12543;23360;Paginação excessiva na tela de Controle de Integrações (Consulta de CNH);FL - Correções de Bugs;Concluído;Thayná Santos;DMNOW
 #10184;22910;ERRO: Validade da CNH do condutor sendo alterada indevidamente após consulta;FL - Correções de Bugs;Concluído;Thayná Santos;DMNOW
 #18497;24410;Inspeção não vinculada ao prontuário do veículo;FL - Correções de Bugs;Concluído;Thayná Santos;DMNOW
 #15257;23853;Falha na atualização automática de documentos;FL - Correções de Bugs;Concluído;Thayná Santos;DMNOW
 #23515;25094;DMCenter -Usuários logam no sistema, mas não possuem acesso a funcionalidades;FL - Correções de Bugs;Concluído;Hannah Moreira;DMNOW
+#13601;23560;Falha ao acessar e exportar o histórico de validações no Frota Legal;FL - Correções de Bugs;Concluído;Daniel Souza;DMNOW
 #22841;24960;APP DEMARCO | Checklist Pré-Uso do motorista não é exibido corretamente no aplicativo Demarco;FL - Correções de Bugs;Concluído;Maike Silva;DMNOW
+#12521;23353;Divergência na exibição de faixa no histórico de prontuário (Grupo Vyas);FL - Correções de Bugs;Concluído;Daniel Souza;DMNOW
+#21408;24779;Grupo vyas - Expurgo de eventos em banco de dados;FL - Correções de Bugs;Concluído;Daniel Souza;DMNOW
+#12061;23142;Erro APP Demarco - Gerenciamento de Inspeções por Perfil;FL - Correções de Bugs;Concluído;Thayná Santos;DMNOW
+#23442;25091;Erro DM Center -Todos os clientes Demarco aparecendo no Frota Legal;FL - Correções de Bugs;Concluído;Hannah Moreira;DMNOW
+#20856;24674;aplicativo não reconhece vínculo de condutor com cliente e bloqueia acesso.;FL - Correções de Bugs;Concluído;Larice Nunes;DMNOW
+#12543;23360;Paginação excessiva na tela de Controle de Integrações (Consulta de CNH);FL - Correções de Bugs;Concluído;Thayná Santos;DMNOW
 #18824;24434;Faixa Roxa: manter bloqueio de condutores no Módulo de Performance;DMCenter, Gateway e Performance - Correções e Melhorias;Em andamento;Lais Barbosa;DMNOW
-#19976;24533;Divergência na visualização de eventos entre usuários (Grupo Vyas);FL - Correções de Bugs;Reprovado;Daniel Souza;DMNOW
 912;;sdghsghh;;Concluído ou Descontinuado;Felipe Chagas;DMTASK
 949;14388;Erro validação de relatos;FL - Correções de Bugs;Concluído ou Descontinuado;Hannah Moreira;DMTASK
 955;14392;Erro -  Data da última consulta de CNH não está aparecendo no prontuário;FL - Correções de Bugs;Concluído ou Descontinuado;Thayná Santos;DMTASK
@@ -444,7 +464,7 @@
 6573;;Erro - Condutores Bloqueados Treinamento não Obrigatório ;FL - Correções de Bugs;Concluído ou Descontinuado;Marques Pereira;DMTASK
 6592;;Erro integração Frota x Opentech;FL - Correções de Bugs;Concluído ou Descontinuado;Thais Oliveira;DMTASK
 6619;;Erro ao tentar receber sms no app;FL - Correções de Bugs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-6623;19213;[MELHORIA] USUARIOS INATIVOS SENDO DELETADOS DA TELA DE USUARIO;FL - Correções de Bugs;Impedimento;Marques Pereira;DMTASK
+6623;19213;[MELHORIA] USUARIOS INATIVOS SENDO DELETADOS DA TELA DE USUARIO;FL - Correções de Bugs;Concluído ou Descontinuado;Marques Pereira;DMTASK
 6624;;Erro na exibição — Usuários  habilitados não conseguem visualizar veículos e equipamentos;FL - Correções de Bugs;Concluído ou Descontinuado;Marques Pereira;DMTASK
 6689;19279;Erro - Usuário sumindo quando inativamos;FL - Correções de Bugs;Concluído ou Descontinuado;Thayná Santos;DMTASK
 6690;19281;Erro - Envio de Alertas;FL - Correções de Bugs;Concluído ou Descontinuado;Thayná Santos;DMTASK
@@ -518,9 +538,9 @@
 9377;21504;Erro prontuário do condutor - Ocorrências não estão sendo expurgados;FL - Correções de Bugs;Concluído ou Descontinuado;Stefane Cordeiro;DMTASK
 9394;21558;Condutor liberado com documento reprovado/ausente;FL - Correções de Bugs;Concluído ou Descontinuado;Sabrina Alcantara;DMTASK
 9395;21559;Condutor com pendência de entrevista sem evento de fadiga no histórico;FL - Correções de Bugs;Concluído ou Descontinuado;Sabrina Alcantara;DMTASK
-9415;21560;"Inconsistência na classificação de documentos (aprovados; pré-aprovados e reprovados)";FL - Correções de Bugs;Impedimento;Sabrina Alcantara;DMTASK
+9415;21560;"Inconsistência na classificação de documentos (aprovados; pré-aprovados e reprovados)";FL - Correções de Bugs;Concluído ou Descontinuado;Sabrina Alcantara;DMTASK
 9417;21562;Divergência nos números de status e faixas dos colaboradores;FL - Correções de Bugs;Concluído ou Descontinuado;Sabrina Alcantara;DMTASK
-9418;21615;Histórico do colaborador não salvo no banco de dados;FL - Correções de Bugs;Impedimento;Sabrina Alcantara;DMTASK
+9418;21615;Histórico do colaborador não salvo no banco de dados;FL - Correções de Bugs;Concluído ou Descontinuado;Sabrina Alcantara;DMTASK
 9442;21639;Disponibilizar Base de Documentos - MELI;FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Hannah Moreira;DMTASK
 9472;;Prorrogação do Token da API LOGAN;FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Stefane Cordeiro;DMTASK
 9473;;Inclusão do campo ‘Tipo de Carroceria’ no cadastro do veículo.;FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Stefane Cordeiro;DMTASK
@@ -551,7 +571,7 @@
 9754;22083;Erro Retorno #9676 – #21919 - ERRO: Checklists não aparecem no app;FL - Correções de Bugs;Concluído ou Descontinuado;Marques Pereira;DMTASK
 9761;22113;ERRO: CNH valida com status vencendo no FROTA;FL - Correções de Bugs;Concluído ou Descontinuado;Adriele Ribeiro;DMTASK
 9774;;Status Atenção na validação do Checklist;FL - Projetos, Melhorias e APIs;Caixa de Entrada;Marques Pereira;DMTASK
-9777;22155;ERRO: Envio de alertas incompleto;FL - Correções de Bugs;Impedimento;Lidiane Fortunato;DMTASK
+9777;22155;ERRO: Envio de alertas incompleto;FL - Correções de Bugs;Concluído ou Descontinuado;Lidiane Fortunato;DMTASK
 9779;22146;ERRO: Correção regra 30 dias CNH;FL - Correções de Bugs;Concluído ou Descontinuado;Tallison Jesus;DMTASK
 9788;;"ERRO: Mensagem ""Verifique Console"" ao tentar cadastrar condutores [Novo caso]";FL - Correções de Bugs;Concluído ou Descontinuado;Thais Oliveira;DMTASK
 9793;22183;ERRO: Relatório Prontuário do Transportador;FL - Correções de Bugs;Concluído ou Descontinuado;Maike Silva;DMTASK
