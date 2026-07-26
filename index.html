@@ -533,6 +533,10 @@ table.dm-table{width:100%;border-collapse:collapse;font-size:12.8px;}
     <button class="icon-btn" id="themeToggle" data-tip="Alternar tema" aria-label="Alternar tema">
       <i class="fa-solid fa-moon"></i>
     </button>
+    <button class="icon-btn" id="importBtn" data-tip="Importar novo CSV para o GitHub" aria-label="Importar CSV">
+      <i class="fa-solid fa-cloud-arrow-up"></i>
+    </button>
+    <input type="file" id="importFileInput" accept=".csv" style="display:none;">
     <button class="icon-btn" id="refreshBtn" data-tip="Atualizar dados" aria-label="Atualizar dados">
       <i class="fa-solid fa-rotate"></i>
     </button>
@@ -709,6 +713,78 @@ table.dm-table{width:100%;border-collapse:collapse;font-size:12.8px;}
     </div>
   </div>
 </div>
+
+<!-- MODAL DE IMPORTAÇÃO / TOKEN GITHUB -->
+<div class="modal-overlay" id="importModalOverlay">
+  <div class="modal-box" style="max-width:460px;">
+    <div class="modal-head">
+      <div>
+        <div class="mid" id="importModalKicker">Importar CSV</div>
+        <h2 id="importModalTitle">Conectar ao GitHub</h2>
+      </div>
+      <button class="modal-close" id="importModalClose"><i class="fa-solid fa-xmark"></i></button>
+    </div>
+
+    <div id="importStepToken">
+      <p style="font-size:12.5px;color:var(--text-secondary);line-height:1.6;margin:0 0 14px;">
+        Cole um <strong>Personal Access Token (fine-grained)</strong> do GitHub, restrito ao repositório
+        <code class="mono" id="importRepoLabel" style="background:var(--bg-elevated-2);padding:2px 6px;border-radius:4px;">...</code>,
+        com permissão apenas de <strong>Contents: Read and write</strong>. Ele fica só na memória desta aba — some ao fechar o navegador.
+      </p>
+      <div class="modal-field full" style="margin-bottom:14px;">
+        <label>Token</label>
+        <input type="password" id="importTokenInput" placeholder="github_pat_..." style="width:100%;padding:10px 12px;background:var(--bg-elevated-2);border:1px solid var(--border-subtle);border-radius:var(--radius-sm);color:var(--text-primary);font-family:var(--font-mono);font-size:12.5px;outline:none;">
+      </div>
+      <button class="btn-clear" id="importTokenConfirm" style="width:100%;justify-content:center;background:var(--accent);color:#fff;border-color:var(--accent);">
+        <i class="fa-solid fa-key"></i> Salvar token para esta sessão
+      </button>
+    </div>
+
+    <div id="importStepFile" style="display:none;">
+      <p style="font-size:12.5px;color:var(--text-secondary);line-height:1.6;margin:0 0 16px;">
+        Token conectado ✅. Escolha o arquivo <strong>.csv</strong> exportado da planilha para importar.
+        O <code class="mono">dados.csv</code> atual será automaticamente salvo como <code class="mono">dados_anterior.csv</code> antes da substituição.
+      </p>
+      <button class="btn-clear" id="importChooseFile" style="width:100%;justify-content:center;">
+        <i class="fa-solid fa-file-arrow-up"></i> Escolher arquivo CSV
+      </button>
+      <button class="btn-clear" id="importForgetToken" style="width:100%;justify-content:center;margin-top:8px;font-size:11.5px;color:var(--text-muted);">
+        <i class="fa-solid fa-right-from-bracket"></i> Esquecer token
+      </button>
+    </div>
+
+    <div id="importStepProgress" style="display:none;">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:14px;padding:20px 0;">
+        <i class="fa-solid fa-spinner fa-spin" style="font-size:26px;color:var(--accent);"></i>
+        <div id="importProgressText" style="font-size:13px;color:var(--text-secondary);text-align:center;">Enviando arquivos para o GitHub...</div>
+      </div>
+    </div>
+
+    <div id="importStepDone" style="display:none;">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:12px;padding:10px 0 6px;text-align:center;">
+        <i class="fa-solid fa-circle-check" style="font-size:30px;color:var(--status-concluido);"></i>
+        <div id="importDoneText" style="font-size:13.5px;color:var(--text-primary);"></div>
+        <div style="font-size:11.5px;color:var(--text-muted);">O GitHub Pages leva ~30-60s para recompilar o site.</div>
+      </div>
+      <button class="btn-clear" id="importDoneClose" style="width:100%;justify-content:center;margin-top:6px;">Fechar</button>
+    </div>
+
+    <div id="importStepError" style="display:none;">
+      <div style="display:flex;flex-direction:column;align-items:center;gap:12px;padding:10px 0 6px;text-align:center;">
+        <i class="fa-solid fa-circle-exclamation" style="font-size:28px;color:var(--status-reprovado);"></i>
+        <div id="importErrorText" style="font-size:13px;color:var(--text-secondary);"></div>
+      </div>
+      <button class="btn-clear" id="importErrorClose" style="width:100%;justify-content:center;margin-top:6px;">Fechar</button>
+    </div>
+  </div>
+</div>
+
+<script>
+// Constantes do repositório de destino (ajuste se mudar de repo)
+const GITHUB_OWNER = "jadson13";
+const GITHUB_REPO = "Cards";
+const GITHUB_BRANCH = "main";
+</script>
 
 <script>
 /* ================================================================
@@ -1558,6 +1634,155 @@ document.querySelectorAll(".dm-table thead th[data-sort]").forEach(th=>{
     else { state.table.sortKey = key; state.table.sortDir = "asc"; }
     renderTable();
   });
+});
+
+/* ---------------------------------------------------------------
+   15. IMPORTAR CSV → GITHUB (upload direto pela API do GitHub)
+   O token fica só em sessionStorage (memória da aba), nunca no
+   código nem em localStorage. Fluxo:
+     1. Lê dados.csv atual (sha + conteúdo)
+     2. Copia esse conteúdo para dados_anterior.csv (backup)
+     3. Sobe o arquivo novo escolhido pelo usuário como dados.csv
+   --------------------------------------------------------------- */
+const GH_TOKEN_KEY = "gh_import_token";
+
+function ghGetToken(){ try{ return sessionStorage.getItem(GH_TOKEN_KEY); }catch(e){ return null; } }
+function ghSetToken(t){ try{ sessionStorage.setItem(GH_TOKEN_KEY, t); }catch(e){} }
+function ghClearToken(){ try{ sessionStorage.removeItem(GH_TOKEN_KEY); }catch(e){} }
+
+function utf8ToBase64(str){
+  return btoa(unescape(encodeURIComponent(str)));
+}
+
+async function ghApi(path, token, options={}){
+  const res = await fetch(`https://api.github.com/repos/${GITHUB_OWNER}/${GITHUB_REPO}/contents/${path}`, {
+    ...options,
+    headers:{
+      "Authorization": `Bearer ${token}`,
+      "Accept": "application/vnd.github+json",
+      ...(options.headers||{})
+    }
+  });
+  return res;
+}
+
+// Busca um arquivo existente (retorna {sha, base64Content} ou null se não existir)
+async function ghGetFile(path, token){
+  const res = await ghApi(`${path}?ref=${GITHUB_BRANCH}`, token);
+  if(res.status === 404) return null;
+  if(!res.ok) throw new Error(`Erro ao ler ${path} (HTTP ${res.status}). Verifique o token e as permissões.`);
+  const json = await res.json();
+  return { sha: json.sha, base64Content: (json.content||"").replace(/\n/g,"") };
+}
+
+// Cria ou atualiza um arquivo
+async function ghPutFile(path, token, base64Content, message, sha){
+  const body = { message, content: base64Content, branch: GITHUB_BRANCH };
+  if(sha) body.sha = sha;
+  const res = await ghApi(path, token, { method:"PUT", body: JSON.stringify(body) });
+  if(!res.ok){
+    const errJson = await res.json().catch(()=>({}));
+    throw new Error(errJson.message || `Erro ao gravar ${path} (HTTP ${res.status}).`);
+  }
+  return res.json();
+}
+
+function showImportStep(step){
+  ["Token","File","Progress","Done","Error"].forEach(s=>{
+    document.getElementById(`importStep${s}`).style.display = (s===step) ? "block" : "none";
+  });
+}
+
+function openImportModal(){
+  document.getElementById("importRepoLabel").textContent = `${GITHUB_OWNER}/${GITHUB_REPO}`;
+  const existingToken = ghGetToken();
+  showImportStep(existingToken ? "File" : "Token");
+  document.getElementById("importModalOverlay").classList.add("open");
+}
+function closeImportModal(){
+  document.getElementById("importModalOverlay").classList.remove("open");
+}
+
+document.getElementById("importBtn").addEventListener("click", openImportModal);
+document.getElementById("importModalClose").addEventListener("click", closeImportModal);
+document.getElementById("importModalOverlay").addEventListener("click", e=>{
+  if(e.target.id==="importModalOverlay") closeImportModal();
+});
+document.getElementById("importDoneClose").addEventListener("click", closeImportModal);
+document.getElementById("importErrorClose").addEventListener("click", closeImportModal);
+
+document.getElementById("importTokenConfirm").addEventListener("click", ()=>{
+  const val = document.getElementById("importTokenInput").value.trim();
+  if(!val){ return; }
+  ghSetToken(val);
+  document.getElementById("importTokenInput").value = "";
+  showImportStep("File");
+});
+
+document.getElementById("importForgetToken").addEventListener("click", ()=>{
+  ghClearToken();
+  showImportStep("Token");
+});
+
+document.getElementById("importChooseFile").addEventListener("click", ()=>{
+  document.getElementById("importFileInput").click();
+});
+
+document.getElementById("importFileInput").addEventListener("change", async (e)=>{
+  const file = e.target.files[0];
+  e.target.value = ""; // permite selecionar o mesmo arquivo de novo depois
+  if(!file) return;
+
+  const token = ghGetToken();
+  if(!token){ showImportStep("Token"); return; }
+
+  const confirmMsg = `Importar "${file.name}" como novo dados.csv?\n\nO dados.csv atual será salvo automaticamente como dados_anterior.csv antes.`;
+  if(!window.confirm(confirmMsg)) return;
+
+  showImportStep("Progress");
+  const progressText = document.getElementById("importProgressText");
+
+  try{
+    const newContent = await file.text();
+    // validação básica: precisa ter pelo menos 2 linhas (cabeçalho + 1 dado) e algumas colunas
+    const lineCount = newContent.split(/\r?\n/).filter(l=>l.trim()!=="").length;
+    if(lineCount < 2){
+      throw new Error("O arquivo parece vazio ou só tem o cabeçalho. Verifique o CSV exportado.");
+    }
+
+    progressText.textContent = "Lendo dados.csv atual...";
+    const current = await ghGetFile(CSV_FILENAME, token);
+
+    if(current){
+      progressText.textContent = "Salvando backup em dados_anterior.csv...";
+      const existingAnterior = await ghGetFile(CSV_ANTERIOR_FILENAME, token);
+      await ghPutFile(
+        CSV_ANTERIOR_FILENAME, token, current.base64Content,
+        "Backup automático antes de nova importação (via dashboard)",
+        existingAnterior ? existingAnterior.sha : undefined
+      );
+    }
+
+    progressText.textContent = "Enviando novo dados.csv...";
+    const newBase64 = utf8ToBase64(newContent);
+    await ghPutFile(
+      CSV_FILENAME, token, newBase64,
+      "Importa novo dados.csv (via dashboard)",
+      current ? current.sha : undefined
+    );
+
+    document.getElementById("importDoneText").textContent =
+      `"${file.name}" importado com sucesso! ${current ? "O arquivo anterior foi salvo em dados_anterior.csv." : ""}`;
+    showImportStep("Done");
+  }catch(err){
+    console.error("Erro na importação:", err);
+    let msg = err.message || "Erro desconhecido ao importar.";
+    if(msg.includes("401") || msg.toLowerCase().includes("bad credentials")){
+      msg = "Token inválido ou sem permissão. Verifique se ele tem acesso de escrita (Contents: Read and write) a este repositório.";
+    }
+    document.getElementById("importErrorText").textContent = msg;
+    showImportStep("Error");
+  }
 });
 
 document.getElementById("refreshBtn").addEventListener("click", async ()=>{
