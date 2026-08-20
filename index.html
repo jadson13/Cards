@@ -57,6 +57,8 @@
   --status-analise:#e264a8;
   --status-analise-bg:rgba(226,100,168,.14);
   --status-descontinuado:#159a8a;
+  --status-revisao:#8098f9;
+  --status-revisao-bg:rgba(128,152,249,.14);
   --status-descontinuado-bg:rgba(21,154,138,.14);
 
   --radius:12px;
@@ -537,6 +539,7 @@ table.dm-table{width:100%;border-collapse:collapse;font-size:12.8px;}
       <i class="fa-solid fa-cloud-arrow-up"></i>
     </button>
     <input type="file" id="importFileInput" accept=".csv" style="display:none;">
+    <input type="file" id="importXlsxFileInput" accept=".xlsx" multiple style="display:none;">
     <button class="icon-btn" id="refreshBtn" data-tip="Atualizar dados" aria-label="Atualizar dados">
       <i class="fa-solid fa-rotate"></i>
     </button>
@@ -579,13 +582,13 @@ table.dm-table{width:100%;border-collapse:collapse;font-size:12.8px;}
       <div class="filters-bar">
         <div class="search-field">
           <i class="fa-solid fa-magnifying-glass"></i>
-          <input type="text" id="globalSearch" placeholder="Pesquisar por ID DM, ID Azure ou Título...">
+          <input type="text" id="globalSearch" placeholder="Pesquisar por ID ou Título...">
         </div>
         <div class="select-field">
           <select id="statusFilter"><option value="">Todos os status</option></select>
         </div>
         <div class="select-field">
-          <select id="boardFilter"><option value="">Todos os boards</option></select>
+          <select id="boardFilter"><option value="">Todos os sistemas</option></select>
         </div>
         <button class="btn-clear" id="clearFilters"><i class="fa-solid fa-broom"></i> Limpar filtros</button>
       </div>
@@ -603,7 +606,7 @@ table.dm-table{width:100%;border-collapse:collapse;font-size:12.8px;}
           <table class="dm-table">
             <thead>
               <tr>
-                <th>ID DM</th><th>Título</th><th>Board</th>
+                <th>ID</th><th>Título</th><th>Sistema</th>
                 <th>Status Atual</th><th>Status Anterior</th><th>Situação</th>
               </tr>
             </thead>
@@ -629,7 +632,7 @@ table.dm-table{width:100%;border-collapse:collapse;font-size:12.8px;}
           <div class="chart-hint">Clique em uma fatia para filtrar</div>
         </div>
         <div class="chart-card">
-          <div class="chart-card-head"><h3>Cards por Board</h3><span>Barra</span></div>
+          <div class="chart-card-head"><h3>Cards por Sistema</h3><span>Barra</span></div>
           <div class="chart-wrap"><canvas id="chartBoard"></canvas></div>
           <div class="chart-hint">Clique em uma barra para filtrar</div>
         </div>
@@ -673,11 +676,11 @@ table.dm-table{width:100%;border-collapse:collapse;font-size:12.8px;}
           <table class="dm-table">
             <thead>
               <tr>
-                <th data-sort="idDm">ID DM <i class="fa-solid fa-sort"></i></th>
-                <th data-sort="idAzure">ID Azure <i class="fa-solid fa-sort"></i></th>
+                <th data-sort="idDm">ID <i class="fa-solid fa-sort"></i></th>
                 <th data-sort="titulo">Título <i class="fa-solid fa-sort"></i></th>
-                <th data-sort="board">Board <i class="fa-solid fa-sort"></i></th>
+                <th data-sort="board">Sistema <i class="fa-solid fa-sort"></i></th>
                 <th data-sort="status">Status <i class="fa-solid fa-sort"></i></th>
+                <th data-sort="criadoEm">Criado em <i class="fa-solid fa-sort"></i></th>
                 <th data-sort="solicitante">Solicitante <i class="fa-solid fa-sort"></i></th>
               </tr>
             </thead>
@@ -705,10 +708,9 @@ table.dm-table{width:100%;border-collapse:collapse;font-size:12.8px;}
       <button class="modal-close" id="modalClose"><i class="fa-solid fa-xmark"></i></button>
     </div>
     <div class="modal-grid">
-      <div class="modal-field"><label>ID Azure</label><div id="modalAzure">—</div></div>
-      <div class="modal-field"><label>Board</label><div id="modalBoard">—</div></div>
-      <div class="modal-field"><label>Sistema</label><div id="modalSistema">—</div></div>
+      <div class="modal-field"><label>Sistema</label><div id="modalBoard">—</div></div>
       <div class="modal-field"><label>Solicitante</label><div id="modalSolicitante">—</div></div>
+      <div class="modal-field"><label>Criado em</label><div id="modalCriadoEm">—</div></div>
       <div class="modal-field full"><label>Status</label><div id="modalStatus">—</div></div>
     </div>
   </div>
@@ -742,11 +744,22 @@ table.dm-table{width:100%;border-collapse:collapse;font-size:12.8px;}
 
     <div id="importStepFile" style="display:none;">
       <p style="font-size:12.5px;color:var(--text-secondary);line-height:1.6;margin:0 0 16px;">
-        Token conectado ✅. Escolha o arquivo <strong>.csv</strong> exportado da planilha para importar.
-        O <code class="mono">dados.csv</code> atual será automaticamente salvo como <code class="mono">dados_anterior.csv</code> antes da substituição.
+        Token conectado ✅. O <code class="mono">dados.csv</code> atual será automaticamente salvo como
+        <code class="mono">dados_anterior.csv</code> antes de qualquer substituição.
       </p>
+      <button class="btn-clear" id="importChooseXlsx" style="width:100%;justify-content:center;background:var(--accent);color:#fff;border-color:var(--accent);">
+        <i class="fa-solid fa-file-excel"></i> Importar as 3 planilhas (DMCenter, Frota Legal, Frota Legal - Projetos)
+      </button>
+      <p style="font-size:11px;color:var(--text-muted);line-height:1.5;margin:8px 0 0;">
+        Filtra automaticamente Status = "Ativo" e as áreas do solicitante configuradas.
+      </p>
+      <div style="display:flex;align-items:center;gap:10px;margin:14px 0;">
+        <div style="flex:1;height:1px;background:var(--border-subtle);"></div>
+        <span style="font-size:10.5px;color:var(--text-muted);">ou</span>
+        <div style="flex:1;height:1px;background:var(--border-subtle);"></div>
+      </div>
       <button class="btn-clear" id="importChooseFile" style="width:100%;justify-content:center;">
-        <i class="fa-solid fa-file-arrow-up"></i> Escolher arquivo CSV
+        <i class="fa-solid fa-file-arrow-up"></i> Importar um dados.csv já pronto
       </button>
       <button class="btn-clear" id="importForgetToken" style="width:100%;justify-content:center;margin-top:8px;font-size:11.5px;color:var(--text-muted);">
         <i class="fa-solid fa-right-from-bracket"></i> Esquecer token
@@ -798,50 +811,54 @@ const GITHUB_BRANCH = "main";
    --------------------------------------------------------------- */
 const STATUS_CONFIG = {
   "Caixa de Entrada":            { color:"var(--status-caixa)",        bg:"var(--status-caixa-bg)",        icon:"fa-inbox" },
-  "Não Iniciado":                { color:"var(--status-nao-iniciado)", bg:"var(--status-nao-iniciado-bg)", icon:"fa-circle-pause" },
-  "Em Andamento":                { color:"var(--status-andamento)",    bg:"var(--status-andamento-bg)",    icon:"fa-spinner" },
-  "Aguardando Validação":        { color:"var(--status-aguardando)",   bg:"var(--status-aguardando-bg)",   icon:"fa-hourglass-half" },
+  "Backlog de Ideias":           { color:"var(--status-backlog)",      bg:"var(--status-backlog-bg)",      icon:"fa-layer-group" },
+  "Aguardando informações":      { color:"var(--status-aguardando)",   bg:"var(--status-aguardando-bg)",   icon:"fa-hourglass-half" },
   "Em Análise":                  { color:"var(--status-analise)",      bg:"var(--status-analise-bg)",      icon:"fa-magnifying-glass-chart" },
-  "Pronto para Atuar":           { color:"var(--status-pronto)",       bg:"var(--status-pronto-bg)",       icon:"fa-bolt" },
-  "Concluído":                   { color:"var(--status-concluido)",    bg:"var(--status-concluido-bg)",    icon:"fa-circle-check" },
-  "Reprovado":                   { color:"var(--status-reprovado)",    bg:"var(--status-reprovado-bg)",    icon:"fa-circle-xmark" },
+  "Pronto para Desenvolvimento": { color:"var(--status-pronto)",       bg:"var(--status-pronto-bg)",       icon:"fa-bolt" },
+  "Em Desenvolvimento":          { color:"var(--status-andamento)",    bg:"var(--status-andamento-bg)",    icon:"fa-spinner" },
+  "Revisão de Código":           { color:"var(--status-revisao)",      bg:"var(--status-revisao-bg)",      icon:"fa-code-branch" },
+  "Teste QA":                    { color:"var(--status-descontinuado)",bg:"var(--status-descontinuado-bg)",icon:"fa-vial" },
+  "Correção Reprovados":         { color:"var(--status-aguardando)",   bg:"var(--status-aguardando-bg)",   icon:"fa-screwdriver-wrench" },
+  "Reprovados":                  { color:"var(--status-reprovado)",    bg:"var(--status-reprovado-bg)",    icon:"fa-circle-xmark" },
+  "Validação Produção":          { color:"var(--status-andamento)",    bg:"var(--status-andamento-bg)",    icon:"fa-flask-vial" },
+  "Pronto Para Publicar":        { color:"var(--status-pronto)",       bg:"var(--status-pronto-bg)",       icon:"fa-rocket" },
   "Impedimento":                 { color:"var(--status-impedimento)",  bg:"var(--status-impedimento-bg)",  icon:"fa-triangle-exclamation" },
-  "Backlog":                     { color:"var(--status-backlog)",      bg:"var(--status-backlog-bg)",      icon:"fa-layer-group" }
+  "Concluído":                   { color:"var(--status-concluido)",    bg:"var(--status-concluido-bg)",    icon:"fa-circle-check" }
 };
 const KANBAN_COLUMNS = [
-  "Caixa de Entrada","Não Iniciado","Em Andamento","Aguardando Validação","Em Análise",
-  "Pronto para Atuar","Concluído","Reprovado","Impedimento"
+  "Caixa de Entrada","Backlog de Ideias","Aguardando informações","Em Análise",
+  "Pronto para Desenvolvimento","Em Desenvolvimento","Revisão de Código","Teste QA",
+  "Correção Reprovados","Reprovados","Validação Produção","Pronto Para Publicar",
+  "Impedimento","Concluído"
 ];
 
 /* ---------------------------------------------------------------
    2. CARREGAMENTO DE DADOS
-   Fonte real: arquivo "dados.csv" na raiz do repositório (exportado
-   do Excel do SharePoint: Arquivo > Salvar Como > CSV UTF-8).
+   Fonte real: arquivo "dados.csv" na raiz do repositório — gerado a
+   partir da consolidação de 3 planilhas (DMCenter, Frota Legal e
+   Frota Legal - Projetos), já filtrado para Status = "Ativo".
 
-   O mapeamento é por POSIÇÃO DE COLUNA (igual à planilha original),
-   não pelo nome do cabeçalho. A primeira linha do CSV é sempre
-   tratada como cabeçalho e ignorada — o conteúdo dela não importa.
+   O mapeamento é por POSIÇÃO DE COLUNA. A primeira linha do CSV é
+   sempre tratada como cabeçalho e ignorada.
 
-   Layout real da planilha (confirmado no arquivo DashCards.xlsx):
-     Coluna A → ID_DM
-     Coluna B → ID_AZURE
-     Coluna C → Título
-     Coluna D → Board
-     Coluna E → Status
-     Coluna F → Solicitante
-     Coluna G → Sistema
+   Layout do dados.csv consolidado:
+     Coluna A → ID
+     Coluna B → Título
+     Coluna C → Fase Atual (tratado internamente como "status")
+     Coluna D → Criado em (formato AAAA-MM-DD)
+     Coluna E → Solicitante
+     Coluna F → Sistema (de qual planilha/sistema a demanda veio)
 
    Se o layout da planilha mudar, basta ajustar as letras abaixo.
    --------------------------------------------------------------- */
 const CSV_FILENAME = "dados.csv";
 const COLUMN_LETTERS = {
   idDm:        "A",
-  idAzure:     "B",
-  titulo:      "C",
-  board:       "D",
-  status:      "E",
-  solicitante: "F",
-  sistema:     "G"
+  titulo:      "B",
+  status:      "C",
+  criadoEm:    "D",
+  solicitante: "E",
+  board:       "F"
 };
 function colLetterToIndex(letter){
   // suporta colunas de 1 ou 2 letras (A-Z, AA-ZZ)
@@ -853,8 +870,7 @@ function colLetterToIndex(letter){
 const COLUMN_INDEX = {};
 Object.keys(COLUMN_LETTERS).forEach(k => COLUMN_INDEX[k] = colLetterToIndex(COLUMN_LETTERS[k]));
 
-const BOARDS = ["Squad Alpha","Squad Beta","Financeiro","Comercial","TI Infraestrutura"];
-const SISTEMAS = ["SAP","Salesforce","Protheus","Power BI","Azure DevOps","Portal Interno"];
+const BOARDS = ["DMCenter","Frota Legal","Frota Legal - Projetos"];
 const SOLICITANTES = ["Ana Ferreira","Bruno Costa","Carla Menezes","Diego Alves","Eduarda Lima",
   "Felipe Rocha","Gabriela Souza","Henrique Dias","Isabela Martins","João Pedro Silva","Karina Nunes"];
 const TITULOS = [
@@ -879,16 +895,24 @@ function seededRandom(seed){ let s = seed; return function(){ s = (s*9301+49297)
 const rnd = seededRandom(20260703);
 function pick(arr){ return arr[Math.floor(rnd()*arr.length)]; }
 function weightedStatus(){
-  // distribuição realista: mais itens em andamento/concluído, menos em impedimento
+  // distribuição aproximada da base real (206 itens ativos)
   const weights = [
-    ["Caixa de Entrada",8],["Não Iniciado",10],["Em Andamento",18],["Aguardando Validação",9],
-    ["Em Análise",7],["Pronto para Atuar",6],["Concluído",33],["Reprovado",5],
-    ["Impedimento",4]
+    ["Concluído",96],["Pronto para Desenvolvimento",46],["Revisão de Código",12],
+    ["Caixa de Entrada",11],["Backlog de Ideias",10],["Reprovados",6],["Em Desenvolvimento",6],
+    ["Impedimento",4],["Em Análise",3],["Pronto Para Publicar",3],["Validação Produção",1],
+    ["Correção Reprovados",1]
   ];
   const total = weights.reduce((a,w)=>a+w[1],0);
   let r = rnd()*total;
   for(const [status,w] of weights){ if(r<w) return status; r-=w; }
-  return "Não Iniciado";
+  return "Caixa de Entrada";
+}
+function randomDateISO(){
+  // data aleatória entre maio e agosto de 2026, no formato AAAA-MM-DD
+  const start = new Date(2026,4,1).getTime();
+  const end = new Date(2026,7,20).getTime();
+  const d = new Date(start + rnd()*(end-start));
+  return d.toISOString().slice(0,10);
 }
 
 let DATA = [];
@@ -899,13 +923,12 @@ function generateMockData(){
   const n = 84;
   for(let i=0;i<n;i++){
     mock.push({
-      idDm: "DM-"+(1024+i),
-      idAzure: String(48000+Math.floor(rnd()*9999)),
+      idDm: "#"+(28000+Math.floor(rnd()*9999)),
       titulo: pick(TITULOS),
       board: pick(BOARDS),
       status: weightedStatus(),
-      solicitante: pick(SOLICITANTES),
-      sistema: pick(SISTEMAS)
+      criadoEm: randomDateISO(),
+      solicitante: pick(SOLICITANTES)
     });
   }
   return mock;
@@ -924,6 +947,7 @@ Object.keys(STATUS_CONFIG).forEach(s=>{ KNOWN_STATUSES_NORMALIZED[normalizeHeade
 KNOWN_STATUSES_NORMALIZED[normalizeHeader("Concluído ou Descontinuado")] = "Concluído";
 KNOWN_STATUSES_NORMALIZED[normalizeHeader("Concluido ou Descontinuado")] = "Concluído";
 KNOWN_STATUSES_NORMALIZED[normalizeHeader("Descontinuado")] = "Concluído";
+KNOWN_STATUSES_NORMALIZED[normalizeHeader("Concluído | Descontinuado")] = "Concluído";
 
 function normalizeStatusValue(raw){
   const norm = normalizeHeader(String(raw||""));
@@ -938,17 +962,16 @@ function csvRowsToData(rows){
     .map(r => {
       const item = {
         idDm:        String(r[COLUMN_INDEX.idDm]        ?? "").trim(),
-        idAzure:     String(r[COLUMN_INDEX.idAzure]     ?? "").trim(),
         titulo:      String(r[COLUMN_INDEX.titulo]      ?? "").trim(),
-        board:       String(r[COLUMN_INDEX.board]       ?? "").trim(),
         status:      String(r[COLUMN_INDEX.status]      ?? "").trim(),
+        criadoEm:    String(r[COLUMN_INDEX.criadoEm]     ?? "").trim(),
         solicitante: String(r[COLUMN_INDEX.solicitante] ?? "").trim(),
-        sistema:     String(r[COLUMN_INDEX.sistema]     ?? "").trim()
+        board:       String(r[COLUMN_INDEX.board]       ?? "").trim()
       };
       if(item.status) item.status = normalizeStatusValue(item.status);
       return item;
     })
-    .filter(item => item.idDm); // descarta linhas sem ID DM
+    .filter(item => item.idDm); // descarta linhas sem ID
 }
 
 function loadDataFromCsv(filename){
@@ -1131,7 +1154,6 @@ function applyFilters(list){
     if(f.search){
       const q = f.search.toLowerCase();
       const hit = item.idDm.toLowerCase().includes(q) ||
-                  item.idAzure.toLowerCase().includes(q) ||
                   item.titulo.toLowerCase().includes(q);
       if(!hit) return false;
     }
@@ -1147,7 +1169,7 @@ function renderActiveChips(){
   const chips = [];
   if(f.search) chips.push(["search", `Pesquisa: "${f.search}"`]);
   if(f.status) chips.push(["status", `Status: ${f.status}`]);
-  if(f.board) chips.push(["board", `Board: ${f.board}`]);
+  if(f.board) chips.push(["board", `Sistema: ${f.board}`]);
   if(f.solicitante) chips.push(["solicitante", `Solicitante: ${f.solicitante}`]);
   el.innerHTML = chips.map(([key,label])=>`
     <div class="chip">${label}<button data-chip="${key}"><i class="fa-solid fa-xmark"></i></button></div>
@@ -1181,13 +1203,13 @@ const KPI_DEFS = [
     calc:(d)=>d.length },
   { key:"concluidas",  label:"Concluídas",              icon:"fa-circle-check",       color:"var(--status-concluido)",    bg:"var(--status-concluido-bg)",
     calc:(d)=>d.filter(i=>i.status==="Concluído").length },
-  { key:"andamento",   label:"Em Andamento",            icon:"fa-spinner",            color:"var(--status-andamento)",    bg:"var(--status-andamento-bg)",
-    calc:(d)=>d.filter(i=>i.status==="Em Andamento").length },
-  { key:"naoiniciado", label:"Não Iniciadas",           icon:"fa-circle-pause",       color:"var(--status-nao-iniciado)", bg:"var(--status-nao-iniciado-bg)",
-    calc:(d)=>d.filter(i=>i.status==="Não Iniciado").length },
+  { key:"andamento",   label:"Em Desenvolvimento",      icon:"fa-spinner",            color:"var(--status-andamento)",    bg:"var(--status-andamento-bg)",
+    calc:(d)=>d.filter(i=>i.status==="Em Desenvolvimento").length },
+  { key:"naoiniciado", label:"Caixa de Entrada",        icon:"fa-inbox",              color:"var(--status-caixa)",        bg:"var(--status-caixa-bg)",
+    calc:(d)=>d.filter(i=>i.status==="Caixa de Entrada"||i.status==="Backlog de Ideias").length },
   { key:"validacao",   label:"Aguardando Validação",    icon:"fa-hourglass-half",     color:"var(--status-aguardando)",   bg:"var(--status-aguardando-bg)",
-    calc:(d)=>d.filter(i=>i.status==="Aguardando Validação").length },
-  { key:"boards",      label:"Quantidade de Boards",    icon:"fa-table-columns",      color:"#7c5cff",                    bg:"rgba(124,92,255,.14)",
+    calc:(d)=>d.filter(i=>i.status==="Aguardando informações"||i.status==="Validação Produção").length },
+  { key:"boards",      label:"Quantidade de Sistemas",  icon:"fa-sitemap",            color:"#7c5cff",                    bg:"rgba(124,92,255,.14)",
     calc:(d)=>new Set(d.map(i=>i.board).filter(Boolean)).size }
 ];
 
@@ -1223,8 +1245,23 @@ function renderKPIs(){
 function resolveVar(name){
   return getComputedStyle(document.documentElement).getPropertyValue(name.replace('var(','').replace(')','')).trim() || name;
 }
-const FALLBACK_STATUS_CFG = { color:"var(--text-muted)", bg:"rgba(137,146,168,.14)", icon:"fa-circle-question" };
-function getStatusCfg(status){ return STATUS_CONFIG[status] || FALLBACK_STATUS_CFG; }
+function formatDateBR(iso){
+  if(!iso) return "—";
+  const m = String(iso).match(/^(\d{4})-(\d{2})-(\d{2})/);
+  if(!m) return iso; // já em outro formato, exibe como veio
+  return `${m[3]}/${m[2]}/${m[1]}`;
+}
+const HASH_COLOR_PALETTE = ["#4c8dff","#7c5cff","#38c7d6","#e264a8","#f0983c","#33c37a","#e0c23e","#8098f9"];
+const dynamicStatusColorCache = {};
+function getStatusCfg(status){
+  if(STATUS_CONFIG[status]) return STATUS_CONFIG[status];
+  if(!dynamicStatusColorCache[status]){
+    let h=0; for(const c of String(status)) h = (h + c.charCodeAt(0)) % HASH_COLOR_PALETTE.length;
+    const hex = HASH_COLOR_PALETTE[h];
+    dynamicStatusColorCache[status] = { color:hex, bg:hex+"24", icon:"fa-circle-dot" };
+  }
+  return dynamicStatusColorCache[status];
+}
 function colorOf(status){ return resolveVar(getStatusCfg(status).color); }
 
 function buildCharts(){
@@ -1353,13 +1390,13 @@ function cardHtml(item){
     <div class="kcard-top">
       <div class="kcard-ids">
         <span class="id-dm">${item.idDm}</span>
-        <span class="id-az">Azure #${item.idAzure}</span>
       </div>
       <div class="kcard-avatar" style="background:${avatarColor(item.solicitante)}" data-tip="${item.solicitante}">${initialsOf(item.solicitante)}</div>
     </div>
     <div class="kcard-title">${item.titulo}</div>
     <div class="kcard-meta">
-      <span class="kcard-board"><i class="fa-solid fa-table-columns"></i> ${item.board || "Sem board"}</span>
+      <span class="kcard-board"><i class="fa-solid fa-sitemap"></i> ${item.board || "Sem sistema"}</span>
+      <span class="kcard-board mono" style="font-size:10px;"><i class="fa-solid fa-calendar-days"></i> ${formatDateBR(item.criadoEm)}</span>
     </div>
   </div>`;
 }
@@ -1404,7 +1441,6 @@ function getTableData(){
     const q = state.table.search.toLowerCase();
     data = data.filter(i=>
       i.idDm.toLowerCase().includes(q) ||
-      i.idAzure.toLowerCase().includes(q) ||
       i.titulo.toLowerCase().includes(q) ||
       i.board.toLowerCase().includes(q) ||
       i.status.toLowerCase().includes(q) ||
@@ -1414,7 +1450,7 @@ function getTableData(){
   const { sortKey, sortDir } = state.table;
   data = [...data].sort((a,b)=>{
     let av=a[sortKey], bv=b[sortKey];
-    if(sortKey==="idDm"||sortKey==="idAzure"){
+    if(sortKey==="idDm"){
       av = parseInt(av.replace(/\D/g,""),10); bv = parseInt(bv.replace(/\D/g,""),10);
     } else { av=String(av).toLowerCase(); bv=String(bv).toLowerCase(); }
     if(av<bv) return sortDir==="asc"?-1:1;
@@ -1444,10 +1480,10 @@ function renderTable(){
     tbody.innerHTML = pageData.map(item=>`
       <tr data-id="${item.idDm}">
         <td class="id-cell">${item.idDm}</td>
-        <td class="az-cell">${item.idAzure}</td>
         <td class="title-cell" data-tip="${item.titulo}">${item.titulo}</td>
         <td>${item.board || "—"}</td>
         <td>${badgeHtml(item.status)}</td>
+        <td class="mono" style="font-size:12px;">${formatDateBR(item.criadoEm)}</td>
         <td>${item.solicitante}</td>
       </tr>
     `).join("");
@@ -1508,8 +1544,8 @@ function updateSortIcons(){
    --------------------------------------------------------------- */
 function exportRows(){
   return getTableData().map(i=>({
-    "ID DM": i.idDm, "ID Azure": i.idAzure, "Título": i.titulo,
-    "Board": i.board, "Status": i.status, "Solicitante": i.solicitante
+    "ID": i.idDm, "Título": i.titulo, "Sistema": i.board,
+    "Status": i.status, "Criado em": formatDateBR(i.criadoEm), "Solicitante": i.solicitante
   }));
 }
 document.getElementById("exportXlsx").addEventListener("click", ()=>{
@@ -1521,7 +1557,7 @@ document.getElementById("exportXlsx").addEventListener("click", ()=>{
 });
 document.getElementById("exportCsv").addEventListener("click", ()=>{
   const rows = exportRows();
-  const headers = Object.keys(rows[0]||{"ID DM":"","ID Azure":"","Título":"","Board":"","Status":"","Solicitante":""});
+  const headers = Object.keys(rows[0]||{"ID":"","Título":"","Sistema":"","Status":"","Criado em":"","Solicitante":""});
   const csv = [headers.join(";"), ...rows.map(r=>headers.map(h=>`"${String(r[h]).replace(/"/g,'""')}"`).join(";"))].join("\n");
   const blob = new Blob(["\uFEFF"+csv], {type:"text/csv;charset=utf-8;"});
   const a = document.createElement("a");
@@ -1535,7 +1571,7 @@ document.getElementById("exportPdf").addEventListener("click", ()=>{
   doc.text("Gerado em " + new Date().toLocaleString("pt-BR"), 14, 20);
   doc.autoTable({
     startY:26,
-    head:[["ID DM","ID Azure","Título","Board","Status","Solicitante"]],
+    head:[["ID","Título","Sistema","Status","Criado em","Solicitante"]],
     body: exportRows().map(r=>Object.values(r)),
     styles:{ fontSize:8, cellPadding:3 },
     headStyles:{ fillColor:[76,141,255] },
@@ -1550,10 +1586,9 @@ document.getElementById("exportPdf").addEventListener("click", ()=>{
 function openModal(item){
   document.getElementById("modalMid").textContent = item.idDm;
   document.getElementById("modalTitle").textContent = item.titulo;
-  document.getElementById("modalAzure").textContent = "#"+item.idAzure;
-  document.getElementById("modalBoard").textContent = item.board;
-  document.getElementById("modalSistema").textContent = item.sistema;
+  document.getElementById("modalBoard").textContent = item.board || "—";
   document.getElementById("modalSolicitante").textContent = item.solicitante;
+  document.getElementById("modalCriadoEm").textContent = formatDateBR(item.criadoEm);
   document.getElementById("modalStatus").innerHTML = badgeHtml(item.status);
   document.getElementById("modalOverlay").classList.add("open");
 }
@@ -1579,7 +1614,7 @@ function populateFilterOptions(){
   const boardSel = document.getElementById("boardFilter");
   const prevStatus = statusSel.value, prevBoard = boardSel.value;
   statusSel.innerHTML = '<option value="">Todos os status</option>';
-  boardSel.innerHTML = '<option value="">Todos os boards</option>';
+  boardSel.innerHTML = '<option value="">Todos os sistemas</option>';
 
   const extraStatuses = [...new Set(DATA.map(d=>d.status))].filter(s => s && !KANBAN_COLUMNS.includes(s)).sort();
   [...KANBAN_COLUMNS, ...extraStatuses].forEach(s=>{
@@ -1724,32 +1759,14 @@ document.getElementById("importForgetToken").addEventListener("click", ()=>{
   showImportStep("Token");
 });
 
-document.getElementById("importChooseFile").addEventListener("click", ()=>{
-  document.getElementById("importFileInput").click();
-});
-
-document.getElementById("importFileInput").addEventListener("change", async (e)=>{
-  const file = e.target.files[0];
-  e.target.value = ""; // permite selecionar o mesmo arquivo de novo depois
-  if(!file) return;
-
+// Função compartilhada: sobe um conteúdo de CSV como dados.csv, fazendo backup do atual antes
+async function uploadDadosCsvToGitHub(newContent, successLabel){
   const token = ghGetToken();
   if(!token){ showImportStep("Token"); return; }
 
-  const confirmMsg = `Importar "${file.name}" como novo dados.csv?\n\nO dados.csv atual será salvo automaticamente como dados_anterior.csv antes.`;
-  if(!window.confirm(confirmMsg)) return;
-
   showImportStep("Progress");
   const progressText = document.getElementById("importProgressText");
-
   try{
-    const newContent = await file.text();
-    // validação básica: precisa ter pelo menos 2 linhas (cabeçalho + 1 dado) e algumas colunas
-    const lineCount = newContent.split(/\r?\n/).filter(l=>l.trim()!=="").length;
-    if(lineCount < 2){
-      throw new Error("O arquivo parece vazio ou só tem o cabeçalho. Verifique o CSV exportado.");
-    }
-
     progressText.textContent = "Lendo dados.csv atual...";
     const current = await ghGetFile(CSV_FILENAME, token);
 
@@ -1772,7 +1789,7 @@ document.getElementById("importFileInput").addEventListener("change", async (e)=
     );
 
     document.getElementById("importDoneText").textContent =
-      `"${file.name}" importado com sucesso! ${current ? "O arquivo anterior foi salvo em dados_anterior.csv." : ""}`;
+      `${successLabel} ${current ? "O arquivo anterior foi salvo em dados_anterior.csv." : ""}`;
     showImportStep("Done");
   }catch(err){
     console.error("Erro na importação:", err);
@@ -1783,6 +1800,168 @@ document.getElementById("importFileInput").addEventListener("change", async (e)=
     document.getElementById("importErrorText").textContent = msg;
     showImportStep("Error");
   }
+}
+
+/* ---------------------------------------------------------------
+   15b. IMPORTAR AS 3 PLANILHAS EXCEL DIRETO (consolidação no navegador)
+   Lê DMCenter, Frota Legal e Frota Legal - Projetos com SheetJS,
+   filtra Status="Ativo" + Área do Solicitante permitida, monta o
+   dados.csv no mesmo layout (ID; Título; Fase Atual; Criado em;
+   Solicitante; Sistema) e sobe via uploadDadosCsvToGitHub().
+   --------------------------------------------------------------- */
+const AREAS_PERMITIDAS = [
+  "Negócios","Segurança - BRF - Logística","Segurança",
+  "Segurança - Ambev - Logística","Segurança - Mercado Livre","Segurança - BRF - Facilities"
+];
+const SISTEMA_POR_ARQUIVO = [
+  { pattern: /frota.*legal.*projeto/i, sistema: "Frota Legal - Projetos" },
+  { pattern: /frota.*legal/i,          sistema: "Frota Legal" },
+  { pattern: /dmcenter/i,              sistema: "DMCenter" }
+];
+
+function detectarSistema(filename){
+  const found = SISTEMA_POR_ARQUIVO.find(s => s.pattern.test(filename));
+  return found ? found.sistema : null;
+}
+
+function csvField(v){
+  const s = String(v ?? "");
+  return /[;"\n]/.test(s) ? `"${s.replace(/"/g,'""')}"` : s;
+}
+
+function dataBRparaISO(d){
+  const s = String(d||"").trim();
+  const m = s.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})/);
+  if(!m) return s;
+  return `${m[3]}-${m[2].padStart(2,"0")}-${m[1].padStart(2,"0")}`;
+}
+
+function findCol(headerRow, name){
+  const norm = h => String(h||"").trim().toLowerCase();
+  const target = norm(name);
+  return headerRow.find(h => norm(h) === target);
+}
+
+async function parseXlsxParaLinhas(file){
+  const buf = await file.arrayBuffer();
+  const wb = XLSX.read(buf, { type:"array", cellDates:false });
+  const sheet = wb.Sheets[wb.SheetNames[0]];
+  const rows = XLSX.utils.sheet_to_json(sheet, { defval:"", raw:false });
+  return rows;
+}
+
+async function processarImportacaoXlsx(files){
+  if(files.length !== 3){
+    throw new Error(`Selecione exatamente as 3 planilhas (DMCenter, Frota Legal e Frota Legal - Projetos). Você selecionou ${files.length}.`);
+  }
+
+  const linhas = [];
+  const sistemasEncontrados = new Set();
+
+  for(const file of files){
+    const sistema = detectarSistema(file.name);
+    if(!sistema){
+      throw new Error(`Não consegui identificar o sistema pelo nome do arquivo "${file.name}". Renomeie para conter "dmcenter", "frota-legal" ou "frota-legal-projetos".`);
+    }
+    if(sistemasEncontrados.has(sistema)){
+      throw new Error(`Dois arquivos parecem ser do mesmo sistema (${sistema}). Verifique se selecionou as 3 planilhas certas.`);
+    }
+    sistemasEncontrados.add(sistema);
+
+    const rows = await parseXlsxParaLinhas(file);
+    if(!rows.length) continue;
+
+    const headerRow = Object.keys(rows[0]);
+    const colId       = findCol(headerRow, "ID");
+    const colTitulo    = findCol(headerRow, "Título") || findCol(headerRow, "Titulo");
+    const colStatus    = findCol(headerRow, "Status");
+    const colFase      = findCol(headerRow, "Fase Atual");
+    const colCriadoEm  = findCol(headerRow, "Criado em");
+    const colSolic     = findCol(headerRow, "Nome do Solicitante");
+    const colArea      = findCol(headerRow, "Área do Solicitante") || findCol(headerRow, "Area do Solicitante");
+
+    if(!colId || !colStatus || !colFase || !colArea){
+      throw new Error(`A planilha "${file.name}" não tem as colunas esperadas (ID, Status, Fase Atual, Área do Solicitante). Verifique se é o arquivo certo.`);
+    }
+
+    rows.forEach(r=>{
+      const status = String(r[colStatus]||"").trim().toLowerCase();
+      const area = String(r[colArea]||"").trim();
+      if(status !== "ativo") return;
+      if(!AREAS_PERMITIDAS.includes(area)) return;
+      linhas.push({
+        idDm: String(r[colId]||"").trim(),
+        titulo: String(r[colTitulo]||"").trim(),
+        status: String(r[colFase]||"").trim(),
+        criadoEm: dataBRparaISO(r[colCriadoEm]),
+        solicitante: String(r[colSolic]||"").trim(),
+        board: sistema
+      });
+    });
+  }
+
+  if(!linhas.length){
+    throw new Error("Nenhuma linha passou nos filtros (Status = Ativo + Área do Solicitante permitida). Confira as planilhas selecionadas.");
+  }
+
+  const header = ["ID","Título","Fase Atual","Criado em","Solicitante","Sistema"];
+  const csvLines = [header.join(";")];
+  linhas.forEach(l=>{
+    csvLines.push([l.idDm,l.titulo,l.status,l.criadoEm,l.solicitante,l.board].map(csvField).join(";"));
+  });
+  return { csvText: csvLines.join("\n"), total: linhas.length };
+}
+
+document.getElementById("importChooseXlsx").addEventListener("click", ()=>{
+  document.getElementById("importXlsxFileInput").click();
+});
+
+document.getElementById("importXlsxFileInput").addEventListener("change", async (e)=>{
+  const files = Array.from(e.target.files);
+  e.target.value = "";
+  if(!files.length) return;
+
+  const token = ghGetToken();
+  if(!token){ showImportStep("Token"); return; }
+
+  showImportStep("Progress");
+  document.getElementById("importProgressText").textContent = "Lendo e consolidando as planilhas...";
+
+  try{
+    const { csvText, total } = await processarImportacaoXlsx(files);
+    const confirmMsg = `${total} demandas ativas encontradas (após os filtros). Importar como novo dados.csv?`;
+    if(!window.confirm(confirmMsg)){ showImportStep("File"); return; }
+    await uploadDadosCsvToGitHub(csvText, `${total} demandas consolidadas e importadas com sucesso!`);
+  }catch(err){
+    console.error("Erro ao consolidar planilhas:", err);
+    document.getElementById("importErrorText").textContent = err.message || "Erro ao processar as planilhas.";
+    showImportStep("Error");
+  }
+});
+
+document.getElementById("importChooseFile").addEventListener("click", ()=>{
+  document.getElementById("importFileInput").click();
+});
+
+document.getElementById("importFileInput").addEventListener("change", async (e)=>{
+  const file = e.target.files[0];
+  e.target.value = ""; // permite selecionar o mesmo arquivo de novo depois
+  if(!file) return;
+
+  const token = ghGetToken();
+  if(!token){ showImportStep("Token"); return; }
+
+  const confirmMsg = `Importar "${file.name}" como novo dados.csv?\n\nO dados.csv atual será salvo automaticamente como dados_anterior.csv antes.`;
+  if(!window.confirm(confirmMsg)) return;
+
+  const newContent = await file.text();
+  const lineCount = newContent.split(/\r?\n/).filter(l=>l.trim()!=="").length;
+  if(lineCount < 2){
+    showImportStep("Error");
+    document.getElementById("importErrorText").textContent = "O arquivo parece vazio ou só tem o cabeçalho. Verifique o CSV exportado.";
+    return;
+  }
+  await uploadDadosCsvToGitHub(newContent, `"${file.name}" importado com sucesso!`);
 });
 
 document.getElementById("refreshBtn").addEventListener("click", async ()=>{
