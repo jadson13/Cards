@@ -1,4 +1,4 @@
-﻿ID;Título;Fase Atual;Criado em;Solicitante;Sistema
+ID;Título;Fase Atual;Criado em;Solicitante;Sistema
 #18862;[24421] Inclusão de eventos e origens faltantes na parametrização do Scorecard (Performance);Concluído;2026-05-18;Stefane Cordeiro;DMCenter
 #19881;[24532] Inconsistência no status do condutor no Módulo de Performance;Concluído;2026-05-21;Lidiane Fortunato;DMCenter
 #23698;[25104]  Usuários sem acesso ao produto no App Demarco;Concluído;2026-06-08;Larice Nunes;DMCenter
@@ -18,7 +18,7 @@
 #35762;Erro - Usuário sem visualização dos menus do Frota Legal;Concluído;2026-07-28;Thayná Santos;DMCenter
 #35513;[27103] Novos ambientes Frota Legal - Citrosuco;Concluído;2026-07-27;Gabriela Correa;DMCenter
 #40279;Retirar trava de bloqueio definitivo no momento do expurgo via telemetria;Caixa de Entrada;2026-08-08;Stefane Cordeiro;DMCenter
-#40491;API – Disponibilização de eventos da Operação Secundária  ;Caixa de Entrada;2026-08-10;Gabriela Correa;DMCenter
+#40491;API – Disponibilização de eventos da Operação Secundária;Caixa de Entrada;2026-08-10;Gabriela Correa;DMCenter
 #33704;Consulta prontuário exibe vencimento CNH indevido;Caixa de Entrada;2026-07-20;Sabrina Alcântara;DMCenter
 #28787;Integração via API entre G-Info e Gente e Gestão para Eventos GSD de Ajudantes;Caixa de Entrada;2026-07-01;Fernanda Mariante;DMCenter
 #23090;Desenvolvimento de API para integração com Pater Logística (consulta de prontuário);Caixa de Entrada;2026-06-03;Sabrina Alcântara;DMCenter
