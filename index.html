@@ -540,6 +540,7 @@ table.dm-table{width:100%;border-collapse:collapse;font-size:12.8px;}
     </button>
     <input type="file" id="importFileInput" accept=".csv" style="display:none;">
     <input type="file" id="importXlsxFileInput" accept=".xlsx" multiple style="display:none;">
+    <input type="file" id="importDmtaskFileInput" accept=".csv" style="display:none;">
     <button class="icon-btn" id="refreshBtn" data-tip="Atualizar dados" aria-label="Atualizar dados">
       <i class="fa-solid fa-rotate"></i>
     </button>
@@ -758,6 +759,17 @@ table.dm-table{width:100%;border-collapse:collapse;font-size:12.8px;}
         <span style="font-size:10.5px;color:var(--text-muted);">ou</span>
         <div style="flex:1;height:1px;background:var(--border-subtle);"></div>
       </div>
+      <button class="btn-clear" id="importChooseDmtask" style="width:100%;justify-content:center;">
+        <i class="fa-solid fa-database"></i> Importar planilha DmTask (Correções e Ajustes)
+      </button>
+      <p style="font-size:11px;color:var(--text-muted);line-height:1.5;margin:8px 0 0;">
+        Filtra Arquivado = Não, converte e-mail em nome e soma ao que já está no dashboard como sistema "DmTask (legado)".
+      </p>
+      <div style="display:flex;align-items:center;gap:10px;margin:14px 0;">
+        <div style="flex:1;height:1px;background:var(--border-subtle);"></div>
+        <span style="font-size:10.5px;color:var(--text-muted);">ou</span>
+        <div style="flex:1;height:1px;background:var(--border-subtle);"></div>
+      </div>
       <button class="btn-clear" id="importChooseFile" style="width:100%;justify-content:center;">
         <i class="fa-solid fa-file-arrow-up"></i> Importar um dados.csv já pronto
       </button>
@@ -815,6 +827,7 @@ const STATUS_CONFIG = {
   "Aguardando informações":      { color:"var(--status-aguardando)",   bg:"var(--status-aguardando-bg)",   icon:"fa-hourglass-half" },
   "Em Análise":                  { color:"var(--status-analise)",      bg:"var(--status-analise-bg)",      icon:"fa-magnifying-glass-chart" },
   "Pronto para Desenvolvimento": { color:"var(--status-pronto)",       bg:"var(--status-pronto-bg)",       icon:"fa-bolt" },
+  "Pronto para Atuar":           { color:"var(--status-pronto)",       bg:"var(--status-pronto-bg)",       icon:"fa-hand-pointer" },
   "Em Desenvolvimento":          { color:"var(--status-andamento)",    bg:"var(--status-andamento-bg)",    icon:"fa-spinner" },
   "Revisão de Código":           { color:"var(--status-revisao)",      bg:"var(--status-revisao-bg)",      icon:"fa-code-branch" },
   "Teste QA":                    { color:"var(--status-descontinuado)",bg:"var(--status-descontinuado-bg)",icon:"fa-vial" },
@@ -827,7 +840,7 @@ const STATUS_CONFIG = {
 };
 const KANBAN_COLUMNS = [
   "Caixa de Entrada","Backlog de Ideias","Aguardando informações","Em Análise",
-  "Pronto para Desenvolvimento","Em Desenvolvimento","Revisão de Código","Teste QA",
+  "Pronto para Desenvolvimento","Pronto para Atuar","Em Desenvolvimento","Revisão de Código","Teste QA",
   "Correção Reprovados","Reprovados","Validação Produção","Pronto Para Publicar",
   "Impedimento","Concluído"
 ];
@@ -948,6 +961,7 @@ KNOWN_STATUSES_NORMALIZED[normalizeHeader("Concluído ou Descontinuado")] = "Con
 KNOWN_STATUSES_NORMALIZED[normalizeHeader("Concluido ou Descontinuado")] = "Concluído";
 KNOWN_STATUSES_NORMALIZED[normalizeHeader("Descontinuado")] = "Concluído";
 KNOWN_STATUSES_NORMALIZED[normalizeHeader("Concluído | Descontinuado")] = "Concluído";
+KNOWN_STATUSES_NORMALIZED[normalizeHeader("Backlog")] = "Backlog de Ideias";
 
 function normalizeStatusValue(raw){
   const norm = normalizeHeader(String(raw||""));
@@ -1935,6 +1949,119 @@ document.getElementById("importXlsxFileInput").addEventListener("change", async 
   }catch(err){
     console.error("Erro ao consolidar planilhas:", err);
     document.getElementById("importErrorText").textContent = err.message || "Erro ao processar as planilhas.";
+    showImportStep("Error");
+  }
+});
+
+/* ---------------------------------------------------------------
+   15c. IMPORTAR PLANILHA DMTASK (Correções e Ajustes) — sistema legado
+   Layout: ID;Tarefa;Detalhes;Board;Data;Solicitante;FaseAtual;
+           DataFaseAtual;Prioridade;Arquivado;Avaliacao;AvaliacaoComentario;Categoria
+   Filtra Arquivado != True, converte e-mail em nome, marca Sistema
+   como "DmTask (legado)" e SOMA ao que já está carregado no
+   dashboard (não substitui os outros sistemas).
+   --------------------------------------------------------------- */
+const DMTASK_SISTEMA_LABEL = "DmTask (legado)";
+
+function emailParaNome(email){
+  const local = String(email||"").split("@")[0];
+  if(!local) return String(email||"").trim();
+  return local.split(/[._]+/).filter(Boolean)
+    .map(p => p.charAt(0).toUpperCase() + p.slice(1).toLowerCase())
+    .join(" ");
+}
+
+function isoDatetimeParaData(dt){
+  const s = String(dt||"").trim();
+  const m = s.match(/^(\d{4}-\d{2}-\d{2})/);
+  return m ? m[1] : s;
+}
+
+function buildCsvFromItems(items){
+  const header = ["ID","Título","Fase Atual","Criado em","Solicitante","Sistema"];
+  const lines = [header.join(";")];
+  items.forEach(i=>{
+    lines.push([i.idDm,i.titulo,i.status,i.criadoEm,i.solicitante,i.board].map(csvField).join(";"));
+  });
+  return lines.join("\n");
+}
+
+function parseDmtaskCsv(file){
+  return new Promise((resolve,reject)=>{
+    Papa.parse(file, {
+      header:true,
+      skipEmptyLines:true,
+      delimiter:";",
+      complete: (result)=>resolve(result.data),
+      error: (err)=>reject(err)
+    });
+  });
+}
+
+async function processarImportacaoDmtask(file){
+  const rows = await parseDmtaskCsv(file);
+  if(!rows.length) throw new Error("O arquivo está vazio.");
+
+  const headerRow = Object.keys(rows[0]);
+  const colId = headerRow.find(h=>h.trim().toLowerCase()==="id");
+  const colTarefa = headerRow.find(h=>h.trim().toLowerCase()==="tarefa");
+  const colData = headerRow.find(h=>h.trim().toLowerCase()==="data");
+  const colSolic = headerRow.find(h=>h.trim().toLowerCase()==="solicitante");
+  const colFase = headerRow.find(h=>h.trim().toLowerCase()==="faseatual");
+  const colArquivado = headerRow.find(h=>h.trim().toLowerCase()==="arquivado");
+
+  if(!colId || !colTarefa || !colFase || !colArquivado){
+    throw new Error('Colunas esperadas não encontradas (ID, Tarefa, FaseAtual, Arquivado). Verifique se é o arquivo certo.');
+  }
+
+  const items = [];
+  rows.forEach(r=>{
+    const arquivado = String(r[colArquivado]||"").trim().toLowerCase();
+    if(arquivado === "true") return; // só itens não arquivados (equivalente a "ativo")
+    if(!String(r[colId]||"").trim()) return;
+    items.push({
+      idDm: "#"+String(r[colId]).trim(),
+      titulo: String(r[colTarefa]||"").trim(),
+      status: normalizeStatusValue(String(r[colFase]||"").trim()),
+      criadoEm: isoDatetimeParaData(r[colData]),
+      solicitante: emailParaNome(r[colSolic]),
+      board: DMTASK_SISTEMA_LABEL
+    });
+  });
+
+  if(!items.length) throw new Error("Nenhuma linha não-arquivada encontrada no arquivo.");
+  return items;
+}
+
+document.getElementById("importChooseDmtask").addEventListener("click", ()=>{
+  document.getElementById("importDmtaskFileInput").click();
+});
+
+document.getElementById("importDmtaskFileInput").addEventListener("change", async (e)=>{
+  const file = e.target.files[0];
+  e.target.value = "";
+  if(!file) return;
+
+  const token = ghGetToken();
+  if(!token){ showImportStep("Token"); return; }
+
+  showImportStep("Progress");
+  document.getElementById("importProgressText").textContent = "Lendo e convertendo a planilha DmTask...";
+
+  try{
+    const dmtaskItems = await processarImportacaoDmtask(file);
+    // remove uma eventual importação anterior do DmTask (evita duplicar em reimportações)
+    const semDmtaskAntigo = DATA.filter(i => i.board !== DMTASK_SISTEMA_LABEL);
+    const merged = semDmtaskAntigo.concat(dmtaskItems);
+
+    const confirmMsg = `${dmtaskItems.length} demandas do DmTask (não arquivadas) encontradas.\n\nElas serão somadas às ${semDmtaskAntigo.length} demandas já carregadas dos outros sistemas, totalizando ${merged.length}. Continuar?`;
+    if(!window.confirm(confirmMsg)){ showImportStep("File"); return; }
+
+    const csvText = buildCsvFromItems(merged);
+    await uploadDadosCsvToGitHub(csvText, `${dmtaskItems.length} demandas do DmTask importadas e somadas com sucesso (total: ${merged.length}).`);
+  }catch(err){
+    console.error("Erro ao importar DmTask:", err);
+    document.getElementById("importErrorText").textContent = err.message || "Erro ao processar o arquivo DmTask.";
     showImportStep("Error");
   }
 });
