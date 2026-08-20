@@ -60,6 +60,8 @@
 #34500;[26822][Migração] Ajuste da Pontuação Ponderada;Em Desenvolvimento;2026-07-23;Stefane Cordeiro;DMCenter
 #18824;Faixa Roxa: manter bloqueio de condutores no Módulo de Performance;Em Análise;2026-05-18;Lais Barbosa;DMCenter
 #42734;Ajuste na pontuação dos colaboradores;Em Análise;2026-08-14;Gabriel Costa;DMCenter
+#44403;Erro Status - Prontuário Frota Legal;Caixa de Entrada;2026-08-19;Thaís Neves;Frota Legal
+#41659;Erro Plano de Ação - Tela em Branco ;Em Análise;2026-08-12;Marques Pereira;Frota Legal
 #21356;[24769]  Na Parametrização de Eventos de Telemetria -  Falha na Edição e Inclusão da Atividade;Reprovados;2026-05-28;Sabrina Alcântara;Frota Legal
 #32862;[26608] Mônaco: Integração consulta condutores inativos e dentro da periodicidade bimestral;Reprovados;2026-07-16;Gabriela Correa;Frota Legal
 #24332;[25266] GR não retorna resultados no Frota Legal;Reprovados;2026-06-10;Adriele Ribeiro;Frota Legal
@@ -68,11 +70,15 @@
 #28985;[25961] Mônaco: tentativas falhas registradas como consulta + coluna Retorno Consulta CNH;Pronto Para Publicar;2026-07-01;Thayná Santos;Frota Legal
 #32632;[26501] Retorno da consulta CNH exibe dados do fornecedor anterior após migração para Mônaco;Pronto Para Publicar;2026-07-15;Thayná Santos;Frota Legal
 #13221;[23451] Duplicidade no registro de Consulta de CNH;Descontinuado;2026-04-15;Thayná Santos;Frota Legal
+#24404;[25264] Falha na qualificação automática de condutores e veículos - Retorno Card #20697;Concluído;2026-06-11;Marques Pereira;Frota Legal
+#26290;[25499] FURACÃO | Validação incorreta de vencimento de documentos (antecipação indevida);Concluído;2026-06-19;Marques Pereira;Frota Legal
 #18234;[24357] APP Demarco | Ícone 'Frota Legal' redireciona usuário para fora do aplicativo;Concluído;2026-05-13;Gabrielle Andrade;Frota Legal
 #20856;[24674] aplicativo não reconhece vínculo de condutor com cliente e bloqueia acesso.;Concluído;2026-05-26;Larice Nunes;Frota Legal
 #23984;[25194] Erro Seleção de idiomas;Concluído;2026-06-09;Hannah Moreira;Frota Legal
 #14954;[23729] Inconsistências e erros na tela de consulta de consumo de CNH;Concluído;2026-04-27;Hannah Moreira;Frota Legal
+#22374;[24897] APP DEMARCO | Paginação de Itens NOK limita resultados e oculta equipamentos com pendências;Concluído;2026-06-01;Marques Pereira;Frota Legal
 #21323;[24770] | Divergência de data/hora na inspeção entre histórico e exportações;Concluído;2026-05-28;Gabrielle Andrade;Frota Legal
+#24196;[25090] Sistema não conclui cadastro de unidades e impede criação de novos registros;Concluído;2026-06-10;Marques Pereira;Frota Legal
 #24067;[25090] Erro ao excluir unidade no frota legal;Concluído;2026-06-09;Adriele Ribeiro;Frota Legal
 #23181;[25090] Erro ao cadastrar e excluir unidade de transportadora;Concluído;2026-06-05;Thais Oliveira;Frota Legal
 #22841;[24960]APP DEMARCO | Checklist Pré-Uso do motorista não é exibido corretamente no aplicativo Demarco;Concluído;2026-06-03;Maike Silva;Frota Legal
@@ -94,18 +100,25 @@
 #17197;[24258] Falha ao cadastrar data da última preventiva no APP Demarco;Concluído;2026-05-08;Lilian Rodrigues;Frota Legal
 #10076;#22793 - ERRO: Sistema não permite remover vínculo de transportador dos usuários;Concluído;2026-03-24;Adriele Ribeiro;Frota Legal
 #13524;[23519] Tela de validações não exibe inspeções para nenhum cliente;Concluído;2026-04-16;Hannah Moreira;Frota Legal
+#13276;[23461] Falha no envio de token impede login no sistema;Concluído;2026-04-15;Marques Pereira;Frota Legal
 #11601;#23111- ERRO: Mensagem de 'Usuário/Senha inválidos' no APP mesmo com dados corretos;Concluído;2026-04-02;Gabrielle Andrade;Frota Legal
 #10329;[23005] [OpenTech] Falha na Integração com a Opentech mantém condutores bloqueados;Concluído;2026-03-26;Gabriel Costa;Frota Legal
+#12098;#23244 - ERRO: Inspeções via APP não estão sendo refletidas no sistema;Concluído;2026-04-07;Marques Pereira;Frota Legal
 #12061;#23142 - Erro APP Demarco - Gerenciamento de Inspeções por Perfil;Concluído;2026-04-07;Thayná Santos;Frota Legal
+#11054;#23030 - ERRO: Reprovação de ART ignora histórico válido e bloqueia veículos;Concluído;2026-03-31;Marques Pereira;Frota Legal
 #10184;#22910 - ERRO: Validade da CNH do condutor sendo alterada indevidamente após consulta;Concluído;2026-03-25;Thayná Santos;Frota Legal
 #10296;#23006 - ERRO: Falha na integração Agropecuária e Secundária impede registro de eventos;Concluído;2026-03-26;Adriele Ribeiro;Frota Legal
 #13541;[23523] Desvios de Operação secundária em colaboradores da Primária;Concluído;2026-04-16;Thais Oliveira;Frota Legal
+#19219;[24440] justificativa de itens NOK no app não libera equipamento no sistema web;Concluído;2026-05-19;Marques Pereira;Frota Legal
 #26657;[25520] APP Demarco encerra durante inspeção causando perda de dados;Concluído;2026-06-22;Maike Silva;Frota Legal
 #23641;[25092] DMCenter - Não recebimento de Alertas;Concluído;2026-06-08;Lilian Rodrigues;Frota Legal
 #20697;[24640 / 25264][FURACÃO] ERRO - Falha na qualificação automática de condutores e veículos;Concluído;2026-05-26;Hannah Moreira;Frota Legal
 #27480;[25727] FURACÃO - divergência entre GR e Opentech mantém condutor bloqueado indevidamente;Concluído;2026-06-24;Thais Oliveira;Frota Legal
 #22831;[24956] Documentos sem validação obrigatória são enviados indevidamente para fluxo de validação;Concluído;2026-06-03;Hannah Moreira;Frota Legal
 #29836;[26157] Envio de SMS de primeiro acesso não é realizado e impede login de condutores;Concluído;2026-07-06;Maike Silva;Frota Legal
+#16667;[24057] Inspeções via APP não estão sendo refletidas no sistema;Concluído;2026-05-06;Marques Pereira;Frota Legal
+#19356;[24467] sistema exibe documentos N/A como NOK gerando alertas indevidos;Concluído;2026-05-20;Marques Pereira;Frota Legal
+#29886;[26148] Plano de Ação não carrega e exibe mensagem invalid_scope no ambiente GFL;Concluído;2026-07-06;Thaís Neves;Frota Legal
 #28847;[25944] Sistema não permite salvar novo condutor exibindo mensagem genérica de erro;Concluído;2026-07-01;Larice Nunes;Frota Legal
 #19976;[24533] Divergência na visualização de eventos entre usuários (Grupo Vyas);Concluído;2026-05-22;Daniel Souza;Frota Legal
 #28977;[25965] Mônaco - Correção na persistência de dados de CNH pós exclusão e recadastramento de condutor;Concluído;2026-07-01;Thayná Santos;Frota Legal
@@ -113,6 +126,7 @@
 #38738;[27361] Erro | Bloqueio por 'restrição de CNH' indevido;Concluído;2026-08-05;Gabrielle Andrade;Frota Legal
 #37622;[27345] App reinicia ao capturar foto obrigatória do checklist Pré-Uso;Correção Reprovados;2026-08-03;Gabrielle Andrade;Frota Legal
 #16865;[24073] APP bloqueia inspeção alegando falta de acesso ao equipamento;Impedimento;2026-05-06;Larice Nunes;Frota Legal
+#17199;[24257] Tela de treinamentos não exibe dados na listagem;Revisão de Código;2026-05-08;Marques Pereira;Frota Legal
 #18663;[24409] Atribuição indevida de eventos para colaboradores com cargo de ajudante;Revisão de Código;2026-05-15;Thais Oliveira;Frota Legal
 #14168;[23592] Falha na integração Openteh: dados desatualizados;Revisão de Código;2026-04-20;Lidiane Fortunato;Frota Legal
 #22950;[24977] Nome da unidade não atualiza nos transportadores após alteração do cadastro;Revisão de Código;2026-06-03;Hannah Moreira;Frota Legal
@@ -128,15 +142,20 @@
 #29986;[26161] Usuário sem permissão para acessar cliente no App Demarco;Pronto para Desenvolvimento;2026-07-06;Maike Silva;Frota Legal
 #32629;[26502] Consulta automática de CNH não é disparada para novos condutores cadastrados;Pronto para Desenvolvimento;2026-07-15;Thayná Santos;Frota Legal
 #38287;[27346] Histórico do condutor omite detalhe de ocorrência e tratativa;Pronto para Desenvolvimento;2026-08-04;Thayná Santos;Frota Legal
+#38078;[27349] Checklist Mobilização aprovado permanece pendente no equipamento;Pronto para Desenvolvimento;2026-08-04;Marques Pereira;Frota Legal
 #41248;[27553]  Checklist concluído no App não registra no App e Web;Pronto para Desenvolvimento;2026-08-11;Maike Silva;Frota Legal
 #30488;Melhoria - Criação de Tela de Transferência de Veículos e Condutores;Backlog de Ideias;2026-07-07;Thayná Santos;Frota Legal - Projetos
 #30349;Melhoria - Parametrização do Gatilho de Desbloqueio de Veículos por Inspeção;Backlog de Ideias;2026-07-07;Thayná Santos;Frota Legal - Projetos
 #30298;"Melhoria - Inclusão do campo ""Status"" nas exportações de PDF e Excel de Inspeções";Backlog de Ideias;2026-07-07;Thayná Santos;Frota Legal - Projetos
 #28973;Ajuste na lógica de registro de consulta de CNH (Prevenção de Falsos Positivos);Backlog de Ideias;2026-07-01;Thayná Santos;Frota Legal - Projetos
 #25106;"Ajuste Dados Avulsos Checklist - Criar opção ""Item Obrigatório""";Backlog de Ideias;2026-06-15;Hannah Moreira;Frota Legal - Projetos
+#18843;Incluir o CPF no relatório da aba de treinamentos ;Backlog de Ideias;2026-05-18;Marques Pereira;Frota Legal - Projetos
+#30821;BI Analytics – Adequação ao CNPJ Alfanumérico | Bateria de Testes Gerdau;Backlog de Ideias;2026-07-08;Thaís Neves;Frota Legal - Projetos
 #33039;Exclusão em Massa de tipo de ocorrência - G. Vyas;Backlog de Ideias;2026-07-17;Hannah Moreira;Frota Legal - Projetos
+#39651;Disponibilização dos campos Marca e Modelo para todos os tipos de equipamentos e veículos;Backlog de Ideias;2026-08-06;Marques Pereira;Frota Legal - Projetos
 #42018;Inclusão de pop-up na tela inicial do Frota Legal para alerta de pendências dos usuários;Backlog de Ideias;2026-08-13;Gabriela Correa;Frota Legal - Projetos
 #28564;#25884 - Melhoria - Ativação de Integração Mônaco [DMGateway];Concluído | Descontinuado;2026-06-30;Thayná Santos;Frota Legal - Projetos
+#30794;Adequação ao CNPJ Alfanumérico | Bateria de Testes Gerdau - TI ;Concluído | Descontinuado;2026-07-08;Thaís Neves;Frota Legal - Projetos
 #29000;#26096 - Inclusão de empresa MARVEL na API da Onisys no Frota Legal;Concluído | Descontinuado;2026-07-01;Thais Oliveira;Frota Legal - Projetos
 #36706;Erro | APP reinicia ao tentar capturar as fotos obrigatórias do checklist Pré - uso;Concluído | Descontinuado;2026-07-31;Gabrielle Andrade;Frota Legal - Projetos
 #29166;"#26116 - Melhoria no módulo ""Documentos""";Em Desenvolvimento;2026-07-02;Gabriela Correa;Frota Legal - Projetos
