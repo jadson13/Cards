@@ -1,605 +1,143 @@
-ID_DM;ID_AZURE;Título;Board;Status;Solicitante;Sistema
-#32813;;Falha na integração de eventos Agropecuária e Secundária;DMCenter, Gateway e Performance - Correções e Melhorias;Em Análise;Adriele Ribeiro;DMNOW
-#12633;23350;Erro na tela de Consulta e Qualificação de colaboradores;DMCenter, Gateway e Performance - Correções e Melhorias;Pronto para Desenvolvimento;Thais Oliveira;DMNOW
-#13993;23580;Inclusão da integração Onisys Marfrig no DMPerformance;DMCenter, Gateway e Performance - Correções e Melhorias;Pronto para Desenvolvimento;Sabrina Alcântara;DMNOW
-#13352;23483;Condutores em Faixa Preta com pontuação superior a 0 pontos;DMCenter, Gateway e Performance - Correções e Melhorias;Pronto para Desenvolvimento;Gabriel Costa;DMNOW
-#10285;23001;Documentos vencidos não constam no alerta;DMCenter, Gateway e Performance - Correções e Melhorias;Pronto para Desenvolvimento;Lidiane Fortunato;DMNOW
-#23090;25137;Desenvolvimento de API para integração com Pater Logística (consulta de prontuário);DMCenter, Gateway e Performance - Correções e Melhorias;Pronto para Desenvolvimento;Sabrina Alcântara;DMNOW
-#22039;24906;Alertas incorretos de documentos vencidos (falha na sincronização DMPeople → DMPerformance);DMCenter, Gateway e Performance - Correções e Melhorias;Pronto para Desenvolvimento;Thais Abreu;DMNOW
-#28787;25960;Integração via API entre G-Info e Gente e Gestão para Eventos GSD de Ajudantes;DMCenter, Gateway e Performance - Correções e Melhorias;Pronto para Desenvolvimento;Fernanda Mariante;DMNOW
-#30085;26225;Divergência de Faixa do Condutor entre Sistema e Relatórios;DMCenter, Gateway e Performance - Correções e Melhorias;Pronto para Desenvolvimento;Gabriel Costa;DMNOW
-#23183;25139;Colaborador demitido permanece com status ativo no Módulo de Performance;DMCenter, Gateway e Performance - Correções e Melhorias;Pronto para Desenvolvimento;Gabriel Costa;DMNOW
-#23705;25091;Exposição indevida de todos os clientes para usuários Demarco no Frota Legall;DMCenter, Gateway e Performance - Correções e Melhorias;Pronto para Desenvolvimento;Hannah Moreira;DMNOW
-#27316;25761;Inconsistência nos Alertas de Documentos Vencidos;DMCenter, Gateway e Performance - Correções e Melhorias;Pronto para Desenvolvimento;Thais Oliveira;DMNOW
-#24320;25210;Possível falha na integração de telemetria;DMCenter, Gateway e Performance - Correções e Melhorias;Pronto para Desenvolvimento;Adriele Ribeiro;DMNOW
-#22948;25134;Correção de nomenclatura de faixa na tela de consulta;DMCenter, Gateway e Performance - Correções e Melhorias;Pronto para Desenvolvimento;Thais Oliveira;DMNOW
-#25480;25496;Integração via API entre G‑Info e Módulo de Performance (GSD Ajudante);DMCenter, Gateway e Performance - Correções e Melhorias;Pronto para Desenvolvimento;Stefane Cordeiro;DMNOW
-#27827;25888;Falha Intermitente no Upload de Eventos do Módulo de Performance;DMCenter, Gateway e Performance - Correções e Melhorias;Pronto para Desenvolvimento;Adriele Ribeiro;DMNOW
-#22771;24941;Divergência de Quantidade de Eventos entre Módulo de Performance e Relatório;DMCenter, Gateway e Performance - Correções e Melhorias;Pronto para Desenvolvimento;Adriele Ribeiro;DMNOW
-#11566;23171;Condutor com dois prontuários ativos no Módulo de Performance;DMCenter, Gateway e Performance - Correções e Melhorias;Pronto para Desenvolvimento;Lidiane Fortunato;DMNOW
-#28798;25957;Condutores Permanecem em Faixa Verde Após Virada de Trimestre;DMCenter, Gateway e Performance - Correções e Melhorias;Pronto para Desenvolvimento;Thais Oliveira;DMNOW
-#28938;25959;Falha na Integração e Processamento das Entrevistas de Fadiga e Mudança de Faixa;DMCenter, Gateway e Performance - Correções e Melhorias;Pronto para Desenvolvimento;Gabriela Correa;DMNOW
-#32444;22648;Eventos duplicados nas integrações da Agropecuária e Secundária;DMCenter, Gateway e Performance - Correções e Melhorias;Pronto para Desenvolvimento;Luisa Ferreira;DMNOW
-#32414;22202;Consulta do Prontuário cobra PQE indevido para Manobrista;DMCenter, Gateway e Performance - Correções e Melhorias;Pronto para Desenvolvimento;Adriele Ribeiro;DMNOW
-#28990;26131;Inclusão da Coluna “Quantidade” no Relatório de Mudança de Faixas;DMCenter, Gateway e Performance - Correções e Melhorias;Pronto para Desenvolvimento;Guilherme Silva;DMNOW
-#27785;26394;Admissão cancelada segue ativa e bloqueia indevidamente novo vínculo;DMCenter, Gateway e Performance - Correções e Melhorias;Pronto para Desenvolvimento;Gabriela Correa;DMNOW
-#32045;26749;Inativação no Frota remove usuário da lista e impede reativação;DMCenter, Gateway e Performance - Correções e Melhorias;Pronto para Desenvolvimento;Gabrielle Andrade;DMNOW
-#32936;26721;Liberação automática de condutor não ocorre após fim de afastamento;DMCenter, Gateway e Performance - Correções e Melhorias;Pronto para Desenvolvimento;Sabrina Alcântara;DMNOW
-#10279;23000;Dashboard omite eventos históricos GeG do colaborador;DMCenter, Gateway e Performance - Correções e Melhorias;Pronto para Desenvolvimento;Sabrina Alcântara;DMNOW
-#33704;26750;Consulta prontuário exibe vencimento CNH indevido;DMCenter, Gateway e Performance - Correções e Melhorias;Pronto para Desenvolvimento;Sabrina Alcântara;DMNOW
-#34122;26763;Colaborador demitido permanece Ativo no módulo Performance;DMCenter, Gateway e Performance - Correções e Melhorias;Pronto para Desenvolvimento;Gabriel Costa;DMNOW
-#33862;26757;Histórico de faixas no BD com nomenclatura desatualizada;DMCenter, Gateway e Performance - Correções e Melhorias;Pronto para Desenvolvimento;Sabrina Alcântara;DMNOW
-#32403;21849;Ajuste no modelo de integração do DMPeople com o SAP — necessidade envio completo de status;DMCenter, Gateway e Performance - Correções e Melhorias;Pronto para Desenvolvimento;Luisa Ferreira;DMNOW
-#32408;23174;Desativação do alerta de CNH para transportadoras;DMCenter, Gateway e Performance - Correções e Melhorias;Pronto para Desenvolvimento;Luisa Ferreira;DMNOW
-#32416;22128; [22128] Evento autorizado não aparece no módulo para expurgo;DMCenter, Gateway e Performance - Correções e Melhorias;Pronto para Desenvolvimento;Luisa Ferreira;DMNOW
-#32412;21793; [21793] Inconsistência nos horários e quantidades de eventos integrados via API Onisys;DMCenter, Gateway e Performance - Correções e Melhorias;Pronto para Desenvolvimento;Luisa Ferreira;DMNOW
-#32418;22290;Solicitação de acesso via API a dados de Rotina Diária da Operação Agropecuária;DMCenter, Gateway e Performance - Correções e Melhorias;Pronto para Desenvolvimento;Luisa Ferreira;DMNOW
-#32435;22652;Divergência de cargo exibido no prontuário do condutor;DMCenter, Gateway e Performance - Correções e Melhorias;Pronto para Desenvolvimento;Luisa Ferreira;DMNOW
-#32438;22656;Eventos atribuídos com horário divergente no Módulo de Performance;DMCenter, Gateway e Performance - Correções e Melhorias;Pronto para Desenvolvimento;Luisa Ferreira;DMNOW
-#33295;26725;Cadastro de cliente no DMCenter marca todos sistemas e falha ao salvar;DMCenter, Gateway e Performance - Correções e Melhorias;Pronto para Desenvolvimento;Hannah Moreira;DMNOW
-#37724;27297;[Migração] Importação CNH com Observação não bloqueia condutor;DMCenter, Gateway e Performance - Correções e Melhorias;Pronto para Desenvolvimento;Stefane Cordeiro;DMNOW
-#38013;27296;Cadastro de usuário administrador falha ao salvar no DMCenter;DMCenter, Gateway e Performance - Correções e Melhorias;Pronto para Desenvolvimento;Hannah Moreira;DMNOW
-#36095;27132;Nome de colaborador demitido corrigido não reflete no Performance;DMCenter, Gateway e Performance - Correções e Melhorias;Pronto para Desenvolvimento;Gabriel Costa;DMNOW
-#18824;24434;Faixa Roxa: manter bloqueio de condutores no Módulo de Performance;DMCenter, Gateway e Performance - Correções e Melhorias;Em Desenvolvimento;Lais Barbosa;DMNOW
-#34500;26822;[Migração] Ajuste da Pontuação Ponderada;DMCenter, Gateway e Performance - Correções e Melhorias;Em Desenvolvimento;Stefane Cordeiro;DMNOW
-#24564;25285;Usuário inativo no DMCenter impedindo acesso aos sistemas;DMCenter, Gateway e Performance - Correções e Melhorias;Revisão de Código;Hannah Moreira;DMNOW
-#32449;22221;Solicitação de acesso via API a dados de motoristas da Agropecuária;DMCenter, Gateway e Performance - Correções e Melhorias;Validação Produção;Luisa Ferreira;DMNOW
-#13027;23392;Inclusão do número de telefone e e-mail do colaborador na API de colaboradores;DMCenter, Gateway e Performance - Correções e Melhorias;Validação Produção;João Zeferino;DMNOW
-#10178;22998;Divergência entre a quantidade de registros dos eventos;DMCenter, Gateway e Performance - Correções e Melhorias;Reprovados;Thais Oliveira;DMNOW
-#31907;26380;Falha na Sincronização de Status entre SAP e DMPerformance;DMCenter, Gateway e Performance - Correções e Melhorias;Reprovados;Adriele Ribeiro;DMNOW
-#21256;;Corrigir cadastro de e-mail no DMCenter;DMCenter, Gateway e Performance - Correções e Melhorias;Concluído;Thais Abreu;DMNOW
-#16946;24223;Inconsistência no envio do token para acesso ao DMPeople e DMAnalytics;DMCenter, Gateway e Performance - Correções e Melhorias;Concluído;Josiani Raissa;DMNOW
-#26897;25767;Falha no Redirecionamento de Acesso ao DMPeople via APP;DMCenter, Gateway e Performance - Correções e Melhorias;Concluído;Thais Oliveira;DMNOW
-#23708;25103;Usuários conseguem logar, mas não possuem acesso às funcionalidades;DMCenter, Gateway e Performance - Correções e Melhorias;Concluído;Hannah Moreira;DMNOW
-#19881;24532;Inconsistência no status do condutor no Módulo de Performance;DMCenter, Gateway e Performance - Correções e Melhorias;Concluído;Lidiane Fortunato;DMNOW
-#24324;25195;Erro de acesso ao clicar em “Entrar” ou ao validar token (Frota Legal);DMCenter, Gateway e Performance - Correções e Melhorias;Concluído;Hannah Moreira;DMNOW
-#11377;23093;Correção de inconsistência na pontuação e desbloqueio de condutores;DMCenter, Gateway e Performance - Correções e Melhorias;Concluído;Gabriela Correa;DMNOW
-#14006;23578;[Furacão] Atualização de dados de condutores após migração SAP S/4HANA;DMCenter, Gateway e Performance - Correções e Melhorias;Concluído;Sabrina Alcântara;DMNOW
-#15040;23738;[FURACÃO] Falha na integração com o SAP gerando bloqueio indevido;DMCenter, Gateway e Performance - Correções e Melhorias;Concluído;Gabriel Costa;DMNOW
-#18862;24421;Inclusão de eventos e origens faltantes na parametrização do Scorecard (Performance);DMCenter, Gateway e Performance - Correções e Melhorias;Concluído;Stefane Cordeiro;DMNOW
-#15366;23869;[FURACÃO]  Necessidade de carga de bases de eventos no Frota Legal e DMPerformance;DMCenter, Gateway e Performance - Correções e Melhorias;Concluído;Sabrina Alcântara;DMNOW
-#18882;;DM People - Falha no acesso;DMCenter, Gateway e Performance - Correções e Melhorias;Concluído;Daniel Souza;DMNOW
-#26238;25495;Inclusão da coluna “Quantidade de Sonolência” no relatório de Situação do Ajudante;DMCenter, Gateway e Performance - Correções e Melhorias;Concluído;Stefane Cordeiro;DMNOW
-#26248;25494;Divergência de cálculo na Pontuação Ponderada (acréscimo de 0,01);DMCenter, Gateway e Performance - Correções e Melhorias;Concluído;Guilherme Silva;DMNOW
-#23698;25104;Usuários sem acesso ao produto no App Demarco;DMCenter, Gateway e Performance - Correções e Melhorias;Concluído;Larice Nunes;DMNOW
-#23746;;ERRO | FALHA NA REUTILIZAÇÃO DE SENHA APÓS LOGOUT - ACESSO APP CONDUTOR;DMCenter, Gateway e Performance - Correções e Melhorias;Concluído;Gabrielle Andrade;DMNOW
-#33690;;Histórico de colaborador incompleto no DMP;DMCenter, Gateway e Performance - Correções e Melhorias;Concluído;Sabrina Alcântara;DMNOW
-#35762;;Erro - Usuário sem visualização dos menus do Frota Legal;DMCenter, Gateway e Performance - Correções e Melhorias;Concluído;Thayná Santos;DMNOW
-#35513;27103;Novos ambientes Frota Legal - Citrosuco;DMCenter, Gateway e Performance - Correções e Melhorias;Concluído;Gabriela Correa;DMNOW
-#32037;26381;Falha no Upload de Planilha de CNH no Módulo de Performance;DMCenter, Gateway e Performance - Correções e Melhorias;Concluído;Guilherme Silva;DMNOW
-#32629;26502;Consulta automática de CNH não é disparada para novos condutores cadastrados;FL - Correções de Bugs;Pronto para Desenvolvimento;Thayná Santos;DMNOW
-#29986;26161;Usuário sem permissão para acessar cliente no App Demarco;FL - Correções de Bugs;Pronto para Desenvolvimento;Maike Silva;DMNOW
-#32126;19213;[MELHORIA] USUARIOS INATIVOS SENDO DELETADOS DA TELA DE USUARIO;FL - Correções de Bugs;Pronto para Desenvolvimento;Luisa Ferreira;DMNOW
-#38287;27346;Histórico do condutor omite detalhe de ocorrência e tratativa;FL - Correções de Bugs;Pronto para Desenvolvimento;Thayná Santos;DMNOW
-#38078;27349;Checklist Mobilização aprovado permanece pendente no equipamento;FL - Correções de Bugs;Pronto para Desenvolvimento;Marques Pereira;DMNOW
-#37622;27345;App reinicia ao capturar foto obrigatória do checklist Pré-Uso;FL - Correções de Bugs;Pronto para Desenvolvimento;Gabrielle Andrade;DMNOW
-#28856;25950;"formato da data ""Última Previsão"" é enviado incorretamente do App para o Frota";FL - Correções de Bugs;Em Desenvolvimento;Lilian Rodrigues;DMNOW
-#18263;24351;Falha na exibição: Usuários ativos não aparecem na tela de consulta;FL - Correções de Bugs;Em Desenvolvimento;Thayná Santos;DMNOW
-#27486;25724;código SMS de validação não é recebido impedindo acesso no Aplicativo Demarco;FL - Correções de Bugs;Em Desenvolvimento;Maike Silva;DMNOW
-#32587;26503;Divergência de hora entre Integração e Histórico da CNH;FL - Correções de Bugs;Em Desenvolvimento;Thayná Santos;DMNOW
-#17199;24257;Tela de treinamentos não exibe dados na listagem;FL - Correções de Bugs;Revisão de Código;Marques Pereira;DMNOW
-#32527;26496;Histórico de consulta CNH exibe data de cadastro do condutor em vez da data real da consulta;FL - Correções de Bugs;Revisão de Código;Thayná Santos;DMNOW
-#14168;23592;Falha na integração Openteh: dados desatualizados;FL - Correções de Bugs;Revisão de Código;Lidiane Fortunato;DMNOW
-#22950;24977;Nome da unidade não atualiza nos transportadores após alteração do cadastro;FL - Correções de Bugs;Revisão de Código;Hannah Moreira;DMNOW
-#18663;24409;Atribuição indevida de eventos para colaboradores com cargo de ajudante;FL - Correções de Bugs;Revisão de Código;Thais Oliveira;DMNOW
-#32642;26493;Importação/exportação de condutores com perda e inconsistência de dados;FL - Correções de Bugs;Revisão de Código;Thayná Santos;DMNOW
-#36149;25285;Erro ao tentar acessar app - martins;FL - Correções de Bugs;Revisão de Código;Larice Nunes;DMNOW
-#35321;27015;FURACÃO - [27015] Condutor liberado no Prontuário e bloqueado na Portaria;FL - Correções de Bugs;Revisão de Código;Thais Oliveira;DMNOW
-#32524;26495;Sistema gera consultas duplicadas de CNH no histórico do condutor;FL - Correções de Bugs;Revisão de Código;Thayná Santos;DMNOW
-#21356;24769;Na Parametrização de Eventos de Telemetria -  Falha na Edição e Inclusão da Atividade;FL - Correções de Bugs;Reprovados;Sabrina Alcântara;DMNOW
-#32862;26608;Mônaco: Integração consulta condutores inativos e dentro da periodicidade bimestral;FL - Correções de Bugs;Reprovados;Gabriela Correa;DMNOW
-#24332;25266;GR não retorna resultados no Frota Legal;FL - Correções de Bugs;Reprovados;Adriele Ribeiro;DMNOW
-#27438;25712;Divergência de datas de ocorrências entre histórico do condutor e relatórios no Frota Legal;FL - Correções de Bugs;Correção Reprovados;Gabrielle Andrade;DMNOW
-#32632;26501;Retorno da consulta CNH exibe dados do fornecedor anterior após migração para Mônaco;FL - Correções de Bugs;Correção Reprovados;Thayná Santos;DMNOW
-#32861;26609;"Falha no envio de Alerta ""Integração CNH com Impedimento"" para o usuário de teste.";FL - Correções de Bugs;Correção Reprovados;Gabriela Correa;DMNOW
-#28985;25961;Mônaco: tentativas falhas registradas como consulta + coluna Retorno Consulta CNH;FL - Correções de Bugs;Correção Reprovados;Thayná Santos;DMNOW
-#22831;24956;Documentos sem validação obrigatória são enviados indevidamente para fluxo de validação;FL - Correções de Bugs;Concluído;Hannah Moreira;DMNOW
-#26657;25520;APP Demarco encerra durante inspeção causando perda de dados;FL - Correções de Bugs;Concluído;Maike Silva;DMNOW
-#12622;23354;Erro de login no APP: mensagem de “Usuário/Senha inválidos” com dados corretos;FL - Correções de Bugs;Concluído;Maike Silva;DMNOW
-#22374;24897;APP DEMARCO | Paginação de Itens NOK limita resultados e oculta equipamentos com pendências;FL - Correções de Bugs;Concluído;Marques Pereira;DMNOW
-#13276;23461;Falha no envio de token impede login no sistema;FL - Correções de Bugs;Concluído;Marques Pereira;DMNOW
-#22841;24960;APP DEMARCO | Checklist Pré-Uso do motorista não é exibido corretamente no aplicativo Demarco;FL - Correções de Bugs;Concluído;Maike Silva;DMNOW
-#12443;23275;ERRO: Falha no envio de SMS impede acesso de condutor;FL - Correções de Bugs;Concluído;Larice Nunes;DMNOW
-#23181;25090;Erro ao cadastrar e excluir unidade de transportadora;FL - Correções de Bugs;Concluído;Thais Oliveira;DMNOW
-#24196;25090;Sistema não conclui cadastro de unidades e impede criação de novos registros;FL - Correções de Bugs;Concluído;Marques Pereira;DMNOW
-#28847;25944;Sistema não permite salvar novo condutor exibindo mensagem genérica de erro;FL - Correções de Bugs;Concluído;Larice Nunes;DMNOW
-#27480;25727;FURACÃO - divergência entre GR e Opentech mantém condutor bloqueado indevidamente;FL - Correções de Bugs;Concluído;Thais Oliveira;DMNOW
-#13541;23523;Desvios de Operação secundária em colaboradores da Primária;FL - Correções de Bugs;Concluído;Thais Oliveira;DMNOW
-#23641;25092;DMCenter - Não recebimento de Alertas;FL - Correções de Bugs;Concluído;Lilian Rodrigues;DMNOW
-#18234;24357;APP Demarco | Ícone 'Frota Legal' redireciona usuário para fora do aplicativo;FL - Correções de Bugs;Concluído;Gabrielle Andrade;DMNOW
-#13601;23560;Falha ao acessar e exportar o histórico de validações no Frota Legal;FL - Correções de Bugs;Concluído;Daniel Souza;DMNOW
-#19320;24448;Payload de BOs dos canais EMP/MOD não é disponibilizado, impedindo validação pela Freightech;FL - Correções de Bugs;Concluído;Larissa Chiarelli;DMNOW
-#23515;25094;DMCenter -Usuários logam no sistema, mas não possuem acesso a funcionalidades;FL - Correções de Bugs;Concluído;Hannah Moreira;DMNOW
-#21408;24779;Grupo vyas - Expurgo de eventos em banco de dados;FL - Correções de Bugs;Concluído;Daniel Souza;DMNOW
-#12521;23353;Divergência na exibição de faixa no histórico de prontuário (Grupo Vyas);FL - Correções de Bugs;Concluído;Daniel Souza;DMNOW
-#14954;23729;Inconsistências e erros na tela de consulta de consumo de CNH;FL - Correções de Bugs;Concluído;Hannah Moreira;DMNOW
-#22736;24982;Usuários não conseguem acessar o Frota Legal;FL - Correções de Bugs;Concluído;Lilian Rodrigues;DMNOW
-#16434;24242;Erro no APP Demarco: Falha de login mesmo com credenciais corretas.;FL - Correções de Bugs;Concluído;Gabrielle Andrade;DMNOW
-#17197;24258;Falha ao cadastrar data da última preventiva no APP Demarco;FL - Correções de Bugs;Concluído;Lilian Rodrigues;DMNOW
-#24067;25090;Erro ao excluir unidade no frota legal;FL - Correções de Bugs;Concluído;Adriele Ribeiro;DMNOW
-#26290;25499;FURACÃO | Validação incorreta de vencimento de documentos (antecipação indevida);FL - Correções de Bugs;Concluído;Marques Pereira;DMNOW
-#13524;23519;Tela de validações não exibe inspeções para nenhum cliente;FL - Correções de Bugs;Concluído;Hannah Moreira;DMNOW
-#23528;;Erro ao tentar logar no app;FL - Correções de Bugs;Concluído;Larice Nunes;DMNOW
-#11601;23111;ERRO: Mensagem de 'Usuário/Senha inválidos' no APP mesmo com dados corretos;FL - Correções de Bugs;Concluído;Gabrielle Andrade;DMNOW
-#21323;24770;| Divergência de data/hora na inspeção entre histórico e exportações;FL - Correções de Bugs;Concluído;Gabrielle Andrade;DMNOW
-#12098;23244;ERRO: Inspeções via APP não estão sendo refletidas no sistema;FL - Correções de Bugs;Concluído;Marques Pereira;DMNOW
-#23984;25194;Erro Seleção de idiomas;FL - Correções de Bugs;Concluído;Hannah Moreira;DMNOW
-#24404;25264;Falha na qualificação automática de condutores e veículos - Retorno Card #20697;FL - Correções de Bugs;Concluído;Marques Pereira;DMNOW
-#10076;22793;ERRO: Sistema não permite remover vínculo de transportador dos usuários;FL - Correções de Bugs;Concluído;Adriele Ribeiro;DMNOW
-#15257;23853;Falha na atualização automática de documentos;FL - Correções de Bugs;Concluído;Thayná Santos;DMNOW
-#11054;23030;ERRO: Reprovação de ART ignora histórico válido e bloqueia veículos;FL - Correções de Bugs;Concluído;Marques Pereira;DMNOW
-#18497;24410;Inspeção não vinculada ao prontuário do veículo;FL - Correções de Bugs;Concluído;Thayná Santos;DMNOW
-#10329;23005;[OpenTech] Falha na Integração com a Opentech mantém condutores bloqueados;FL - Correções de Bugs;Concluído;Gabriel Costa;DMNOW
-#10184;22910;ERRO: Validade da CNH do condutor sendo alterada indevidamente após consulta;FL - Correções de Bugs;Concluído;Thayná Santos;DMNOW
-#12543;23360;Paginação excessiva na tela de Controle de Integrações (Consulta de CNH);FL - Correções de Bugs;Concluído;Thayná Santos;DMNOW
-#17019;24057;Erro app Demarco / Inspeção Frota Legal (#16667);FL - Correções de Bugs;Concluído;Lilian Rodrigues;DMNOW
-#12061;23142;Erro APP Demarco - Gerenciamento de Inspeções por Perfil;FL - Correções de Bugs;Concluído;Thayná Santos;DMNOW
-#23442;25091;Erro DM Center -Todos os clientes Demarco aparecendo no Frota Legal;FL - Correções de Bugs;Concluído;Hannah Moreira;DMNOW
-#20856;24674;aplicativo não reconhece vínculo de condutor com cliente e bloqueia acesso.;FL - Correções de Bugs;Concluído;Larice Nunes;DMNOW
-#10296;23006;ERRO: Falha na integração Agropecuária e Secundária impede registro de eventos;FL - Correções de Bugs;Concluído;Adriele Ribeiro;DMNOW
-#14242;23643;Erro no App Demarco: inspeções realizadas não estão sendo registradas no sistema;FL - Correções de Bugs;Concluído;Hannah Moreira;DMNOW
-#27049;25667;Data de limite de recurso é alterada indevidamente após lançamento no Frota Legal;FL - Correções de Bugs;Concluído;Lilian Rodrigues;DMNOW
-#20697;2464025264;[FURACÃO] ERRO - Falha na qualificação automática de condutores e veículos;FL - Correções de Bugs;Concluído;Hannah Moreira;DMNOW
-#19219;24440;justificativa de itens NOK no app não libera equipamento no sistema web;FL - Correções de Bugs;Concluído;Marques Pereira;DMNOW
-#29836;26157;Envio de SMS de primeiro acesso não é realizado e impede login de condutores;FL - Correções de Bugs;Concluído;Maike Silva;DMNOW
-#29886;26148;Plano de Ação não carrega e exibe mensagem invalid_scope no ambiente GFL;FL - Correções de Bugs;Concluído;Thaís Neves;DMNOW
-#32106;22155;ERRO: Envio de alertas incompleto;FL - Correções de Bugs;Concluído;Luisa Ferreira;DMNOW
-#16667;24057;Inspeções via APP não estão sendo refletidas no sistema;FL - Correções de Bugs;Concluído;Marques Pereira;DMNOW
-#19356;24467;sistema exibe documentos N/A como NOK gerando alertas indevidos;FL - Correções de Bugs;Concluído;Marques Pereira;DMNOW
-#19976;24533;Divergência na visualização de eventos entre usuários (Grupo Vyas);FL - Correções de Bugs;Concluído;Daniel Souza;DMNOW
-#28977;25965;Mônaco - Correção na persistência de dados de CNH pós exclusão e recadastramento de condutor;FL - Correções de Bugs;Concluído;Thayná Santos;DMNOW
-#38738;27361;Erro | Bloqueio por 'restrição de CNH' indevido;FL - Correções de Bugs;Concluído;Gabrielle Andrade;DMNOW
-#32116;21560; [21560] Inconsistência na classificação de documentos (aprovados, pré-aprovados e reprovados);FL - Correções de Bugs;Impedimento;Luisa Ferreira;DMNOW
-#32114;21615;Histórico do colaborador não salvo no banco de dados;FL - Correções de Bugs;Impedimento;Luisa Ferreira;DMNOW
-#16865;24073;APP bloqueia inspeção alegando falta de acesso ao equipamento;FL - Correções de Bugs;Impedimento;Larice Nunes;DMNOW
-#13221;23451;Duplicidade no registro de Consulta de CNH;FL - Correções de Bugs;Descontinuado;Thayná Santos;DMNOW
-#30821;;BI Analytics – Adequação ao CNPJ Alfanumérico | Bateria de Testes Gerdau;FL - Projetos, Melhorias e APIs;Backlog de Ideias;Thaís Neves;DMNOW
-#28973;;Ajuste na lógica de registro de consulta de CNH (Prevenção de Falsos Positivos);FL - Projetos, Melhorias e APIs;Backlog de Ideias;Thayná Santos;DMNOW
-#25106;;"Ajuste Dados Avulsos Checklist - Criar opção ""Item Obrigatório""";FL - Projetos, Melhorias e APIs;Backlog de Ideias;Hannah Moreira;DMNOW
-#30349;;Melhoria - Parametrização do Gatilho de Desbloqueio de Veículos por Inspeção;FL - Projetos, Melhorias e APIs;Backlog de Ideias;Thayná Santos;DMNOW
-#30298;;"Melhoria - Inclusão do campo ""Status"" nas exportações de PDF e Excel de Inspeções";FL - Projetos, Melhorias e APIs;Backlog de Ideias;Thayná Santos;DMNOW
-#18843;;Incluir o CPF no relatório da aba de treinamentos ;FL - Projetos, Melhorias e APIs;Backlog de Ideias;Marques Pereira;DMNOW
-#30488;;Melhoria - Criação de Tela de Transferência de Veículos e Condutores;FL - Projetos, Melhorias e APIs;Backlog de Ideias;Thayná Santos;DMNOW
-#33039;;Exclusão em Massa de tipo de ocorrência - G. Vyas;FL - Projetos, Melhorias e APIs;Backlog de Ideias;Hannah Moreira;DMNOW
-#38065;;Integração do sistema da demarco com o sistema da LM (GDF);FL - Projetos, Melhorias e APIs;Backlog de Ideias;Thayná Santos;DMNOW
-#39651;;Disponibilização dos campos Marca e Modelo para todos os tipos de equipamentos e veículos;FL - Projetos, Melhorias e APIs;Backlog de Ideias;Marques Pereira;DMNOW
-#35237;;Recorrência – Falha no envio de SMS impede acesso de condutores ao aplicativo Demarco;FL - Projetos, Melhorias e APIs;Backlog de Ideias;Maike Silva;DMNOW
-#36706;;Erro | APP reinicia ao tentar capturar as fotos obrigatórias do checklist Pré - uso;FL - Projetos, Melhorias e APIs;Backlog de Ideias;Gabrielle Andrade;DMNOW
-#30794;;Adequação ao CNPJ Alfanumérico | Bateria de Testes Gerdau - TI ;FL - Projetos, Melhorias e APIs;Concluído | Descontinuado;Thaís Neves;DMNOW
-#29000;26096;Inclusão de empresa MARVEL na API da Onisys no Frota Legal;FL - Projetos, Melhorias e APIs;Concluído | Descontinuado;Thais Oliveira;DMNOW
-#30727;;TESTE MOVIMENTACOES;FL - Projetos, Melhorias e APIs;Concluído | Descontinuado;Giselle Freiman;DMNOW
-#28564;;Melhoria - Ativação de Integração Mônaco [DMGateway];FL - Projetos, Melhorias e APIs;Concluído | Descontinuado;Thayná Santos;DMNOW
-#29166;26116;"Melhoria no módulo ""Documentos""";FL - Projetos, Melhorias e APIs;Em Desenvolvimento;Gabriela Correa;DMNOW
-912;;sdghsghh;;Concluído ou Descontinuado;Felipe Chagas;DMTASK
-949;14388;Erro validação de relatos;FL - Correções de Bugs;Concluído ou Descontinuado;Hannah Moreira;DMTASK
-955;14392;Erro -  Data da última consulta de CNH não está aparecendo no prontuário;FL - Correções de Bugs;Concluído ou Descontinuado;Thayná Santos;DMTASK
-956;;Campo de Ação do Prontuário ser enviado para o Banco do BI;FL - Projetos, Melhorias e APIs;Caixa de Entrada;Thayná Santos;DMTASK
-957;21641;Realizar uma nova consulta da CNH após atualização dos dados da CNH;FL - Projetos, Melhorias e APIs;Pronto para Atuar;Thayná Santos;DMTASK
-958;21645;"Liberação de condutores com problema de CNH; igual no G&G";FL - Projetos, Melhorias e APIs;Caixa de Entrada;Thayná Santos;DMTASK
-965;14419;MIGRAÇÃO BRF - Ajustes na coluna 'motivo' do prontuário;FL - Correções de Bugs;Concluído ou Descontinuado;Gabriela Correa;DMTASK
-966;14420;MIGRAÇÃO BRF - Falha na migração de dados;FL - Correções de Bugs;Concluído ou Descontinuado;Gabriela Correa;DMTASK
-967;14421;MIGRAÇÃO BRF - Verificar regra de período de bloqueio;FL - Correções de Bugs;Concluído ou Descontinuado;Gabriela Correa;DMTASK
-968;14400;Atualização Faixa Condutores;FL - Correções de Bugs;Concluído ou Descontinuado;Leonardo Medeiros;DMTASK
-969;14401;Veículo com checklist vencido não qualificou para Bloqueado;FL - Correções de Bugs;Concluído ou Descontinuado;Hannah Moreira;DMTASK
-970;14402;Erro ao fazer inspeção no app - usuário específico;FL - Correções de Bugs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-971;14403;Erro ao realizar checklist;FL - Correções de Bugs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-985;14427;Falha no envio dos Alertas;FL - Correções de Bugs;Concluído ou Descontinuado;Leonardo Medeiros;DMTASK
-1030;13843;ERRO: Condutores excluídos do Frota aparecem no banco do Dash;;Concluído ou Descontinuado;Giselle Andrade;DMTASK
-1031;14341;ERRO MIGRAÇÃO: Importação de Peso de Ocorrências para recorrências não está sendo considerada;;Concluído ou Descontinuado;Giselle Andrade;DMTASK
-1032;14238;ERRO MIGRAÇÃO: Pontuação de Ocorrencias vencidas sendo debitada novamente;;Concluído ou Descontinuado;Giselle Andrade;DMTASK
-1033;14195;ERRO MIGRAÇÃO: Leitura de perguntas no Checklist (Entrevista);;Concluído ou Descontinuado;Giselle Andrade;DMTASK
-1034;14239;ERRO: Erro- checklist em branco 2;;Concluído ou Descontinuado;Giselle Andrade;DMTASK
-1035;14393;ERRO MIGRAÇÃO - Validação Integração Telemetrias;;Concluído ou Descontinuado;Giselle Andrade;DMTASK
-1036;14294;ERRO MIGRAÇÃO: BRF Falha na migração de dados;;Concluído ou Descontinuado;Giselle Andrade;DMTASK
-1037;12082;MIGRAÇÃO - Gatilho: Entrevistas de Fadiga;;Concluído ou Descontinuado;Giselle Andrade;DMTASK
-1038;13888;MIGRAÇÃO - Gatilho: Entrevistas de Mudança de faixa;;Concluído ou Descontinuado;Giselle Andrade;DMTASK
-1040;14473;Erro Validação da placa via foto;FL - Correções de Bugs;Concluído ou Descontinuado;Hannah Moreira;DMTASK
-1131;;Campo de descrição (Observação) na opção Enviar Documentos ;FL - Projetos, Melhorias e APIs;Pronto para Atuar;Marques Pereira;DMTASK
-1135;14585;Erro na data da última preventiva - APP;FL - Correções de Bugs;Concluído ou Descontinuado;Leonardo Medeiros;DMTASK
-1136;14586;Erro para exportar relatório no Prontuário do Veículo/Equipamento;FL - Correções de Bugs;Concluído ou Descontinuado;Leonardo Medeiros;DMTASK
-1137;14587;Tradução do motivo do bloqueio no prontuário do veículo;FL - Correções de Bugs;Concluído ou Descontinuado;Leonardo Medeiros;DMTASK
-1207;14588;Divergência na versão do app;FL - Correções de Bugs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-1225;14606;MIGRAÇÃO - Hierarquia Frota Legal;FL - Correções de Bugs;Concluído ou Descontinuado;Bruno Rodrigues;DMTASK
-1229;14923;Erro ao exportar prontuário do condutor;FL - Correções de Bugs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-1263;14924;E-mail de primeiro acesso não chega;FL - Correções de Bugs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-1289;14794;Download Fotos Checklists;FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Hannah Moreira;DMTASK
-1308;14719;Erro de visualização Data Limite de Recurso.;FL - Correções de Bugs;Concluído ou Descontinuado;Leonardo Medeiros;DMTASK
-1323;14727;Erro no ambiente revenda Ambev - tipo de equipamento;FL - Correções de Bugs;Concluído ou Descontinuado;Stefane Cordeiro;DMTASK
-1354;;Ter a regra para bloquear o cadastro de identificadores duplicados entre diferentes tipos de veículos ;FL - Projetos, Melhorias e APIs;Pronto para Atuar;Marques Pereira;DMTASK
-1387;14918;Erro para redefinir senha;FL - Correções de Bugs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-1587;;Remover mensagem de aviso em módulo de relatos ;FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-1588;15036;Erro no app - Usuários não conseguem realizar checklists;FL - Correções de Bugs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-1591;15049;Erro ao definir código no app;FL - Correções de Bugs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-1634;15087;Divergência ao exportar planilha de relatos;FL - Correções de Bugs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-1681;15191;Erro no histórico da placa;FL - Correções de Bugs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-1687;15190;Erro ao aprovar documento;FL - Correções de Bugs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-1689;;Remover escrita de campo na aba relato;FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-1691;15189;Erro no app - Motivo de Bloqueio;FL - Correções de Bugs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-1705;15173;Relatório de Cadastro de Veículos/Equipamentos;FL - Correções de Bugs;Concluído ou Descontinuado;Leonardo Medeiros;DMTASK
-1711;15188;Erro no Alerta diário;FL - Correções de Bugs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-1737;15398;Usuario com acesso indevido a check lit anual liberado;FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-1740;15396;Erro na aprovação de check list;FL - Correções de Bugs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-1762;15172;Erro na página inicial do app | Menu do APP com instabilidade;FL - Correções de Bugs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-1804;15401;Erro na área de relatos;FL - Correções de Bugs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-1829;;Liberação da Kelen por CNH;FL - Correções de Bugs;Concluído ou Descontinuado;Thayná Santos;DMTASK
-1845;15946;Eventos duplicados;FL - Correções de Bugs;Concluído ou Descontinuado;Sabrina Alcantara;DMTASK
-1896;;Erro ao tentar recuperar senha;FL - Correções de Bugs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-2122;;Configuração de justificativas de reprova de documento;FL - Projetos, Melhorias e APIs;Backlog;Hannah Moreira;DMTASK
-2123;;Criar mais tipos de Transportador;FL - Projetos, Melhorias e APIs;Backlog;Hannah Moreira;DMTASK
-2124;;Melhorias Plano de Ação;FL - Projetos, Melhorias e APIs;Backlog;Hannah Moreira;DMTASK
-2125;;Adicionar informação no histórico de inspeções;FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Hannah Moreira;DMTASK
-2126;;Configurar visualização de checklists feitos por perfil;FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Hannah Moreira;DMTASK
-2127;;Novo item para Alerta Diário;FL - Projetos, Melhorias e APIs;Backlog;Hannah Moreira;DMTASK
-2128;16185;Trazer a data e número da inspeção na visualização da mesma;FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Hannah Moreira;DMTASK
-2129;16182;Adicionar coluna no histórico de inspeções de veículos;FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Hannah Moreira;DMTASK
-2133;;Melhor visibilidade dos pesos das ocorrências;FL - Projetos, Melhorias e APIs;Backlog;Thayná Santos;DMTASK
-2134;;Investigar o real motivo dos impedimento de CNH;FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Thayná Santos;DMTASK
-2135;;Criar campo de edição das ocorrências e liberação de acordo com o perfil;FL - Projetos, Melhorias e APIs;Backlog;Leonardo Medeiros;DMTASK
-2136;;Criar campo dentro do cadastro do Veículo para inserir o mês de fabricação;FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Leonardo Medeiros;DMTASK
-2137;;"Colocar na Coluna de Idade; quantidade de mês e ano do veículo.";FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Leonardo Medeiros;DMTASK
-2138;;Exibir no prontuário as informações que inserimos no campo adicional do cadastro ;FL - Projetos, Melhorias e APIs;Backlog;Larice Nunes;DMTASK
-2139;;Melhoria no modulo de relatos - datas retroativas;FL - Projetos, Melhorias e APIs;Backlog;Larice Nunes;DMTASK
-2156;15581;Erro - Tela de Tipos de Ocorrências;FL - Correções de Bugs;Concluído ou Descontinuado;Thayná Santos;DMTASK
-2173;15603;Erro na tela de validação de documento;FL - Correções de Bugs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-2174;13827;Inclusão de Filtro em Acompanhamento de Validação;FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Stefane Cordeiro;DMTASK
-2175;;Prontuário do Veiculo - Histórico;FL - Projetos, Melhorias e APIs;Backlog;Stefane Cordeiro;DMTASK
-2176;15602;Erro no primeiro acesso do condutor;FL - Correções de Bugs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-2186;15606;Erro - Tela de Documentos;FL - Correções de Bugs;Concluído ou Descontinuado;Thayná Santos;DMTASK
-2187;15605;Relatório Validação de Inspeções está com erro na data para exportar;FL - Correções de Bugs;Concluído ou Descontinuado;Thayná Santos;DMTASK
-2197;;"App permitir realizar inspeções de acordo com o perfil; igual é na WEB";FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Thayná Santos;DMTASK
-2198;21642;Modelo padrão das fotos para inspeção ser consultada no momento da realização;FL - Projetos, Melhorias e APIs;Caixa de Entrada;Thayná Santos;DMTASK
-2200;;Alertas Veículos/Inspeções;FL - Projetos, Melhorias e APIs;Caixa de Entrada;Thayná Santos;DMTASK
-2202;15604;Pontuação de CNH não está atualizando com a nova consulta;FL - Correções de Bugs;Concluído ou Descontinuado;Thayná Santos;DMTASK
-2204;;Inspeção ser validada por item;FL - Projetos, Melhorias e APIs;Caixa de Entrada;Thayná Santos;DMTASK
-2205;;Permitir reanalise de inspeção;FL - Projetos, Melhorias e APIs;Caixa de Entrada;Thayná Santos;DMTASK
-2207;15601;Erro ao selecionar transportadora no cadastro;FL - Correções de Bugs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-2213;15663;Alteração Campo Relatos;FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Hannah Moreira;DMTASK
-2217;17291;"Após a inspeção ser reprovada; usuário refazer apenas os itens reprovados";FL - Projetos, Melhorias e APIs;Em Análise;Thayná Santos;DMTASK
-2219;;Curso de Direção Defensiva ser atualizado via planilha;FL - Projetos, Melhorias e APIs;Caixa de Entrada;Thayná Santos;DMTASK
-2228;13440;Permitir vincular tipo de ocorrrência a tipo de relato | Filtrar tipo de ocorrencias quando selecionar o tipo de relato | Relacionar todas as ocorrencias aos relatos existentes.;FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Hannah Moreira;DMTASK
-2229;;Remover os tipos de ocorrência do módulo de relatos das ocorrências do prontuário do condutor;FL - Projetos, Melhorias e APIs;Backlog;Hannah Moreira;DMTASK
-2230;;Criar mais filtros nas telas de gestão e validação de relatos;FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Hannah Moreira;DMTASK
-2231;16179;"Criar coluna ""transportadora equipamento"" nos menus ""gestão de relatos"" e ""validação de relatos""";FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Hannah Moreira;DMTASK
-2232;;Adicionar campos na inserção do relato;FL - Projetos, Melhorias e APIs;Backlog;Hannah Moreira;DMTASK
-2233;11390;Envio de documentos via app;FL - Projetos, Melhorias e APIs;Pronto para Atuar;Hannah Moreira;DMTASK
-2234;;Relatório de Cadastro - Data última inativação;FL - Projetos, Melhorias e APIs;Backlog;Hannah Moreira;DMTASK
-2235;;Trazer nos relatórios de CADASTRO exportados do sistema a informação de ambiente;FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Hannah Moreira;DMTASK
-2236;;Trazer nos relatórios de CADASTRO exportados do sistema a informação de ambiente;FL - Projetos, Melhorias e APIs;Backlog;Hannah Moreira;DMTASK
-2237;;Visualizar Anexos - Validação de Inspeção;FL - Projetos, Melhorias e APIs;Backlog;Hannah Moreira;DMTASK
-2238;;Visualizar Anexos - Validação de Inspeção;FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Hannah Moreira;DMTASK
-2239;;Histórico do veículo não mostra exclusão de documento;FL - Projetos, Melhorias e APIs;Backlog;Hannah Moreira;DMTASK
-2240;;Histórico do veículo não mostra exclusão de documento;FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Hannah Moreira;DMTASK
-2241;;Criar filtro de Status - Gerar QRCode;FL - Projetos, Melhorias e APIs;Backlog;Hannah Moreira;DMTASK
-2242;;Criar filtro de Status - Gerar QRCode;FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Hannah Moreira;DMTASK
-2243;;Sistema não mostra desbloqueio feito no app;FL - Projetos, Melhorias e APIs;Backlog;Hannah Moreira;DMTASK
-2244;;Sistema não mostra desbloqueio feito no app;FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Hannah Moreira;DMTASK
-2245;;Alerta Diário - Adicionar coluna e Inserir no alerta diário as informações de Documentos Reprovados;FL - Projetos, Melhorias e APIs;Backlog;Hannah Moreira;DMTASK
-2246;;Alerta Diário - Adicionar coluna e Inserir no alerta diário as informações de Documentos Reprovados;FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Hannah Moreira;DMTASK
-2247;;Sistema não considera 30 dias do vencimento da CNH CARD TRELLO 186;FL - Projetos, Melhorias e APIs;Backlog;Hannah Moreira;DMTASK
-2248;16187;Validar cpf/placa duplicada no cadastro;FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Hannah Moreira;DMTASK
-2249;;Sistema não considera 30 dias do vencimento da CNH CARD TRELLO 186;FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Hannah Moreira;DMTASK
-2250;;Certificado - Módulo de Treinamentos;FL - Projetos, Melhorias e APIs;Backlog;Hannah Moreira;DMTASK
-2251;;Validar cpf/placa duplicada no cadastro;FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Hannah Moreira;DMTASK
-2252;;Criar nos perfis autorização para baixar relatórios;FL - Projetos, Melhorias e APIs;Backlog;Hannah Moreira;DMTASK
-2253;;Certificado - Módulo de Treinamentos;FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Hannah Moreira;DMTASK
-2254;;Criar em configurações gerais opção de bloqueio em cascata;FL - Projetos, Melhorias e APIs;Backlog;Hannah Moreira;DMTASK
-2255;;Criar nos perfis autorização para baixar relatórios;FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Hannah Moreira;DMTASK
-2256;;Como estou dirigindo - retirar mensagem;FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Hannah Moreira;DMTASK
-2257;;Criar em configurações gerais opção de bloqueio em cascata;FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Hannah Moreira;DMTASK
-2258;;Melhoria relatórios páginas de acompanhamento de validação de docs;FL - Projetos, Melhorias e APIs;Backlog;Hannah Moreira;DMTASK
-2259;;Como estou dirigindo - retirar mensagem;FL - Projetos, Melhorias e APIs;Backlog;Hannah Moreira;DMTASK
-2260;;Melhoria relatórios páginas de acompanhamento de validação de docs;FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Hannah Moreira;DMTASK
-2261;;Inspeções reprovadas - aparecer como RV no sistema;FL - Projetos, Melhorias e APIs;Backlog;Hannah Moreira;DMTASK
-2262;;Inspeções reprovadas - aparecer como RV no sistema;FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Hannah Moreira;DMTASK
-2263;;Liberar o relatório da página de unidades para todos os clientes;FL - Projetos, Melhorias e APIs;Backlog;Hannah Moreira;DMTASK
-2264;;Liberar o relatório da página de unidades para todos os clientes;FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Hannah Moreira;DMTASK
-2310;15615;ERRO: Placa sem acesso a check anual;FL - Correções de Bugs;Concluído ou Descontinuado;Giselle Andrade;DMTASK
-2334;15821;Erro Retorno de Consulta CNH;FL - Correções de Bugs;Concluído ou Descontinuado;Thayná Santos;DMTASK
-2336;15823;Erro Pontuação divergente prontuário do condutor;FL - Correções de Bugs;Concluído ou Descontinuado;Thayná Santos;DMTASK
-2364;15721;Módulo Relatos - Tirar mensagem de placa não encontrada;FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Hannah Moreira;DMTASK
-2369;15909;Ambev Revenda - Restringir cadastro de veiculos;FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Stefane Cordeiro;DMTASK
-2375;15822;Erro ao subir pontuação de ocorrência na área de relato;FL - Correções de Bugs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-2378;16214;Módulo Relatos - Novo Campo;FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Hannah Moreira;DMTASK
-2476;15826;Erro no prontuário do veículo;FL - Correções de Bugs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-2484;15825;Erro em usuário LH;FL - Correções de Bugs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-2559;15719;ERRO: Divergência Frota x Dashboard DMAnalytics;FL - Correções de Bugs;Concluído ou Descontinuado;Giselle Andrade;DMTASK
-2567;;Erro ao buscar placa no app;FL - Correções de Bugs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-2637;15992;Verificar unidades - BRF Logística;FL - Correções de Bugs;Concluído ou Descontinuado;Sabrina Alcantara;DMTASK
-2665;15950;"Erro atualização tabela ""VerificacaoInspecaoEquipamento""";FL - Correções de Bugs;Concluído ou Descontinuado;Hannah Moreira;DMTASK
-2681;15958;Erro na pag de inspeção do app;FL - Correções de Bugs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-2718;16005;Erro no cód. de primeiro acesso - app;FL - Correções de Bugs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-2765;16070;Banco de Dados Fretamento não atualizou;FL - Correções de Bugs;Concluído ou Descontinuado;Thayná Santos;DMTASK
-2818;16214;"Relatos - Retirar campo ""Empresa""";FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Hannah Moreira;DMTASK
-2822;16186;Erro - Data de Cadastro dos Veiculos;FL - Correções de Bugs;Concluído ou Descontinuado;Thayná Santos;DMTASK
-2843;16204;Correção de Dados no Banco de Dados do BI;FL - Correções de Bugs;Concluído ou Descontinuado;Fernanda Mariante;DMTASK
-2851;;Histórico dos veículos no banco de dados do DMAnalytics;FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Thayná Santos;DMTASK
-2853;16208;Erro - Informação do perfil do Usuário em branco;FL - Correções de Bugs;Concluído ou Descontinuado;Thayná Santos;DMTASK
-2909;16247;Condutores da Agro bloqueados por eventos da Secundária;FL - Correções de Bugs;Concluído ou Descontinuado;Sabrina Alcantara;DMTASK
-2911;16376;Condutores bloqueados indevidamente pelo sistema;FL - Correções de Bugs;Concluído ou Descontinuado;Sabrina Alcantara;DMTASK
-2927;16256;Condutores bloqueados por eventos antigos;FL - Correções de Bugs;Concluído ou Descontinuado;Sabrina Alcantara;DMTASK
-2949;16377;Erro no histórico da placa;FL - Correções de Bugs;Concluído ou Descontinuado;Jadson Oliveira;DMTASK
-2950;;Divergência no prontuário de veículos;FL - Correções de Bugs;Concluído ou Descontinuado;Jadson Oliveira;DMTASK
-3026;16313;Atualização de CNHs no dash BRF Frota Leve;FL - Correções de Bugs;Concluído ou Descontinuado;Gabriela Correa;DMTASK
-3058;16318;Filtro Unidades;FL - Correções de Bugs;Concluído ou Descontinuado;Jadson Oliveira;DMTASK
-3059;;Inclusão de Campos;FL - Projetos, Melhorias e APIs;Caixa de Entrada;Jadson Oliveira;DMTASK
-3083;16327;Erro ao tentar renovar inspeções;FL - Correções de Bugs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-3156;16389;Condutor bloqueado por GR;FL - Correções de Bugs;Concluído ou Descontinuado;Sabrina Alcantara;DMTASK
-3203;16450;Bloqueio Indevido - Check List Anual;FL - Correções de Bugs;Concluído ou Descontinuado;Jadson Oliveira;DMTASK
-3210;16538;Correção de mensagem de erro ao realizar cadastro de novas placas;FL - Correções de Bugs;Concluído ou Descontinuado;Stefane Cordeiro;DMTASK
-3242;;Baixa ou Regularização de Score via integração com a Opentech;FL - Projetos, Melhorias e APIs;Caixa de Entrada;Gabriela Correa;DMTASK
-3250;16474;Pontuação dos Condutores;FL - Correções de Bugs;Concluído ou Descontinuado;Thayná Santos;DMTASK
-3256;16537;Erro Integração Mônaco;FL - Correções de Bugs;Concluído ou Descontinuado;Hannah Moreira;DMTASK
-3337;16539;Data de Validade não conforme para treinamento sem vencimento;FL - Correções de Bugs;Concluído ou Descontinuado;Jadson Oliveira;DMTASK
-3340;21995;17330 - Solicitação de inspeção ao alterar  dados no cadastro do veiculo.;FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Tallison Jesus;DMTASK
-3387;;Não cobrar dados de CNH quando o cargo for ajudante;FL - Correções de Bugs;Concluído ou Descontinuado;Sabrina Alcantara;DMTASK
-3389;;Concatenar motivo de bloqueio;FL - Correções de Bugs;Concluído ou Descontinuado;Sabrina Alcantara;DMTASK
-3391;;Relatório extraído não respeita filtros do sistema;FL - Correções de Bugs;Concluído ou Descontinuado;Sabrina Alcantara;DMTASK
-3392;;Vincular empresas novas a todos os usuários da BRF automaticamente;FL - Projetos, Melhorias e APIs;Caixa de Entrada;Sabrina Alcantara;DMTASK
-3395;18230;Incluir operação/regional na tela do prontuário;FL - Projetos, Melhorias e APIs;Impedimento;Sabrina Alcantara;DMTASK
-3421;16598;Exclusão de Faixa Preta;FL - Correções de Bugs;Concluído ou Descontinuado;Guilherme Silva;DMTASK
-3461;;Correção de imagem na portaria ;FL - Correções de Bugs;Concluído ou Descontinuado;Stefane Cordeiro;DMTASK
-3470;16651;Erro validação de CNH - Prontuário do Condutor;FL - Correções de Bugs;Concluído ou Descontinuado;Stefane Cordeiro;DMTASK
-3471;16697;Erro App Condutores - Primeiro Acesso;FL - Correções de Bugs;Concluído ou Descontinuado;Hannah Moreira;DMTASK
-3479;17145;Erro - Inspeção app não está funcionando.;FL - Correções de Bugs;Concluído ou Descontinuado;Thayná Santos;DMTASK
-3554;;teste teste;FL - Correções de Bugs;Concluído ou Descontinuado;Giselle Andrade;DMTASK
-3597;17147;Erro no alerta;FL - Correções de Bugs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-3611;16692;Erro Atualização Unidades;FL - Correções de Bugs;Concluído ou Descontinuado;Hannah Moreira;DMTASK
-3612;;TOKEN;FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Jadson Oliveira;DMTASK
-3621;16682;Erro App - Amazon;FL - Correções de Bugs;Concluído ou Descontinuado;Hannah Moreira;DMTASK
-3632;16691;Erro no processo de expurgo;FL - Correções de Bugs;Concluído ou Descontinuado;Sabrina Alcantara;DMTASK
-3636;17149;Token E-mail;FL - Correções de Bugs;Concluído ou Descontinuado;Jadson Oliveira;DMTASK
-3672;18413;Não cobrar dados de CNH quando o cargo for ajudante;FL - Projetos, Melhorias e APIs;Pronto para Atuar;Sabrina Alcantara;DMTASK
-3691;19583;Limite Caracteres - Dados Avulsos Checklist;FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Hannah Moreira;DMTASK
-3701;17151;Categoria Habilitação;FL - Correções de Bugs;Concluído ou Descontinuado;Jadson Oliveira;DMTASK
-3717;16913;Erro Telefone Não Vinculado;FL - Correções de Bugs;Concluído ou Descontinuado;Jadson Oliveira;DMTASK
-3718;;;FL - Correções de Bugs;Concluído ou Descontinuado;Jadson Oliveira;DMTASK
-3719;17158;Faixa não reverteu;FL - Correções de Bugs;Concluído ou Descontinuado;Jadson Oliveira;DMTASK
-3720;17159;Pontuação de Ocorrência;FL - Correções de Bugs;Concluído ou Descontinuado;Jadson Oliveira;DMTASK
-3750;17160;Correção - Liberação condutor  2;FL - Correções de Bugs;Concluído ou Descontinuado;Stefane Cordeiro;DMTASK
-3768;16871;Erro Falta de opções quando Acesso App;FL - Correções de Bugs;Concluído ou Descontinuado;Jadson Oliveira;DMTASK
-3771;17170;Tornar campo da foto em cadastro obrigatória;FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Stefane Cordeiro;DMTASK
-3773;17161;Relatos - Banco de Dados;FL - Correções de Bugs;Concluído ou Descontinuado;Thayná Santos;DMTASK
-3846;17162;Salvar/Alteração Tipos de Veículos e Equipamentos;FL - Correções de Bugs;Concluído ou Descontinuado;Jadson Oliveira;DMTASK
-3850;16811;Erro App - Condutor em mais de um ambiente;FL - Correções de Bugs;Concluído ou Descontinuado;Hannah Moreira;DMTASK
-3851;17157;Erro APP - Condutor inativo consegue acessar;FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Hannah Moreira;DMTASK
-3855;16904;Erro - Condutores Inativos;FL - Correções de Bugs;Concluído ou Descontinuado;Thayná Santos;DMTASK
-3939;17067;Erro data da última preventiva não mostra na tela de validação;FL - Correções de Bugs;Concluído ou Descontinuado;Thayná Santos;DMTASK
-3965;;Regra de Filtro Unidades;FL - Projetos, Melhorias e APIs;Caixa de Entrada;Jadson Oliveira;DMTASK
-3986;19092;Gerenciamento de inspeções por perfil;FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Thayná Santos;DMTASK
-4009;16986;Erro - Validade de Inspeção;FL - Correções de Bugs;Concluído ou Descontinuado;Thayná Santos;DMTASK
-4039;17156;Erro - Cadastro permitindo uma mesma placa associada a um tipo de equipamento diferente;FL - Correções de Bugs;Concluído ou Descontinuado;Jadson Oliveira;DMTASK
-4040;16974;Atualização Relatório Relato;FL - Correções de Bugs;Concluído ou Descontinuado;Jadson Oliveira;DMTASK
-4041;;Ajuste na Base de Dados - Relatos;FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Jadson Oliveira;DMTASK
-4043;;Verificação de validade dos documentos - veículos;FL - Projetos, Melhorias e APIs;Caixa de Entrada;Thayná Santos;DMTASK
-4057;17155;Atualização Unidades - Relatos;FL - Correções de Bugs;Concluído ou Descontinuado;Jadson Oliveira;DMTASK
-4061;17153;Limite Caracteres Chassi/Renavan;FL - Correções de Bugs;Concluído ou Descontinuado;Jadson Oliveira;DMTASK
-4064;16973;Integração Monaco - Consulta;FL - Correções de Bugs;Concluído ou Descontinuado;Jadson Oliveira;DMTASK
-4124;17146;Erro ao realizar inspeção no app;FL - Correções de Bugs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-4174;17163;Investigar Placas apagadas no Fretamento;FL - Correções de Bugs;Concluído ou Descontinuado;Thayná Santos;DMTASK
-4209;17169;Adicionar Colunas (Ano Modelo e Ano Fabricação);FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Jadson Oliveira;DMTASK
-4236;17189;Erro - Consulta CNH com impedimento;FL - Correções de Bugs;Concluído ou Descontinuado;Thayná Santos;DMTASK
-4341;17278;Condutor bloqueado indevidamente por faixa preta;FL - Correções de Bugs;Concluído ou Descontinuado;Sabrina Alcantara;DMTASK
-4381;17470;Erro na renovação de inspeções app;FL - Correções de Bugs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-4388;;Inspeções ser baixada com fotos via pdf;FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Thayná Santos;DMTASK
-4393;;Alerta de ocorrências - Escolha do dia de recebimento;FL - Projetos, Melhorias e APIs;Backlog;Thayná Santos;DMTASK
-4394;17388;Erro ao subir inspeções no app;FL - Correções de Bugs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-4436;17464;Erro na aba de relatos do app;FL - Correções de Bugs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-4442;17466;Erro ao remover multas do prontuário;FL - Correções de Bugs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-4470;17471;Erro ao solicitar sms no app;FL - Correções de Bugs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-4479;17472;Inconsistência na atualização de pontuação após expurgos no Frota;FL - Correções de Bugs;Concluído ou Descontinuado;Sabrina Alcantara;DMTASK
-4483;17389;Regra Considerar uma ocorrência de maior peso em um período específico;FL - Correções de Bugs;Concluído ou Descontinuado;Thayná Santos;DMTASK
-4504;17473;Erro atualização documentos validados;FL - Correções de Bugs;Concluído ou Descontinuado;Hannah Moreira;DMTASK
-4551;17475;Erro - Mensagem documento aguardando validação;FL - Correções de Bugs;Concluído ou Descontinuado;Hannah Moreira;DMTASK
-4552;17474;Erro - Bloqueio de envio de documento Aguardando Validação;FL - Correções de Bugs;Concluído ou Descontinuado;Hannah Moreira;DMTASK
-4589;17500;Ativar Integração Monaco - CEVA;FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Hannah Moreira;DMTASK
-4594;17501;ERRO : Divergência entre a data de consulta da CNH indicada na coluna do Prontuário do Condutor e a data no histórico do condutor.;FL - Correções de Bugs;Concluído ou Descontinuado;Hannah Moreira;DMTASK
-4596;17521;Erro - Bloqueio de CNH por motivo Nada Consta;FL - Correções de Bugs;Concluído ou Descontinuado;Thayná Santos;DMTASK
-4625;17522;Erro ao subir planilha de ocorrências;FL - Correções de Bugs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-4654;17673;Erro ao buscar veículo no app;FL - Correções de Bugs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-4698;17769;Erro no prontuário e histórico da placa;FL - Correções de Bugs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-4723;17670;"Erro Relatos - Aba relatório (dados ""sumiram"")";FL - Correções de Bugs;Concluído ou Descontinuado;Hannah Moreira;DMTASK
-4814;;Comunicação Documentos: Histórico x Tela Acompanhamento;FL - Projetos, Melhorias e APIs;Caixa de Entrada;Hannah Moreira;DMTASK
-4871;17956;Erro ao atualizar data de cnh;FL - Correções de Bugs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-4880;17770;ERRO - Alteração da nomenclatura do documento;FL - Correções de Bugs;Concluído ou Descontinuado;Thayná Santos;DMTASK
-4981;17832;Alteração Alerta de Documentos;FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Thayná Santos;DMTASK
-5031;;Implementação de Campos Customizáveis no Prontuário do Veículo;FL - Projetos, Melhorias e APIs;Caixa de Entrada;Thayná Santos;DMTASK
-5109;17904;Erro - Cadastro via Planilha;FL - Correções de Bugs;Concluído ou Descontinuado;Hannah Moreira;DMTASK
-5110;17905;Erro de atualização de dados.;FL - Correções de Bugs;Concluído ou Descontinuado;Stefane Cordeiro;DMTASK
-5114;17906;Erro ao fazer login no app;FL - Correções de Bugs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-5184;18080;Integração Monaco - Ativação Tirolez;FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Hannah Moreira;DMTASK
-5225;18028;Erro Configuração Ambientes DEMO;FL - Correções de Bugs;Concluído ou Descontinuado;Hannah Moreira;DMTASK
-5229;17998;API VEOLINK;FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Marques Pereira;DMTASK
-5243;;Desbloqueio de condutor por faixa;FL - Correções de Bugs;Concluído ou Descontinuado;Thais Oliveira;DMTASK
-5249;;Ajuste - Validade CNH (documento e cadastro);FL - Projetos, Melhorias e APIs;Pronto para Atuar;Hannah Moreira;DMTASK
-5261;18027;Erro ao baixar a base (Condutores Revenda);FL - Correções de Bugs;Concluído ou Descontinuado;Stefane Cordeiro;DMTASK
-5262;18025;Correção de desempenho no ambiente Spot T1;FL - Correções de Bugs;Concluído ou Descontinuado;Stefane Cordeiro;DMTASK
-5281;18064;Alteração Alerta Documentos Vencidos ou Ausentes - Condutor;FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Thayná Santos;DMTASK
-5286;20851;Problema no desbloqueio de condutores no Frota [Interno 20851];FL - Correções de Bugs;Concluído ou Descontinuado;Sabrina Alcantara;DMTASK
-5313;18152;Erro - Planilha para carga de ocorrência DEV;FL - Correções de Bugs;Concluído ou Descontinuado;Thayná Santos;DMTASK
-5365;18153;Erro - Renovação Inspeção;FL - Correções de Bugs;Concluído ou Descontinuado;Hannah Moreira;DMTASK
-5381;18154;Erro de regra de documento CRLV;FL - Correções de Bugs;Concluído ou Descontinuado;Stefane Cordeiro;DMTASK
-5420;18199;Alerta de Recursos ocorrências vencidos;FL - Correções de Bugs;Concluído ou Descontinuado;Thayná Santos;DMTASK
-5440;19731;Melhoria - Módulo Transportadores - (Incluir campo unidade no cadastro);FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Hannah Moreira;DMTASK
-5477;18239;Erro no usuário de condutor no app/web;FL - Correções de Bugs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-5523;18252;Erro - Condutores liberados indevidamente;FL - Correções de Bugs;Concluído ou Descontinuado;Stefane Cordeiro;DMTASK
-5554;18257;Erro ao exportar relatório de relatos;FL - Correções de Bugs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-5622;18296;Erro - Carga de Ocorrência;FL - Correções de Bugs;Concluído ou Descontinuado;Thayná Santos;DMTASK
-5633;;;FL - Correções de Bugs;Concluído ou Descontinuado;Kezya Souza;DMTASK
-5636;18315;Planilha Divergente;FL - Correções de Bugs;Concluído ou Descontinuado;Kezya Souza;DMTASK
-5638;18314;Erro ao tentar finalizar inspeções no app;FL - Correções de Bugs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-5677;;Liberação de API - Prontuários Frota Legal;FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Gabrielle Andrade;DMTASK
-5700;18396;Bloqueio de Condutores - Consulta CNH;FL - Correções de Bugs;Concluído ou Descontinuado;Thayná Santos;DMTASK
-5703;18409;Erro - Banco de Dados Relatos;FL - Correções de Bugs;Concluído ou Descontinuado;Thayná Santos;DMTASK
-5704;18410;Erro - Planilha de Histórico de Ocorrências;FL - Correções de Bugs;Concluído ou Descontinuado;Thayná Santos;DMTASK
-5706;;Planilha Carga de Ocorrência;FL - Projetos, Melhorias e APIs;Caixa de Entrada;Thayná Santos;DMTASK
-5719;18411;Erro na aba de treinamento do app;FL - Correções de Bugs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-5733;18424;Erro ao exportar relatório de relato;FL - Correções de Bugs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-5734;18425;Erro no relatório de cadastro de equipamentos;FL - Correções de Bugs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-5784;18428;Erro ao extrair base contadores Frota legal;FL - Correções de Bugs;Concluído ou Descontinuado;Stefane Cordeiro;DMTASK
-5791;18442;API Integração Logan - Inclusão da Revenda;FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Stefane Cordeiro;DMTASK
-5793;;PDF ao exportar inspeção;FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-5794;18436;Erro para realizar check no app;FL - Correções de Bugs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-5815;;Liberar entrevistas de mudança de faixa;FL - Projetos, Melhorias e APIs;Caixa de Entrada;Larice Nunes;DMTASK
-5842;18532;Erro no menu do app;FL - Correções de Bugs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-5849;18540;Desbloqueio de condutor por faixa;FL - Correções de Bugs;Concluído ou Descontinuado;Thais Oliveira;DMTASK
-5856;18541;Erro ao tentar realizar inspeções no app;FL - Correções de Bugs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-5899;18549;Ajuste Configuração de Multas;FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Hannah Moreira;DMTASK
-5911;18558;Erro - relatos sem validação;FL - Correções de Bugs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-5919;;Erro - Bloqueio de CNH por motivo Nada Consta 2;FL - Correções de Bugs;Concluído ou Descontinuado;Thayná Santos;DMTASK
-5965;18608;Erro - Documentos sem validade;FL - Correções de Bugs;Concluído ou Descontinuado;Thayná Santos;DMTASK
-5985;18621;Erro - Menu do app não aparece para condutor;FL - Correções de Bugs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-5996;18638;ERRO - Falha da atribuição de eventos (Interno 21447);FL - Correções de Bugs;Concluído ou Descontinuado;Sabrina Alcantara;DMTASK
-6030;18676;Erro ao realizar o bloqueio temporário;FL - Correções de Bugs;Concluído ou Descontinuado;Stefane Cordeiro;DMTASK
-6038;18707;ERRO - Condutores liberados com documento vencido;FL - Correções de Bugs;Concluído ou Descontinuado;Sabrina Alcantara;DMTASK
-6041;18708;Erro ao tentar atrelar condutor na aba relato;FL - Correções de Bugs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-6128;18740;Erro na base do frota;FL - Correções de Bugs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-6149;18750;Erro - Deposito de documentos;FL - Correções de Bugs;Concluído ou Descontinuado;Thayná Santos;DMTASK
-6153;18751;erro ao buscar unidade de tp no cadastro de condutor-;FL - Correções de Bugs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-6170;;Melhoria - Implementar Alerta de Vencimento de Placa por Idade e Unidade;FL - Projetos, Melhorias e APIs;Caixa de Entrada;Thayná Santos;DMTASK
-6177;;Melhoria - Implementar nova configuração de validade por meses fixos nas inspeções;FL - Projetos, Melhorias e APIs;Caixa de Entrada;Thayná Santos;DMTASK
-6179;;Melhoria - Alerta de Inspeções Vencidas e Vencendo;FL - Projetos, Melhorias e APIs;Caixa de Entrada;Thayná Santos;DMTASK
-6180;18994;Gerar novo token API Demarco X Veolink;FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Marques Pereira;DMTASK
-6213;18901;Erro ao buscar placa no app;FL - Correções de Bugs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-6214;18910;Erro ao tentar abrir app;FL - Correções de Bugs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-6271;;Bloqueio para veículos pendentes de inspeção - Alteração de Regra;FL - Projetos, Melhorias e APIs;Caixa de Entrada;Stefane Cordeiro;DMTASK
-6336;19045;Erro ao incluir unidade no cadastro de condutor (Interno 19962);FL - Correções de Bugs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-6418;19046;Erro App - Ordem fotos Checklist (Interno 20858);FL - Correções de Bugs;Concluído ou Descontinuado;Hannah Moreira;DMTASK
-6422;19208;Consumo de consultas de CNH - Mônaco;FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Hannah Moreira;DMTASK
-6432;19067;Erro em checklist quinzenal;FL - Correções de Bugs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-6449;19068;Erro - Banco de Dados de Documentos;FL - Correções de Bugs;Concluído ou Descontinuado;Thayná Santos;DMTASK
-6451;19069;Erro ao tentar exportar planilha de relatos;FL - Correções de Bugs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-6476;;Dados de entrevistas de condutores para dash;FL - Projetos, Melhorias e APIs;Caixa de Entrada;Sabrina Alcantara;DMTASK
-6494;19091;Erro na aba de relatos do app;FL - Correções de Bugs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-6508;19150;Erro ao realizar inspeção no app usuário ceva;FL - Correções de Bugs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-6551;19143;erro na tela inicial do app;FL - Correções de Bugs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-6573;;Erro - Condutores Bloqueados Treinamento não Obrigatório ;FL - Correções de Bugs;Concluído ou Descontinuado;Marques Pereira;DMTASK
-6592;;Erro integração Frota x Opentech;FL - Correções de Bugs;Concluído ou Descontinuado;Thais Oliveira;DMTASK
-6619;;Erro ao tentar receber sms no app;FL - Correções de Bugs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-6623;19213;[MELHORIA] USUARIOS INATIVOS SENDO DELETADOS DA TELA DE USUARIO;FL - Correções de Bugs;Concluído ou Descontinuado;Marques Pereira;DMTASK
-6624;;Erro na exibição — Usuários  habilitados não conseguem visualizar veículos e equipamentos;FL - Correções de Bugs;Concluído ou Descontinuado;Marques Pereira;DMTASK
-6689;19279;Erro - Usuário sumindo quando inativamos;FL - Correções de Bugs;Concluído ou Descontinuado;Thayná Santos;DMTASK
-6690;19281;Erro - Envio de Alertas;FL - Correções de Bugs;Concluído ou Descontinuado;Thayná Santos;DMTASK
-6691;19285;Erro - Usuário não aparece as opções de inspeções no app;FL - Correções de Bugs;Concluído ou Descontinuado;Thayná Santos;DMTASK
-6692;19290;Erro - Usuário não mostra o tipo de condutor;FL - Correções de Bugs;Concluído ou Descontinuado;Thayná Santos;DMTASK
-6693;19288;Erro - Veículos com documento vencido e está liberado;FL - Correções de Bugs;Concluído ou Descontinuado;Thayná Santos;DMTASK
-6696;;Melhoria - Gerar o status vencendo para os documentos por data de emissão;FL - Projetos, Melhorias e APIs;Caixa de Entrada;Thayná Santos;DMTASK
-6707;;Melhoria - Não permitir informar data futura para documentos por data de emissão;FL - Projetos, Melhorias e APIs;Caixa de Entrada;Thayná Santos;DMTASK
-6832;19408;Erro Modulo de Relatos - Pagina em branco;FL - Correções de Bugs;Concluído ou Descontinuado;Marques Pereira;DMTASK
-6844;;Erro - Unidades;FL - Correções de Bugs;Concluído ou Descontinuado;Thayná Santos;DMTASK
-7093;19615;Erro no módulo de Treinamentos – anexos não exibidos e página em branco;FL - Correções de Bugs;Concluído ou Descontinuado;Marques Pereira;DMTASK
-7105;19616;"Erro - ""Exibir todos os motivos de bloqueio""";FL - Correções de Bugs;Concluído ou Descontinuado;Hannah Moreira;DMTASK
-7161;19646;Erro relato com duas placas;FL - Correções de Bugs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-7304;;Prorrogação do Token da API LOGAN;FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Stefane Cordeiro;DMTASK
-7334;19757;Correção de Faixa Condutor;FL - Correções de Bugs;Concluído ou Descontinuado;Thais Oliveira;DMTASK
-7409;19759;Erro no momento de atualizar unidade;FL - Correções de Bugs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-7410;19758;Erro no check quinzenal;FL - Correções de Bugs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-7434;19766;Erro - Banco de Dados Condutores;FL - Correções de Bugs;Concluído ou Descontinuado;Thayná Santos;DMTASK
-7514;19883;Erro no app ao acessar;FL - Correções de Bugs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-7628;19882;Erro - Validade do documento sumindo (Interno 20853);FL - Correções de Bugs;Concluído ou Descontinuado;Thayná Santos;DMTASK
-7725;20425;Baixar base de fotos do Frota Legal para o Track&Trace;FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Stefane Cordeiro;DMTASK
-7853;;Erro ao exportar relatório do prontuário;FL - Correções de Bugs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-7902;20404;Adequação cadastro estrangeiro;FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Stefane Cordeiro;DMTASK
-7930;;Inconsistência Frota Legal;FL - Correções de Bugs;Concluído ou Descontinuado;Lidiane Fortunato;DMTASK
-7943;20228;Erro Relatos - Usuários com visibilidade total;FL - Correções de Bugs;Concluído ou Descontinuado;Hannah Moreira;DMTASK
-7944;20229;Erro Relatos - Relatos antigos apareceram para validação;FL - Correções de Bugs;Concluído ou Descontinuado;Hannah Moreira;DMTASK
-7954;20263;Erro - Envio de Documentos Condutores;FL - Correções de Bugs;Concluído ou Descontinuado;Thayná Santos;DMTASK
-7959;20264;erro - novos usuários estão sumindo do dm center;FL - Correções de Bugs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-7966;20261;Erro Equipamento Bloqueado com itens NOK justificados;FL - Correções de Bugs;Concluído ou Descontinuado;Marques Pereira;DMTASK
-8009;;ERRO - Integração Frota x Opentech ;FL - Correções de Bugs;Concluído ou Descontinuado;Sabrina Alcantara;DMTASK
-8032;;Furação - Bloqueio de Condutor - Sistema BRF;FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Guilherme Silva;DMTASK
-8084;;Melhoria - Ocorrências não permite justificar após 1 ano;FL - Projetos, Melhorias e APIs;Caixa de Entrada;Thayná Santos;DMTASK
-8118;20392;Erro Api Veolink;FL - Correções de Bugs;Concluído ou Descontinuado;Marques Pereira;DMTASK
-8147;;Erro | Filtros de Unidades e Quantidade de Relatos 'Incompleta' na Validação de Relatos;FL - Correções de Bugs;Concluído ou Descontinuado;Gabrielle Andrade;DMTASK
-8159;;Ajuste da faixa do condutor;FL - Correções de Bugs;Concluído ou Descontinuado;Thais Oliveira;DMTASK
-8188;20854;Erro na base da relação de condutores da Entrevista de Mudança da Faixa;FL - Correções de Bugs;Concluído ou Descontinuado;Guilherme Silva;DMTASK
-8226;20519;Erro - Banco de dados (Documentos Veículos);FL - Correções de Bugs;Concluído ou Descontinuado;Thayná Santos;DMTASK
-8228;21867;Erro - Envio de alertas [21867 interno];FL - Correções de Bugs;Concluído ou Descontinuado;Thayná Santos;DMTASK
-8385;20794;Onisys - Inclusão TRANSRIMA para piloto;FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Sabrina Alcantara;DMTASK
-8425;;Erro ao encontrar cadastro de condutor na base (SPOT T1) ;FL - Correções de Bugs;Concluído ou Descontinuado;Fernanda Mariante;DMTASK
-8470;;Atualizar Opentech de hora em hora;FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Gabriela Correa;DMTASK
-8473;20855;Correção Alertas Frota;FL - Correções de Bugs;Concluído ou Descontinuado;Sabrina Alcantara;DMTASK
-8539;;Alteração na Integração com SAP;FL - Projetos, Melhorias e APIs;Caixa de Entrada;Sabrina Alcantara;DMTASK
-8547;;Limite de Idade por Tipo de Equipamento ;FL - Projetos, Melhorias e APIs;Caixa de Entrada;Marques Pereira;DMTASK
-8550;20718;Controle de alterações em dados vinculados a documentos obrigatórios;FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Stefane Cordeiro;DMTASK
-8560;21269;Erro na visualização de entrevista de mudança de faixa;FL - Correções de Bugs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-8604;20827;Erro Treinamentos via APP;FL - Correções de Bugs;Concluído ou Descontinuado;Marques Pereira;DMTASK
-8741;20848;Unidade não reflete no cadastro do condutor;FL - Correções de Bugs;Concluído ou Descontinuado;Gabriel Costa;DMTASK
-8760;20849;Erro leitura de Qrocde;FL - Correções de Bugs;Concluído ou Descontinuado;Marques Pereira;DMTASK
-8765;20850;Atribuíção indevida de eventos ONISYS [Retorno #20850];FL - Correções de Bugs;Concluído ou Descontinuado;Thais Oliveira;DMTASK
-8793;20904;Erro - E-mail do Condutor Não Salva;FL - Correções de Bugs;Concluído ou Descontinuado;Thayná Santos;DMTASK
-8794;;Bloqueio de lançamento de ocorrências para ajudantes;FL - Projetos, Melhorias e APIs;Caixa de Entrada;Sabrina Alcantara;DMTASK
-8796;20906;Atualização de GR;FL - Correções de Bugs;Concluído ou Descontinuado;Thais Oliveira;DMTASK
-8810;20905;Erro no TO=oken;FL - Correções de Bugs;Concluído ou Descontinuado;Thais Oliveira;DMTASK
-8846;21180;Usuários sem vínculo a transportadora.;FL - Correções de Bugs;Concluído ou Descontinuado;Adriele Ribeiro;DMTASK
-8854;;Melhoria - Inclusão de Dados no Relatório de Cadastro de Condutores;FL - Projetos, Melhorias e APIs;Caixa de Entrada;Thayná Santos;DMTASK
-8922;21555;erro ao tentar realizar check no app;FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-9001;21540;erro ao tentar logar no app (telefone);FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-9090;21237;Erro - Acesso a Inspeção não permitida no App;FL - Correções de Bugs;Concluído ou Descontinuado;Thayná Santos;DMTASK
-9091;21238;Erro - Inspeções não aparece para serem realizadas;FL - Correções de Bugs;Concluído ou Descontinuado;Thayná Santos;DMTASK
-9093;21239;Transferência de colaborador e equipamento não está funcionando;FL - Correções de Bugs;Concluído ou Descontinuado;Tallison Jesus;DMTASK
-9148;21267;Erro | Base de Dados 'Documento Condutor' Desatualizada;FL - Correções de Bugs;Concluído ou Descontinuado;Gabrielle Andrade;DMTASK
-9149;21268;erro ao tentar validar relato;FL - Correções de Bugs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-9164;21218;Erro - Integração SAP não sincroniza corretamente o status de condutores (liberado/bloqueado);FL - Correções de Bugs;Concluído ou Descontinuado;Gabriela Correa;DMTASK
-9273;21424;Usuários com ações inativar mesmo com função desabilitada em administração.;FL - Correções de Bugs;Concluído ou Descontinuado;Marques Pereira;DMTASK
-9275;21446;Ajuste de Situação de Condutor;FL - Correções de Bugs;Concluído ou Descontinuado;Thais Oliveira;DMTASK
-9285;21437;Erro no recebimento do Token;FL - Correções de Bugs;Concluído ou Descontinuado;Gabriela Correa;DMTASK
-9287;21437;Erro no recebimento de token;FL - Correções de Bugs;Concluído ou Descontinuado;Thais Oliveira;DMTASK
-9357;21479;Erro Banco de dados - Modulo Treinamentos;FL - Correções de Bugs;Concluído ou Descontinuado;Marques Pereira;DMTASK
-9371;21478;CNH vencida e colaborador liberado;FL - Correções de Bugs;Concluído ou Descontinuado;Gabriela Correa;DMTASK
-9377;21504;Erro prontuário do condutor - Ocorrências não estão sendo expurgados;FL - Correções de Bugs;Concluído ou Descontinuado;Stefane Cordeiro;DMTASK
-9394;21558;Condutor liberado com documento reprovado/ausente;FL - Correções de Bugs;Concluído ou Descontinuado;Sabrina Alcantara;DMTASK
-9395;21559;Condutor com pendência de entrevista sem evento de fadiga no histórico;FL - Correções de Bugs;Concluído ou Descontinuado;Sabrina Alcantara;DMTASK
-9415;21560;"Inconsistência na classificação de documentos (aprovados; pré-aprovados e reprovados)";FL - Correções de Bugs;Concluído ou Descontinuado;Sabrina Alcantara;DMTASK
-9417;21562;Divergência nos números de status e faixas dos colaboradores;FL - Correções de Bugs;Concluído ou Descontinuado;Sabrina Alcantara;DMTASK
-9418;21615;Histórico do colaborador não salvo no banco de dados;FL - Correções de Bugs;Concluído ou Descontinuado;Sabrina Alcantara;DMTASK
-9442;21639;Disponibilizar Base de Documentos - MELI;FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Hannah Moreira;DMTASK
-9472;;Prorrogação do Token da API LOGAN;FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Stefane Cordeiro;DMTASK
-9473;;Inclusão do campo ‘Tipo de Carroceria’ no cadastro do veículo.;FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Stefane Cordeiro;DMTASK
-9479;21662;Erro ao realizar check list app;FL - Correções de Bugs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-9496;21682;Erro App Condutores - Checklists não aparecem;FL - Correções de Bugs;Concluído ou Descontinuado;Hannah Moreira;DMTASK
-9507;21688;Dashboard com placas inativas no filtro de ativas;FL - Correções de Bugs;Concluído ou Descontinuado;Lilian Rodrigues;DMTASK
-9508;21694;Falha no envio de token;FL - Correções de Bugs;Concluído ou Descontinuado;Lilian Rodrigues;DMTASK
-9538;21749;Itens justificados no APP nao sobem pro sistema;FL - Correções de Bugs;Concluído ou Descontinuado;Marques Pereira;DMTASK
-9543;21763;Falha na integração com a gerenciadora de risco Frota;FL - Correções de Bugs;Concluído ou Descontinuado;Adriele Ribeiro;DMTASK
-9551;;Melhoria no Controle de Alterações Cadastrais de Condutor;FL - Projetos, Melhorias e APIs;Caixa de Entrada;Kezya Souza;DMTASK
-9561;21845;Erro - Gerenciamento de Inspeções por perfil;FL - Correções de Bugs;Concluído ou Descontinuado;Thayná Santos;DMTASK
-9573;18835;Melhoria - Implementação de Exportação de Inspeção em PDF com Imagens;FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Thayná Santos;DMTASK
-9586;;Melhoria - Correção de Lógica na Renovação de Inspeções (Manutenção de Validade);FL - Projetos, Melhorias e APIs;Caixa de Entrada;Thayná Santos;DMTASK
-9668;21908;"ERRO: Mensagem ""Verifique Console"" ao tentar cadastrar condutores";FL - Correções de Bugs;Concluído ou Descontinuado;Hannah Moreira;DMTASK
-9676;21919;ERRO: Checklists não aparecem no app;FL - Correções de Bugs;Concluído ou Descontinuado;Marques Pereira;DMTASK
-9687;21947;ERRO: Usuários inativos continuam recebendo alertas do sistema;FL - Correções de Bugs;Concluído ou Descontinuado;Hannah Moreira;DMTASK
-9688;22136;Criar configuração para Republica Dominicana;FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Hannah Moreira;DMTASK
-9689;21694;Erro no recebimento de token;FL - Correções de Bugs;Concluído ou Descontinuado;Adriele Ribeiro;DMTASK
-9697;21977;Alterar iframe site frota legal;FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Rodrigo;DMTASK
-9703;21983;ERRO: ao tentar realizar check list no app - losung;FL - Correções de Bugs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-9707;21996;ERRO: Alteração de Validade da CNH;FL - Correções de Bugs;Concluído ou Descontinuado;Thayná Santos;DMTASK
-9710;21997;ERRO: Transportadores não aparecem no cadastro de condutores e veiculos;FL - Correções de Bugs;Concluído ou Descontinuado;Tallison Jesus;DMTASK
-9712;21997;Erro - Falta de unidade no cadastro de transportador está impactando cadastro de Condutores e Veículos;FL - Correções de Bugs;Concluído ou Descontinuado;Hannah Moreira;DMTASK
-9716;22003;ERRO: Falha na integração com a gerenciadora de risco FROTA LEGAL;FL - Correções de Bugs;Concluído ou Descontinuado;Adriele Ribeiro;DMTASK
-9721;22068;Erro ao salvar cadastro de Transportador - sistema não indica erro nos campos de telefone;FL - Correções de Bugs;Concluído ou Descontinuado;Hannah Moreira;DMTASK
-9722;22048;Habilitar consulta CNH via DMGateway – Ambiente Grupo Vyas;FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Fernanda Mariante;DMTASK
-9732;22090;ERRO: Falha na integração do SAP FROTA;FL - Correções de Bugs;Concluído ou Descontinuado;Adriele Ribeiro;DMTASK
-9754;22083;Erro Retorno #9676 – #21919 - ERRO: Checklists não aparecem no app;FL - Correções de Bugs;Concluído ou Descontinuado;Marques Pereira;DMTASK
-9761;22113;ERRO: CNH valida com status vencendo no FROTA;FL - Correções de Bugs;Concluído ou Descontinuado;Adriele Ribeiro;DMTASK
-9774;;Status Atenção na validação do Checklist;FL - Projetos, Melhorias e APIs;Caixa de Entrada;Marques Pereira;DMTASK
-9777;22155;ERRO: Envio de alertas incompleto;FL - Correções de Bugs;Concluído ou Descontinuado;Lidiane Fortunato;DMTASK
-9779;22146;ERRO: Correção regra 30 dias CNH;FL - Correções de Bugs;Concluído ou Descontinuado;Tallison Jesus;DMTASK
-9788;;"ERRO: Mensagem ""Verifique Console"" ao tentar cadastrar condutores [Novo caso]";FL - Correções de Bugs;Concluído ou Descontinuado;Thais Oliveira;DMTASK
-9793;22183;ERRO: Relatório Prontuário do Transportador;FL - Correções de Bugs;Concluído ou Descontinuado;Maike Silva;DMTASK
-9815;22675;Gerar novo token API Demarco X Veolink;FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Marques Pereira;DMTASK
-9826;;Alterar campo de foto e e-mail ao realizar transferência  de Transportadora e Unidade ;FL - Projetos, Melhorias e APIs;Caixa de Entrada;Tallison Jesus;DMTASK
-9827;22668;Ajuste | Inclusão de coluna 'E-mail' no Relatório de Cadastro de Condutor;FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Gabrielle Andrade;DMTASK
-9828;22457;ERRO: checklist pendente porem aprovado no sistema;FL - Correções de Bugs;Concluído ou Descontinuado;Marques Pereira;DMTASK
-9829;22528;ERRO:  Unidades Banco de Dados;FL - Correções de Bugs;Concluído ou Descontinuado;Thayná Santos;DMTASK
-9830;;Ajuste | Erro - Veículos Não Estão sendo liberados automaticamente após desbloqueio do transportador;FL - Projetos, Melhorias e APIs;Caixa de Entrada;Maike Silva;DMTASK
-9831;;Ajuste | Erro - Visualização de Unidades de cada Transportador;FL - Projetos, Melhorias e APIs;Caixa de Entrada;Maike Silva;DMTASK
-9835;22707;ERRO: Placas não aparecem para realização da inspeção;FL - Correções de Bugs;Concluído ou Descontinuado;Thayná Santos;DMTASK
-9836;22711;ERRO: Gravação de Inspeções: Dados não salvam após a conclusão no App;FL - Correções de Bugs;Concluído ou Descontinuado;Thayná Santos;DMTASK
-9837;22714;Erro - Inspeções de Auditoria visíveis para o perfil Transportador;FL - Correções de Bugs;Concluído ou Descontinuado;Thayná Santos;DMTASK
-9838;22734;Erro | Mensagem 'Equipamento Não Encontrado' no APP;FL - Correções de Bugs;Concluído ou Descontinuado;Gabrielle Andrade;DMTASK
-9839;22738;OPENTECH - GR do condutor não integra;FL - Correções de Bugs;Concluído ou Descontinuado;Adriele Ribeiro;DMTASK
-9840;22737;ERRO: Mensagem 'Usuário ou senha Inválidos' no APP;FL - Correções de Bugs;Concluído ou Descontinuado;Maike Silva;DMTASK
-9843;;erro ao logar no aap amazon;FL - Correções de Bugs;Concluído ou Descontinuado;Larice Nunes;DMTASK
-9844;;Melhoria - Relatório na tela de consulta de CNH;FL - Projetos, Melhorias e APIs;Caixa de Entrada;Thayná Santos;DMTASK
-9846;;Troca de e-mail em massa;FL - Projetos, Melhorias e APIs;Concluído ou Descontinuado;Thayná Santos;DMTASK
-9848;;"Ajuste ""Calcular Validade de Ocorrência Por Período"" - Adicionar opção Mensal";FL - Projetos, Melhorias e APIs;Caixa de Entrada;Hannah Moreira;DMTASK
+﻿ID;Título;Fase Atual;Criado em;Solicitante;Sistema
+#18862;[24421] Inclusão de eventos e origens faltantes na parametrização do Scorecard (Performance);Concluído;2026-05-18;Stefane Cordeiro;DMCenter
+#19881;[24532] Inconsistência no status do condutor no Módulo de Performance;Concluído;2026-05-21;Lidiane Fortunato;DMCenter
+#23698;[25104]  Usuários sem acesso ao produto no App Demarco;Concluído;2026-06-08;Larice Nunes;DMCenter
+#23708;[25103]Usuários conseguem logar, mas não possuem acesso às funcionalidades;Concluído;2026-06-08;Hannah Moreira;DMCenter
+#24324;[25195] Erro de acesso ao clicar em “Entrar” ou ao validar token (Frota Legal);Concluído;2026-06-10;Hannah Moreira;DMCenter
+#18882;DM People - Falha no acesso;Concluído;2026-05-18;Daniel Souza;DMCenter
+#23746;ERRO | FALHA NA REUTILIZAÇÃO DE SENHA APÓS LOGOUT - ACESSO APP CONDUTOR;Concluído;2026-06-08;Gabrielle Andrade;DMCenter
+#11377;[23093] Correção de inconsistência na pontuação e desbloqueio de condutores;Concluído;2026-04-01;Gabriela Correa;DMCenter
+#14006;[23578] [Furacão] Atualização de dados de condutores após migração SAP S/4HANA;Concluído;2026-04-20;Sabrina Alcântara;DMCenter
+#15040;[23738] [FURACÃO] Falha na integração com o SAP gerando bloqueio indevido;Concluído;2026-04-27;Gabriel Costa;DMCenter
+#15366;[23869] [FURACÃO]  Necessidade de carga de bases de eventos no Frota Legal e DMPerformance;Concluído;2026-04-28;Sabrina Alcântara;DMCenter
+#26248;[25494]  Divergência de cálculo na Pontuação Ponderada (acréscimo de 0,01);Concluído;2026-06-18;Guilherme Silva;DMCenter
+#26238;[25495] Inclusão da coluna “Quantidade de Sonolência” no relatório de Situação do Ajudante;Concluído;2026-06-18;Stefane Cordeiro;DMCenter
+#33690;Histórico de colaborador incompleto no DMP;Concluído;2026-07-20;Sabrina Alcântara;DMCenter
+#32037;[26381] Falha no Upload de Planilha de CNH no Módulo de Performance;Concluído;2026-07-14;Guilherme Silva;DMCenter
+#26897;[25767] Falha no Redirecionamento de Acesso ao DMPeople via APP;Concluído;2026-06-22;Thais Oliveira;DMCenter
+#35762;Erro - Usuário sem visualização dos menus do Frota Legal;Concluído;2026-07-28;Thayná Santos;DMCenter
+#35513;[27103] Novos ambientes Frota Legal - Citrosuco;Concluído;2026-07-27;Gabriela Correa;DMCenter
+#40279;Retirar trava de bloqueio definitivo no momento do expurgo via telemetria;Caixa de Entrada;2026-08-08;Stefane Cordeiro;DMCenter
+#40491;API – Disponibilização de eventos da Operação Secundária  ;Caixa de Entrada;2026-08-10;Gabriela Correa;DMCenter
+#33704;Consulta prontuário exibe vencimento CNH indevido;Caixa de Entrada;2026-07-20;Sabrina Alcântara;DMCenter
+#28787;Integração via API entre G-Info e Gente e Gestão para Eventos GSD de Ajudantes;Caixa de Entrada;2026-07-01;Fernanda Mariante;DMCenter
+#23090;Desenvolvimento de API para integração com Pater Logística (consulta de prontuário);Caixa de Entrada;2026-06-03;Sabrina Alcântara;DMCenter
+#25480;Integração via API entre G‑Info e Módulo de Performance (GSD Ajudante);Caixa de Entrada;2026-06-16;Stefane Cordeiro;DMCenter
+#28990;Inclusão da Coluna “Quantidade” no Relatório de Mudança de Faixas;Caixa de Entrada;2026-07-01;Guilherme Silva;DMCenter
+#44610;Correção na Integração – Liberação de Colaboradores após 5 Dias de Admissão;Caixa de Entrada;2026-08-20;Lais Barbosa;DMCenter
+#10178;[22998] Divergência entre a quantidade de registros dos eventos;Reprovados;2026-03-25;Thais Oliveira;DMCenter
+#31907;[26380] Falha na Sincronização de Status entre SAP e DMPerformance;Reprovados;2026-07-13;Adriele Ribeiro;DMCenter
+#28938;[25959] Falha na Integração e Processamento das Entrevistas de Fadiga e Mudança de Faixa;Pronto para Desenvolvimento;2026-07-01;Gabriela Correa;DMCenter
+#28798;[25957] Condutores Permanecem em Faixa Verde Após Virada de Trimestre;Pronto para Desenvolvimento;2026-07-01;Thais Oliveira;DMCenter
+#27827;[25888] Falha Intermitente no Upload de Eventos do Módulo de Performance;Pronto para Desenvolvimento;2026-06-25;Adriele Ribeiro;DMCenter
+#27316;[25761] Inconsistência nos Alertas de Documentos Vencidos;Pronto para Desenvolvimento;2026-06-24;Thais Oliveira;DMCenter
+#24320;[25210] Possível falha na integração de telemetria;Pronto para Desenvolvimento;2026-06-10;Adriele Ribeiro;DMCenter
+#23183;[25139] Colaborador demitido permanece com status ativo no Módulo de Performance;Pronto para Desenvolvimento;2026-06-05;Gabriel Costa;DMCenter
+#22948;[25134] Correção de nomenclatura de faixa na tela de consulta;Pronto para Desenvolvimento;2026-06-03;Thais Oliveira;DMCenter
+#23705;[25091]Exposição indevida de todos os clientes para usuários Demarco no Frota Legall;Pronto para Desenvolvimento;2026-06-08;Hannah Moreira;DMCenter
+#22771;[24941] Divergência de Quantidade de Eventos entre Módulo de Performance e Relatório;Pronto para Desenvolvimento;2026-06-02;Adriele Ribeiro;DMCenter
+#13993;[23580] Inclusão da integração Onisys Marfrig no DMPerformance;Pronto para Desenvolvimento;2026-04-20;Sabrina Alcântara;DMCenter
+#10279;[23000] Dashboard omite eventos históricos GeG do colaborador;Pronto para Desenvolvimento;2026-03-26;Sabrina Alcântara;DMCenter
+#13352;[23483] Condutores em Faixa Preta com pontuação superior a 0 pontos;Pronto para Desenvolvimento;2026-04-15;Gabriel Costa;DMCenter
+#12633;[23350] Erro na tela de Consulta e Qualificação de colaboradores;Pronto para Desenvolvimento;2026-04-10;Thais Oliveira;DMCenter
+#11566;[23171] Condutor com dois prontuários ativos no Módulo de Performance;Pronto para Desenvolvimento;2026-04-02;Lidiane Fortunato;DMCenter
+#10285;[23001] Documentos vencidos não constam no alerta;Pronto para Desenvolvimento;2026-03-26;Lidiane Fortunato;DMCenter
+#30085;[26225] Divergência de Faixa do Condutor entre Sistema e Relatórios;Pronto para Desenvolvimento;2026-07-06;Gabriel Costa;DMCenter
+#32414;[22202]Consulta do Prontuário cobra PQE indevido para Manobrista;Pronto para Desenvolvimento;2026-07-15;Adriele Ribeiro;DMCenter
+#27785;[26394] Admissão cancelada segue ativa e bloqueia indevidamente novo vínculo;Pronto para Desenvolvimento;2026-06-25;Gabriela Correa;DMCenter
+#33295;[26725] Cadastro de cliente no DMCenter marca todos sistemas e falha ao salvar;Pronto para Desenvolvimento;2026-07-17;Hannah Moreira;DMCenter
+#32045;[26749] Inativação no Frota remove usuário da lista e impede reativação;Pronto para Desenvolvimento;2026-07-14;Gabrielle Andrade;DMCenter
+#32936;[26721] Liberação automática de condutor não ocorre após fim de afastamento;Pronto para Desenvolvimento;2026-07-16;Sabrina Alcântara;DMCenter
+#33862;[26757] Histórico de faixas no BD com nomenclatura desatualizada;Pronto para Desenvolvimento;2026-07-21;Sabrina Alcântara;DMCenter
+#34122;[26763] Colaborador demitido permanece Ativo no módulo Performance;Pronto para Desenvolvimento;2026-07-22;Gabriel Costa;DMCenter
+#37724;[27297][Migração] Importação CNH com Observação não bloqueia condutor;Pronto para Desenvolvimento;2026-08-03;Stefane Cordeiro;DMCenter
+#38013;[27296] Cadastro de usuário administrador falha ao salvar no DMCenter;Pronto para Desenvolvimento;2026-08-04;Hannah Moreira;DMCenter
+#36095;[27132] Nome de colaborador demitido corrigido não reflete no Performance;Pronto para Desenvolvimento;2026-07-29;Gabriel Costa;DMCenter
+#40078;[27550] Grid importação CNH não exibe planilha recém-enviada;Pronto para Desenvolvimento;2026-08-07;Alessandro Menezes;DMCenter
+#40274;[27550] Grid importação CNH não exibe planilha recém-enviada;Pronto para Desenvolvimento;2026-08-08;Stefane Cordeiro;DMCenter
+#32813;[26676] Eventos Sascar BRF Agropecuária/Secundária não são gravados;Pronto para Desenvolvimento;2026-07-16;Adriele Ribeiro;DMCenter
+#24564;[25285] Usuário inativo no DMCenter impedindo acesso aos sistemas;Revisão de Código;2026-06-11;Hannah Moreira;DMCenter
+#34500;[26822][Migração] Ajuste da Pontuação Ponderada;Em Desenvolvimento;2026-07-23;Stefane Cordeiro;DMCenter
+#18824;Faixa Roxa: manter bloqueio de condutores no Módulo de Performance;Em Análise;2026-05-18;Lais Barbosa;DMCenter
+#42734;Ajuste na pontuação dos colaboradores;Em Análise;2026-08-14;Gabriel Costa;DMCenter
+#21356;[24769]  Na Parametrização de Eventos de Telemetria -  Falha na Edição e Inclusão da Atividade;Reprovados;2026-05-28;Sabrina Alcântara;Frota Legal
+#32862;[26608] Mônaco: Integração consulta condutores inativos e dentro da periodicidade bimestral;Reprovados;2026-07-16;Gabriela Correa;Frota Legal
+#24332;[25266] GR não retorna resultados no Frota Legal;Reprovados;2026-06-10;Adriele Ribeiro;Frota Legal
+#36149;[25285] Erro ao tentar acessar app - martins;Reprovados;2026-07-29;Larice Nunes;Frota Legal
+#27438;[25712] Divergência de datas de ocorrências entre histórico do condutor e relatórios no Frota Legal;Pronto Para Publicar;2026-06-24;Gabrielle Andrade;Frota Legal
+#28985;[25961] Mônaco: tentativas falhas registradas como consulta + coluna Retorno Consulta CNH;Pronto Para Publicar;2026-07-01;Thayná Santos;Frota Legal
+#32632;[26501] Retorno da consulta CNH exibe dados do fornecedor anterior após migração para Mônaco;Pronto Para Publicar;2026-07-15;Thayná Santos;Frota Legal
+#13221;[23451] Duplicidade no registro de Consulta de CNH;Descontinuado;2026-04-15;Thayná Santos;Frota Legal
+#18234;[24357] APP Demarco | Ícone 'Frota Legal' redireciona usuário para fora do aplicativo;Concluído;2026-05-13;Gabrielle Andrade;Frota Legal
+#20856;[24674] aplicativo não reconhece vínculo de condutor com cliente e bloqueia acesso.;Concluído;2026-05-26;Larice Nunes;Frota Legal
+#23984;[25194] Erro Seleção de idiomas;Concluído;2026-06-09;Hannah Moreira;Frota Legal
+#14954;[23729] Inconsistências e erros na tela de consulta de consumo de CNH;Concluído;2026-04-27;Hannah Moreira;Frota Legal
+#21323;[24770] | Divergência de data/hora na inspeção entre histórico e exportações;Concluído;2026-05-28;Gabrielle Andrade;Frota Legal
+#24067;[25090] Erro ao excluir unidade no frota legal;Concluído;2026-06-09;Adriele Ribeiro;Frota Legal
+#23181;[25090] Erro ao cadastrar e excluir unidade de transportadora;Concluído;2026-06-05;Thais Oliveira;Frota Legal
+#22841;[24960]APP DEMARCO | Checklist Pré-Uso do motorista não é exibido corretamente no aplicativo Demarco;Concluído;2026-06-03;Maike Silva;Frota Legal
+#22736;[24982] Usuários não conseguem acessar o Frota Legal;Concluído;2026-06-02;Lilian Rodrigues;Frota Legal
+#23442;[25091] Erro DM Center -Todos os clientes Demarco aparecendo no Frota Legal;Concluído;2026-06-08;Hannah Moreira;Frota Legal
+#23515;[25094 ] DMCenter -Usuários logam no sistema, mas não possuem acesso a funcionalidades;Concluído;2026-06-08;Hannah Moreira;Frota Legal
+#23528;Erro ao tentar logar no app;Concluído;2026-06-08;Larice Nunes;Frota Legal
+#21408;[24779] Grupo vyas - Expurgo de eventos em banco de dados;Concluído;2026-05-28;Daniel Souza;Frota Legal
+#14242;[23643] Erro no App Demarco: inspeções realizadas não estão sendo registradas no sistema;Concluído;2026-04-22;Hannah Moreira;Frota Legal
+#17019;[24057] Erro app Demarco / Inspeção Frota Legal (#16667);Concluído;2026-05-07;Lilian Rodrigues;Frota Legal
+#12622;[23354] Erro de login no APP: mensagem de “Usuário/Senha inválidos” com dados corretos;Concluído;2026-04-10;Maike Silva;Frota Legal
+#16434;[24242] Erro no APP Demarco: Falha de login mesmo com credenciais corretas.;Concluído;2026-05-05;Gabrielle Andrade;Frota Legal
+#12443;#23275 - ERRO: Falha no envio de SMS impede acesso de condutor;Concluído;2026-04-09;Larice Nunes;Frota Legal
+#15257;[23853] Falha na atualização automática de documentos;Concluído;2026-04-28;Thayná Santos;Frota Legal
+#18497;[24410] Inspeção não vinculada ao prontuário do veículo;Concluído;2026-05-15;Thayná Santos;Frota Legal
+#12521;[23353] Divergência na exibição de faixa no histórico de prontuário (Grupo Vyas);Concluído;2026-04-10;Daniel Souza;Frota Legal
+#12543;[23360] Paginação excessiva na tela de Controle de Integrações (Consulta de CNH);Concluído;2026-04-10;Thayná Santos;Frota Legal
+#13601;[23560] Falha ao acessar e exportar o histórico de validações no Frota Legal;Concluído;2026-04-17;Daniel Souza;Frota Legal
+#17197;[24258] Falha ao cadastrar data da última preventiva no APP Demarco;Concluído;2026-05-08;Lilian Rodrigues;Frota Legal
+#10076;#22793 - ERRO: Sistema não permite remover vínculo de transportador dos usuários;Concluído;2026-03-24;Adriele Ribeiro;Frota Legal
+#13524;[23519] Tela de validações não exibe inspeções para nenhum cliente;Concluído;2026-04-16;Hannah Moreira;Frota Legal
+#11601;#23111- ERRO: Mensagem de 'Usuário/Senha inválidos' no APP mesmo com dados corretos;Concluído;2026-04-02;Gabrielle Andrade;Frota Legal
+#10329;[23005] [OpenTech] Falha na Integração com a Opentech mantém condutores bloqueados;Concluído;2026-03-26;Gabriel Costa;Frota Legal
+#12061;#23142 - Erro APP Demarco - Gerenciamento de Inspeções por Perfil;Concluído;2026-04-07;Thayná Santos;Frota Legal
+#10184;#22910 - ERRO: Validade da CNH do condutor sendo alterada indevidamente após consulta;Concluído;2026-03-25;Thayná Santos;Frota Legal
+#10296;#23006 - ERRO: Falha na integração Agropecuária e Secundária impede registro de eventos;Concluído;2026-03-26;Adriele Ribeiro;Frota Legal
+#13541;[23523] Desvios de Operação secundária em colaboradores da Primária;Concluído;2026-04-16;Thais Oliveira;Frota Legal
+#26657;[25520] APP Demarco encerra durante inspeção causando perda de dados;Concluído;2026-06-22;Maike Silva;Frota Legal
+#23641;[25092] DMCenter - Não recebimento de Alertas;Concluído;2026-06-08;Lilian Rodrigues;Frota Legal
+#20697;[24640 / 25264][FURACÃO] ERRO - Falha na qualificação automática de condutores e veículos;Concluído;2026-05-26;Hannah Moreira;Frota Legal
+#27480;[25727] FURACÃO - divergência entre GR e Opentech mantém condutor bloqueado indevidamente;Concluído;2026-06-24;Thais Oliveira;Frota Legal
+#22831;[24956] Documentos sem validação obrigatória são enviados indevidamente para fluxo de validação;Concluído;2026-06-03;Hannah Moreira;Frota Legal
+#29836;[26157] Envio de SMS de primeiro acesso não é realizado e impede login de condutores;Concluído;2026-07-06;Maike Silva;Frota Legal
+#28847;[25944] Sistema não permite salvar novo condutor exibindo mensagem genérica de erro;Concluído;2026-07-01;Larice Nunes;Frota Legal
+#19976;[24533] Divergência na visualização de eventos entre usuários (Grupo Vyas);Concluído;2026-05-22;Daniel Souza;Frota Legal
+#28977;[25965] Mônaco - Correção na persistência de dados de CNH pós exclusão e recadastramento de condutor;Concluído;2026-07-01;Thayná Santos;Frota Legal
+#27049;[25667] Data de limite de recurso é alterada indevidamente após lançamento no Frota Legal;Concluído;2026-06-23;Lilian Rodrigues;Frota Legal
+#38738;[27361] Erro | Bloqueio por 'restrição de CNH' indevido;Concluído;2026-08-05;Gabrielle Andrade;Frota Legal
+#37622;[27345] App reinicia ao capturar foto obrigatória do checklist Pré-Uso;Correção Reprovados;2026-08-03;Gabrielle Andrade;Frota Legal
+#16865;[24073] APP bloqueia inspeção alegando falta de acesso ao equipamento;Impedimento;2026-05-06;Larice Nunes;Frota Legal
+#18663;[24409] Atribuição indevida de eventos para colaboradores com cargo de ajudante;Revisão de Código;2026-05-15;Thais Oliveira;Frota Legal
+#14168;[23592] Falha na integração Openteh: dados desatualizados;Revisão de Código;2026-04-20;Lidiane Fortunato;Frota Legal
+#22950;[24977] Nome da unidade não atualiza nos transportadores após alteração do cadastro;Revisão de Código;2026-06-03;Hannah Moreira;Frota Legal
+#35321;FURACÃO - [27015] Condutor liberado no Prontuário e bloqueado na Portaria;Revisão de Código;2026-07-27;Thais Oliveira;Frota Legal
+#32642;[26493] Importação/exportação de condutores com perda e inconsistência de dados;Revisão de Código;2026-07-15;Thayná Santos;Frota Legal
+#32527;[26496] Histórico de consulta CNH exibe data de cadastro do condutor em vez da data real da consulta;Revisão de Código;2026-07-15;Thayná Santos;Frota Legal
+#32524;[26495] Sistema gera consultas duplicadas de CNH no histórico do condutor;Revisão de Código;2026-07-15;Thayná Santos;Frota Legal
+#32861;"[26609] Falha no envio de Alerta ""Integração CNH com Impedimento"" para o usuário de teste.";Revisão de Código;2026-07-16;Gabriela Correa;Frota Legal
+#32587;[26503] Divergência de hora entre Integração e Histórico da CNH;Revisão de Código;2026-07-15;Thayná Santos;Frota Legal
+#27486;[25724] código SMS de validação não é recebido impedindo acesso no Aplicativo Demarco;Em Desenvolvimento;2026-06-24;Maike Silva;Frota Legal
+#28856;"[25950] formato da data ""Última Previsão"" é enviado incorretamente do App para o Frota";Em Desenvolvimento;2026-07-01;Lilian Rodrigues;Frota Legal
+#18263;[24351]Falha na exibição: Usuários ativos não aparecem na tela de consulta;Em Desenvolvimento;2026-05-14;Thayná Santos;Frota Legal
+#29986;[26161] Usuário sem permissão para acessar cliente no App Demarco;Pronto para Desenvolvimento;2026-07-06;Maike Silva;Frota Legal
+#32629;[26502] Consulta automática de CNH não é disparada para novos condutores cadastrados;Pronto para Desenvolvimento;2026-07-15;Thayná Santos;Frota Legal
+#38287;[27346] Histórico do condutor omite detalhe de ocorrência e tratativa;Pronto para Desenvolvimento;2026-08-04;Thayná Santos;Frota Legal
+#41248;[27553]  Checklist concluído no App não registra no App e Web;Pronto para Desenvolvimento;2026-08-11;Maike Silva;Frota Legal
+#30488;Melhoria - Criação de Tela de Transferência de Veículos e Condutores;Backlog de Ideias;2026-07-07;Thayná Santos;Frota Legal - Projetos
+#30349;Melhoria - Parametrização do Gatilho de Desbloqueio de Veículos por Inspeção;Backlog de Ideias;2026-07-07;Thayná Santos;Frota Legal - Projetos
+#30298;"Melhoria - Inclusão do campo ""Status"" nas exportações de PDF e Excel de Inspeções";Backlog de Ideias;2026-07-07;Thayná Santos;Frota Legal - Projetos
+#28973;Ajuste na lógica de registro de consulta de CNH (Prevenção de Falsos Positivos);Backlog de Ideias;2026-07-01;Thayná Santos;Frota Legal - Projetos
+#25106;"Ajuste Dados Avulsos Checklist - Criar opção ""Item Obrigatório""";Backlog de Ideias;2026-06-15;Hannah Moreira;Frota Legal - Projetos
+#33039;Exclusão em Massa de tipo de ocorrência - G. Vyas;Backlog de Ideias;2026-07-17;Hannah Moreira;Frota Legal - Projetos
+#42018;Inclusão de pop-up na tela inicial do Frota Legal para alerta de pendências dos usuários;Backlog de Ideias;2026-08-13;Gabriela Correa;Frota Legal - Projetos
+#28564;#25884 - Melhoria - Ativação de Integração Mônaco [DMGateway];Concluído | Descontinuado;2026-06-30;Thayná Santos;Frota Legal - Projetos
+#29000;#26096 - Inclusão de empresa MARVEL na API da Onisys no Frota Legal;Concluído | Descontinuado;2026-07-01;Thais Oliveira;Frota Legal - Projetos
+#36706;Erro | APP reinicia ao tentar capturar as fotos obrigatórias do checklist Pré - uso;Concluído | Descontinuado;2026-07-31;Gabrielle Andrade;Frota Legal - Projetos
+#29166;"#26116 - Melhoria no módulo ""Documentos""";Em Desenvolvimento;2026-07-02;Gabriela Correa;Frota Legal - Projetos
+#38065;Integração do sistema da demarco com o sistema da LM (GDF);Levantamento de Dores e Necessidades | Doing;2026-08-04;Thayná Santos;Frota Legal - Projetos
