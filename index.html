@@ -1206,9 +1206,9 @@ const KPI_DEFS = [
   { key:"andamento",   label:"Em Desenvolvimento",      icon:"fa-spinner",            color:"var(--status-andamento)",    bg:"var(--status-andamento-bg)",
     calc:(d)=>d.filter(i=>i.status==="Em Desenvolvimento").length },
   { key:"naoiniciado", label:"Caixa de Entrada",        icon:"fa-inbox",              color:"var(--status-caixa)",        bg:"var(--status-caixa-bg)",
-    calc:(d)=>d.filter(i=>i.status==="Caixa de Entrada"||i.status==="Backlog de Ideias").length },
-  { key:"validacao",   label:"Aguardando Validação",    icon:"fa-hourglass-half",     color:"var(--status-aguardando)",   bg:"var(--status-aguardando-bg)",
-    calc:(d)=>d.filter(i=>i.status==="Aguardando informações"||i.status==="Validação Produção").length },
+    calc:(d)=>d.filter(i=>i.status==="Caixa de Entrada").length },
+  { key:"validacao",   label:"Pronto para Desenvolvimento", icon:"fa-hourglass-half", color:"var(--status-pronto)",       bg:"var(--status-pronto-bg)",
+    calc:(d)=>d.filter(i=>i.status==="Pronto para Desenvolvimento").length },
   { key:"boards",      label:"Quantidade de Sistemas",  icon:"fa-sitemap",            color:"#7c5cff",                    bg:"rgba(124,92,255,.14)",
     calc:(d)=>new Set(d.map(i=>i.board).filter(Boolean)).size }
 ];
