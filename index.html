@@ -539,8 +539,7 @@ table.dm-table{width:100%;border-collapse:collapse;font-size:12.8px;}
       <i class="fa-solid fa-cloud-arrow-up"></i>
     </button>
     <input type="file" id="importFileInput" accept=".csv" style="display:none;">
-    <input type="file" id="importXlsxFileInput" accept=".xlsx" multiple style="display:none;">
-    <input type="file" id="importDmtaskFileInput" accept=".csv" style="display:none;">
+    <input type="file" id="importXlsxFileInput" accept=".xlsx,.csv" multiple style="display:none;">
     <button class="icon-btn" id="refreshBtn" data-tip="Atualizar dados" aria-label="Atualizar dados">
       <i class="fa-solid fa-rotate"></i>
     </button>
@@ -749,21 +748,11 @@ table.dm-table{width:100%;border-collapse:collapse;font-size:12.8px;}
         <code class="mono">dados_anterior.csv</code> antes de qualquer substituição.
       </p>
       <button class="btn-clear" id="importChooseXlsx" style="width:100%;justify-content:center;background:var(--accent);color:#fff;border-color:var(--accent);">
-        <i class="fa-solid fa-file-excel"></i> Importar as 3 planilhas (DMCenter, Frota Legal, Frota Legal - Projetos)
+        <i class="fa-solid fa-cloud-arrow-up"></i> Importar planilhas (Excel + DmTask)
       </button>
       <p style="font-size:11px;color:var(--text-muted);line-height:1.5;margin:8px 0 0;">
-        Filtra automaticamente Status = "Ativo" e as áreas do solicitante configuradas.
-      </p>
-      <div style="display:flex;align-items:center;gap:10px;margin:14px 0;">
-        <div style="flex:1;height:1px;background:var(--border-subtle);"></div>
-        <span style="font-size:10.5px;color:var(--text-muted);">ou</span>
-        <div style="flex:1;height:1px;background:var(--border-subtle);"></div>
-      </div>
-      <button class="btn-clear" id="importChooseDmtask" style="width:100%;justify-content:center;">
-        <i class="fa-solid fa-database"></i> Importar planilha DmTask (Correções e Ajustes)
-      </button>
-      <p style="font-size:11px;color:var(--text-muted);line-height:1.5;margin:8px 0 0;">
-        Traz todos os cards (arquivados ou não), converte e-mail em nome e soma ao que já está no dashboard como sistema "DmTask (legado)".
+        Selecione de uma vez todos os arquivos que quiser atualizar: os <code class="mono">.xlsx</code> do DMCenter/Frota Legal/Frota Legal - Projetos e/ou o <code class="mono">.csv</code> do DmTask.
+        Sistemas não incluídos na seleção permanecem como estão. Tudo é enviado em um único envio, então o comparativo mostra a mudança completa.
       </p>
       <div style="display:flex;align-items:center;gap:10px;margin:14px 0;">
         <div style="flex:1;height:1px;background:var(--border-subtle);"></div>
@@ -1864,103 +1853,53 @@ async function parseXlsxParaLinhas(file){
   return rows;
 }
 
-async function processarImportacaoXlsx(files){
-  if(files.length !== 3){
-    throw new Error(`Selecione exatamente as 3 planilhas (DMCenter, Frota Legal e Frota Legal - Projetos). Você selecionou ${files.length}.`);
+async function processarPlanilhaXlsx(file){
+  const sistema = detectarSistema(file.name);
+  if(!sistema){
+    throw new Error(`Não consegui identificar o sistema pelo nome do arquivo "${file.name}". Renomeie para conter "dmcenter", "frota-legal" ou "frota-legal-projetos".`);
   }
 
+  const rows = await parseXlsxParaLinhas(file);
   const linhas = [];
-  const sistemasEncontrados = new Set();
+  if(!rows.length) return { sistema, linhas };
 
-  for(const file of files){
-    const sistema = detectarSistema(file.name);
-    if(!sistema){
-      throw new Error(`Não consegui identificar o sistema pelo nome do arquivo "${file.name}". Renomeie para conter "dmcenter", "frota-legal" ou "frota-legal-projetos".`);
-    }
-    if(sistemasEncontrados.has(sistema)){
-      throw new Error(`Dois arquivos parecem ser do mesmo sistema (${sistema}). Verifique se selecionou as 3 planilhas certas.`);
-    }
-    sistemasEncontrados.add(sistema);
+  const headerRow = Object.keys(rows[0]);
+  const colId       = findCol(headerRow, "ID");
+  const colTitulo    = findCol(headerRow, "Título") || findCol(headerRow, "Titulo");
+  const colStatus    = findCol(headerRow, "Status");
+  const colFase      = findCol(headerRow, "Fase Atual");
+  const colCriadoEm  = findCol(headerRow, "Criado em");
+  const colSolic     = findCol(headerRow, "Nome do Solicitante");
+  const colArea      = findCol(headerRow, "Área do Solicitante") || findCol(headerRow, "Area do Solicitante");
 
-    const rows = await parseXlsxParaLinhas(file);
-    if(!rows.length) continue;
+  if(!colId || !colStatus || !colFase || !colArea){
+    throw new Error(`A planilha "${file.name}" não tem as colunas esperadas (ID, Status, Fase Atual, Área do Solicitante). Verifique se é o arquivo certo.`);
+  }
 
-    const headerRow = Object.keys(rows[0]);
-    const colId       = findCol(headerRow, "ID");
-    const colTitulo    = findCol(headerRow, "Título") || findCol(headerRow, "Titulo");
-    const colStatus    = findCol(headerRow, "Status");
-    const colFase      = findCol(headerRow, "Fase Atual");
-    const colCriadoEm  = findCol(headerRow, "Criado em");
-    const colSolic     = findCol(headerRow, "Nome do Solicitante");
-    const colArea      = findCol(headerRow, "Área do Solicitante") || findCol(headerRow, "Area do Solicitante");
-
-    if(!colId || !colStatus || !colFase || !colArea){
-      throw new Error(`A planilha "${file.name}" não tem as colunas esperadas (ID, Status, Fase Atual, Área do Solicitante). Verifique se é o arquivo certo.`);
-    }
-
-    rows.forEach(r=>{
-      const status = String(r[colStatus]||"").trim().toLowerCase();
-      const area = String(r[colArea]||"").trim();
-      if(status !== "ativo") return;
-      if(!AREAS_PERMITIDAS.includes(area)) return;
-      linhas.push({
-        idDm: String(r[colId]||"").trim(),
-        titulo: String(r[colTitulo]||"").trim(),
-        status: String(r[colFase]||"").trim(),
-        criadoEm: dataBRparaISO(r[colCriadoEm]),
-        solicitante: String(r[colSolic]||"").trim(),
-        board: sistema
-      });
+  rows.forEach(r=>{
+    const status = String(r[colStatus]||"").trim().toLowerCase();
+    const area = String(r[colArea]||"").trim();
+    if(status !== "ativo") return;
+    if(!AREAS_PERMITIDAS.includes(area)) return;
+    linhas.push({
+      idDm: String(r[colId]||"").trim(),
+      titulo: String(r[colTitulo]||"").trim(),
+      status: normalizeStatusValue(String(r[colFase]||"").trim()),
+      criadoEm: dataBRparaISO(r[colCriadoEm]),
+      solicitante: String(r[colSolic]||"").trim(),
+      board: sistema
     });
-  }
-
-  if(!linhas.length){
-    throw new Error("Nenhuma linha passou nos filtros (Status = Ativo + Área do Solicitante permitida). Confira as planilhas selecionadas.");
-  }
-
-  const header = ["ID","Título","Fase Atual","Criado em","Solicitante","Sistema"];
-  const csvLines = [header.join(";")];
-  linhas.forEach(l=>{
-    csvLines.push([l.idDm,l.titulo,l.status,l.criadoEm,l.solicitante,l.board].map(csvField).join(";"));
   });
-  return { csvText: csvLines.join("\n"), total: linhas.length };
+
+  return { sistema, linhas };
 }
 
-document.getElementById("importChooseXlsx").addEventListener("click", ()=>{
-  document.getElementById("importXlsxFileInput").click();
-});
-
-document.getElementById("importXlsxFileInput").addEventListener("change", async (e)=>{
-  const files = Array.from(e.target.files);
-  e.target.value = "";
-  if(!files.length) return;
-
-  const token = ghGetToken();
-  if(!token){ showImportStep("Token"); return; }
-
-  showImportStep("Progress");
-  document.getElementById("importProgressText").textContent = "Lendo e consolidando as planilhas...";
-
-  try{
-    const { csvText, total } = await processarImportacaoXlsx(files);
-    const confirmMsg = `${total} demandas ativas encontradas (após os filtros). Importar como novo dados.csv?`;
-    if(!window.confirm(confirmMsg)){ showImportStep("File"); return; }
-    await uploadDadosCsvToGitHub(csvText, `${total} demandas consolidadas e importadas com sucesso!`);
-  }catch(err){
-    console.error("Erro ao consolidar planilhas:", err);
-    document.getElementById("importErrorText").textContent = err.message || "Erro ao processar as planilhas.";
-    showImportStep("Error");
-  }
-});
-
 /* ---------------------------------------------------------------
-   15c. IMPORTAR PLANILHA DMTASK (Correções e Ajustes) — sistema legado
+   15c. PROCESSAR CSV DMTASK (Correções e Ajustes) — sistema legado
    Layout: ID;Tarefa;Detalhes;Board;Data;Solicitante;FaseAtual;
            DataFaseAtual;Prioridade;Arquivado;Avaliacao;AvaliacaoComentario;Categoria
-   Traz todos os cards do arquivo (sem filtro de Arquivado), converte
-   e-mail em nome, marca Sistema
-   como "DmTask (legado)" e SOMA ao que já está carregado no
-   dashboard (não substitui os outros sistemas).
+   Traz todos os cards do arquivo, converte e-mail em nome, marca
+   Sistema como "DmTask (legado)".
    --------------------------------------------------------------- */
 const DMTASK_SISTEMA_LABEL = "DmTask (legado)";
 
@@ -1999,9 +1938,9 @@ function parseDmtaskCsv(file){
   });
 }
 
-async function processarImportacaoDmtask(file){
+async function processarPlanilhaDmtask(file){
   const rows = await parseDmtaskCsv(file);
-  if(!rows.length) throw new Error("O arquivo está vazio.");
+  if(!rows.length) return [];
 
   const headerRow = Object.keys(rows[0]);
   const colId = headerRow.find(h=>h.trim().toLowerCase()==="id");
@@ -2009,10 +1948,9 @@ async function processarImportacaoDmtask(file){
   const colData = headerRow.find(h=>h.trim().toLowerCase()==="data");
   const colSolic = headerRow.find(h=>h.trim().toLowerCase()==="solicitante");
   const colFase = headerRow.find(h=>h.trim().toLowerCase()==="faseatual");
-  const colArquivado = headerRow.find(h=>h.trim().toLowerCase()==="arquivado");
 
-  if(!colId || !colTarefa || !colFase || !colArquivado){
-    throw new Error('Colunas esperadas não encontradas (ID, Tarefa, FaseAtual, Arquivado). Verifique se é o arquivo certo.');
+  if(!colId || !colTarefa || !colFase){
+    throw new Error(`A planilha "${file.name}" não tem as colunas esperadas do DmTask (ID, Tarefa, FaseAtual). Verifique se é o arquivo certo.`);
   }
 
   const items = [];
@@ -2027,40 +1965,79 @@ async function processarImportacaoDmtask(file){
       board: DMTASK_SISTEMA_LABEL
     });
   });
-
-  if(!items.length) throw new Error("Nenhuma linha encontrada no arquivo.");
   return items;
 }
 
-document.getElementById("importChooseDmtask").addEventListener("click", ()=>{
-  document.getElementById("importDmtaskFileInput").click();
+/* ---------------------------------------------------------------
+   15d. FLUXO ÚNICO DE IMPORTAÇÃO
+   Aceita, numa única seleção, qualquer combinação de arquivos
+   .xlsx (DMCenter/Frota Legal/Frota Legal - Projetos) e .csv
+   (DmTask). Processa tudo, mescla com o que já está carregado
+   (substituindo só os sistemas presentes nos arquivos escolhidos)
+   e faz UM ÚNICO backup + upload — assim o comparativo sempre
+   reflete a mudança completa daquela atualização.
+   --------------------------------------------------------------- */
+document.getElementById("importChooseXlsx").addEventListener("click", ()=>{
+  document.getElementById("importXlsxFileInput").click();
 });
 
-document.getElementById("importDmtaskFileInput").addEventListener("change", async (e)=>{
-  const file = e.target.files[0];
+document.getElementById("importXlsxFileInput").addEventListener("change", async (e)=>{
+  const files = Array.from(e.target.files);
   e.target.value = "";
-  if(!file) return;
+  if(!files.length) return;
 
   const token = ghGetToken();
   if(!token){ showImportStep("Token"); return; }
 
+  const xlsxFiles = files.filter(f => /\.xlsx$/i.test(f.name));
+  const csvFiles  = files.filter(f => /\.csv$/i.test(f.name));
+
   showImportStep("Progress");
-  document.getElementById("importProgressText").textContent = "Lendo e convertendo a planilha DmTask...";
+  const progressText = document.getElementById("importProgressText");
 
   try{
-    const dmtaskItems = await processarImportacaoDmtask(file);
-    // remove uma eventual importação anterior do DmTask (evita duplicar em reimportações)
-    const semDmtaskAntigo = DATA.filter(i => i.board !== DMTASK_SISTEMA_LABEL);
-    const merged = semDmtaskAntigo.concat(dmtaskItems);
+    const sistemasNovos = new Set();
+    let novosItens = [];
 
-    const confirmMsg = `${dmtaskItems.length} demandas do DmTask encontradas.\n\nElas serão somadas às ${semDmtaskAntigo.length} demandas já carregadas dos outros sistemas, totalizando ${merged.length}. Continuar?`;
+    for(const file of xlsxFiles){
+      progressText.textContent = `Lendo ${file.name}...`;
+      const { sistema, linhas } = await processarPlanilhaXlsx(file);
+      if(sistemasNovos.has(sistema)){
+        throw new Error(`Dois arquivos parecem ser do mesmo sistema (${sistema}). Verifique os arquivos selecionados.`);
+      }
+      sistemasNovos.add(sistema);
+      novosItens = novosItens.concat(linhas);
+    }
+
+    for(const file of csvFiles){
+      progressText.textContent = `Lendo ${file.name}...`;
+      const itensDmtask = await processarPlanilhaDmtask(file);
+      sistemasNovos.add(DMTASK_SISTEMA_LABEL);
+      novosItens = novosItens.concat(itensDmtask);
+    }
+
+    if(!novosItens.length && sistemasNovos.size === 0){
+      throw new Error("Nenhum arquivo .xlsx ou .csv reconhecido foi selecionado.");
+    }
+
+    // mantém, dos dados já carregados, apenas os sistemas que NÃO foram reenviados agora
+    const preservados = DATA.filter(i => !sistemasNovos.has(i.board));
+    const merged = preservados.concat(novosItens);
+
+    const resumoPorSistema = [...sistemasNovos].map(s=>{
+      const qtd = novosItens.filter(i=>i.board===s).length;
+      return `• ${s}: ${qtd}`;
+    }).join("\n");
+    const sistemasPreservados = [...new Set(preservados.map(i=>i.board))];
+
+    const confirmMsg = `Atualização pronta:\n\n${resumoPorSistema}\n\nSistemas mantidos como estavam: ${sistemasPreservados.length ? sistemasPreservados.join(", ") : "nenhum"}\n\nTotal final: ${merged.length} demandas. Enviar para o GitHub?`;
     if(!window.confirm(confirmMsg)){ showImportStep("File"); return; }
 
     const csvText = buildCsvFromItems(merged);
-    await uploadDadosCsvToGitHub(csvText, `${dmtaskItems.length} demandas do DmTask importadas e somadas com sucesso (total: ${merged.length}).`);
+    await uploadDadosCsvToGitHub(csvText, `Importação concluída (${novosItens.length} itens atualizados). Total: ${merged.length} demandas.`);
   }catch(err){
-    console.error("Erro ao importar DmTask:", err);
-    document.getElementById("importErrorText").textContent = err.message || "Erro ao processar o arquivo DmTask.";
+    console.error("Erro ao importar planilhas:", err);
+    document.getElementById("importErrorText").textContent = err.message || "Erro ao processar os arquivos.";
     showImportStep("Error");
   }
 });
