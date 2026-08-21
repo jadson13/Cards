@@ -1,4 +1,4 @@
-ID;Título;Fase Atual;Criado em;Solicitante;Sistema
+﻿ID;Título;Fase Atual;Criado em;Solicitante;Sistema
 #18862;[24421] Inclusão de eventos e origens faltantes na parametrização do Scorecard (Performance);Concluído;2026-05-18;Stefane Cordeiro;DMCenter
 #19881;[24532] Inconsistência no status do condutor no Módulo de Performance;Concluído;2026-05-21;Lidiane Fortunato;DMCenter
 #23698;[25104]  Usuários sem acesso ao produto no App Demarco;Concluído;2026-06-08;Larice Nunes;DMCenter
@@ -18,7 +18,7 @@ ID;Título;Fase Atual;Criado em;Solicitante;Sistema
 #35762;Erro - Usuário sem visualização dos menus do Frota Legal;Concluído;2026-07-28;Thayná Santos;DMCenter
 #35513;[27103] Novos ambientes Frota Legal - Citrosuco;Concluído;2026-07-27;Gabriela Correa;DMCenter
 #40279;Retirar trava de bloqueio definitivo no momento do expurgo via telemetria;Caixa de Entrada;2026-08-08;Stefane Cordeiro;DMCenter
-#40491;API – Disponibilização de eventos da Operação Secundária;Caixa de Entrada;2026-08-10;Gabriela Correa;DMCenter
+#40491;API – Disponibilização de eventos da Operação Secundária  ;Caixa de Entrada;2026-08-10;Gabriela Correa;DMCenter
 #33704;Consulta prontuário exibe vencimento CNH indevido;Caixa de Entrada;2026-07-20;Sabrina Alcântara;DMCenter
 #28787;Integração via API entre G-Info e Gente e Gestão para Eventos GSD de Ajudantes;Caixa de Entrada;2026-07-01;Fernanda Mariante;DMCenter
 #23090;Desenvolvimento de API para integração com Pater Logística (consulta de prontuário);Caixa de Entrada;2026-06-03;Sabrina Alcântara;DMCenter
@@ -61,7 +61,7 @@ ID;Título;Fase Atual;Criado em;Solicitante;Sistema
 #18824;Faixa Roxa: manter bloqueio de condutores no Módulo de Performance;Em Análise;2026-05-18;Lais Barbosa;DMCenter
 #42734;Ajuste na pontuação dos colaboradores;Em Análise;2026-08-14;Gabriel Costa;DMCenter
 #44403;Erro Status - Prontuário Frota Legal;Caixa de Entrada;2026-08-19;Thaís Neves;Frota Legal
-#41659;Erro Plano de Ação - Tela em Branco;Em Análise;2026-08-12;Marques Pereira;Frota Legal
+#41659;Erro Plano de Ação - Tela em Branco ;Em Análise;2026-08-12;Marques Pereira;Frota Legal
 #21356;[24769]  Na Parametrização de Eventos de Telemetria -  Falha na Edição e Inclusão da Atividade;Reprovados;2026-05-28;Sabrina Alcântara;Frota Legal
 #32862;[26608] Mônaco: Integração consulta condutores inativos e dentro da periodicidade bimestral;Reprovados;2026-07-16;Gabriela Correa;Frota Legal
 #24332;[25266] GR não retorna resultados no Frota Legal;Reprovados;2026-06-10;Adriele Ribeiro;Frota Legal
@@ -149,13 +149,13 @@ ID;Título;Fase Atual;Criado em;Solicitante;Sistema
 #30298;"Melhoria - Inclusão do campo ""Status"" nas exportações de PDF e Excel de Inspeções";Backlog de Ideias;2026-07-07;Thayná Santos;Frota Legal - Projetos
 #28973;Ajuste na lógica de registro de consulta de CNH (Prevenção de Falsos Positivos);Backlog de Ideias;2026-07-01;Thayná Santos;Frota Legal - Projetos
 #25106;"Ajuste Dados Avulsos Checklist - Criar opção ""Item Obrigatório""";Backlog de Ideias;2026-06-15;Hannah Moreira;Frota Legal - Projetos
-#18843;Incluir o CPF no relatório da aba de treinamentos;Backlog de Ideias;2026-05-18;Marques Pereira;Frota Legal - Projetos
+#18843;Incluir o CPF no relatório da aba de treinamentos ;Backlog de Ideias;2026-05-18;Marques Pereira;Frota Legal - Projetos
 #30821;BI Analytics – Adequação ao CNPJ Alfanumérico | Bateria de Testes Gerdau;Backlog de Ideias;2026-07-08;Thaís Neves;Frota Legal - Projetos
 #33039;Exclusão em Massa de tipo de ocorrência - G. Vyas;Backlog de Ideias;2026-07-17;Hannah Moreira;Frota Legal - Projetos
 #39651;Disponibilização dos campos Marca e Modelo para todos os tipos de equipamentos e veículos;Backlog de Ideias;2026-08-06;Marques Pereira;Frota Legal - Projetos
 #42018;Inclusão de pop-up na tela inicial do Frota Legal para alerta de pendências dos usuários;Backlog de Ideias;2026-08-13;Gabriela Correa;Frota Legal - Projetos
 #28564;#25884 - Melhoria - Ativação de Integração Mônaco [DMGateway];Concluído | Descontinuado;2026-06-30;Thayná Santos;Frota Legal - Projetos
-#30794;Adequação ao CNPJ Alfanumérico | Bateria de Testes Gerdau - TI;Concluído | Descontinuado;2026-07-08;Thaís Neves;Frota Legal - Projetos
+#30794;Adequação ao CNPJ Alfanumérico | Bateria de Testes Gerdau - TI ;Concluído | Descontinuado;2026-07-08;Thaís Neves;Frota Legal - Projetos
 #29000;#26096 - Inclusão de empresa MARVEL na API da Onisys no Frota Legal;Concluído | Descontinuado;2026-07-01;Thais Oliveira;Frota Legal - Projetos
 #36706;Erro | APP reinicia ao tentar capturar as fotos obrigatórias do checklist Pré - uso;Concluído | Descontinuado;2026-07-31;Gabrielle Andrade;Frota Legal - Projetos
 #29166;"#26116 - Melhoria no módulo ""Documentos""";Em Desenvolvimento;2026-07-02;Gabriela Correa;Frota Legal - Projetos
