@@ -17,10 +17,10 @@ ID;Título;Fase Atual;Criado em;Solicitante;Sistema
 #26897;[25767] Falha no Redirecionamento de Acesso ao DMPeople via APP;Concluído;2026-06-22;Thais Oliveira;DMCenter
 #35762;Erro - Usuário sem visualização dos menus do Frota Legal;Concluído;2026-07-28;Thayná Santos;DMCenter
 #35513;[27103] Novos ambientes Frota Legal - Citrosuco;Concluído;2026-07-27;Gabriela Correa;DMCenter
+#28787;Integração via API entre G-Info e Gente e Gestão para Eventos GSD de Ajudantes;Concluído;2026-07-01;Fernanda Mariante;DMCenter
 #40279;Retirar trava de bloqueio definitivo no momento do expurgo via telemetria;Caixa de Entrada;2026-08-08;Stefane Cordeiro;DMCenter
 #40491;API – Disponibilização de eventos da Operação Secundária;Caixa de Entrada;2026-08-10;Gabriela Correa;DMCenter
-#33704;Consulta prontuário exibe vencimento CNH indevido;Caixa de Entrada;2026-07-20;Sabrina Alcântara;DMCenter
-#28787;Integração via API entre G-Info e Gente e Gestão para Eventos GSD de Ajudantes;Caixa de Entrada;2026-07-01;Fernanda Mariante;DMCenter
+#33704;Retirar vencimento da CNH da consulta de prontuário;Caixa de Entrada;2026-07-20;Sabrina Alcântara;DMCenter
 #23090;Desenvolvimento de API para integração com Pater Logística (consulta de prontuário);Caixa de Entrada;2026-06-03;Sabrina Alcântara;DMCenter
 #25480;Integração via API entre G‑Info e Módulo de Performance (GSD Ajudante);Caixa de Entrada;2026-06-16;Stefane Cordeiro;DMCenter
 #28990;Inclusão da Coluna “Quantidade” no Relatório de Mudança de Faixas;Caixa de Entrada;2026-07-01;Guilherme Silva;DMCenter
@@ -66,9 +66,6 @@ ID;Título;Fase Atual;Criado em;Solicitante;Sistema
 #32862;[26608] Mônaco: Integração consulta condutores inativos e dentro da periodicidade bimestral;Reprovados;2026-07-16;Gabriela Correa;Frota Legal
 #24332;[25266] GR não retorna resultados no Frota Legal;Reprovados;2026-06-10;Adriele Ribeiro;Frota Legal
 #36149;[25285] Erro ao tentar acessar app - martins;Reprovados;2026-07-29;Larice Nunes;Frota Legal
-#27438;[25712] Divergência de datas de ocorrências entre histórico do condutor e relatórios no Frota Legal;Pronto Para Publicar;2026-06-24;Gabrielle Andrade;Frota Legal
-#28985;[25961] Mônaco: tentativas falhas registradas como consulta + coluna Retorno Consulta CNH;Pronto Para Publicar;2026-07-01;Thayná Santos;Frota Legal
-#32632;[26501] Retorno da consulta CNH exibe dados do fornecedor anterior após migração para Mônaco;Pronto Para Publicar;2026-07-15;Thayná Santos;Frota Legal
 #13221;[23451] Duplicidade no registro de Consulta de CNH;Concluído;2026-04-15;Thayná Santos;Frota Legal
 #24404;[25264] Falha na qualificação automática de condutores e veículos - Retorno Card #20697;Concluído;2026-06-11;Marques Pereira;Frota Legal
 #26290;[25499] FURACÃO | Validação incorreta de vencimento de documentos (antecipação indevida);Concluído;2026-06-19;Marques Pereira;Frota Legal
@@ -124,15 +121,18 @@ ID;Título;Fase Atual;Criado em;Solicitante;Sistema
 #28977;[25965] Mônaco - Correção na persistência de dados de CNH pós exclusão e recadastramento de condutor;Concluído;2026-07-01;Thayná Santos;Frota Legal
 #27049;[25667] Data de limite de recurso é alterada indevidamente após lançamento no Frota Legal;Concluído;2026-06-23;Lilian Rodrigues;Frota Legal
 #38738;[27361] Erro | Bloqueio por 'restrição de CNH' indevido;Concluído;2026-08-05;Gabrielle Andrade;Frota Legal
-#37622;[27345] App reinicia ao capturar foto obrigatória do checklist Pré-Uso;Correção Reprovados;2026-08-03;Gabrielle Andrade;Frota Legal
+#32632;[26501] Retorno da consulta CNH exibe dados do fornecedor anterior após migração para Mônaco;Concluído;2026-07-15;Thayná Santos;Frota Legal
+#32527;[26496] Histórico de consulta CNH exibe data de cadastro do condutor em vez da data real da consulta;Concluído;2026-07-15;Thayná Santos;Frota Legal
+#28985;[25961] Mônaco: tentativas falhas registradas como consulta + coluna Retorno Consulta CNH;Concluído;2026-07-01;Thayná Santos;Frota Legal
 #16865;[24073] APP bloqueia inspeção alegando falta de acesso ao equipamento;Impedimento;2026-05-06;Larice Nunes;Frota Legal
+#27438;[25712] Divergência de datas de ocorrências entre histórico do condutor e relatórios no Frota Legal;Validação Produção;2026-06-24;Gabrielle Andrade;Frota Legal
+#14168;[23592] Falha na integração Openteh: dados desatualizados;Validação Produção;2026-04-20;Lidiane Fortunato;Frota Legal
+#37622;[27345] App reinicia ao capturar foto obrigatória do checklist Pré-Uso;Validação Produção;2026-08-03;Gabrielle Andrade;Frota Legal
 #17199;[24257] Tela de treinamentos não exibe dados na listagem;Revisão de Código;2026-05-08;Marques Pereira;Frota Legal
 #18663;[24409] Atribuição indevida de eventos para colaboradores com cargo de ajudante;Revisão de Código;2026-05-15;Thais Oliveira;Frota Legal
-#14168;[23592] Falha na integração Openteh: dados desatualizados;Revisão de Código;2026-04-20;Lidiane Fortunato;Frota Legal
 #22950;[24977] Nome da unidade não atualiza nos transportadores após alteração do cadastro;Revisão de Código;2026-06-03;Hannah Moreira;Frota Legal
 #35321;FURACÃO - [27015] Condutor liberado no Prontuário e bloqueado na Portaria;Revisão de Código;2026-07-27;Thais Oliveira;Frota Legal
 #32642;[26493] Importação/exportação de condutores com perda e inconsistência de dados;Revisão de Código;2026-07-15;Thayná Santos;Frota Legal
-#32527;[26496] Histórico de consulta CNH exibe data de cadastro do condutor em vez da data real da consulta;Revisão de Código;2026-07-15;Thayná Santos;Frota Legal
 #32524;[26495] Sistema gera consultas duplicadas de CNH no histórico do condutor;Revisão de Código;2026-07-15;Thayná Santos;Frota Legal
 #32861;"[26609] Falha no envio de Alerta ""Integração CNH com Impedimento"" para o usuário de teste.";Revisão de Código;2026-07-16;Gabriela Correa;Frota Legal
 #32587;[26503] Divergência de hora entre Integração e Histórico da CNH;Revisão de Código;2026-07-15;Thayná Santos;Frota Legal
@@ -154,11 +154,11 @@ ID;Título;Fase Atual;Criado em;Solicitante;Sistema
 #33039;Exclusão em Massa de tipo de ocorrência - G. Vyas;Backlog de Ideias;2026-07-17;Hannah Moreira;Frota Legal - Projetos
 #39651;Disponibilização dos campos Marca e Modelo para todos os tipos de equipamentos e veículos;Backlog de Ideias;2026-08-06;Marques Pereira;Frota Legal - Projetos
 #42018;Inclusão de pop-up na tela inicial do Frota Legal para alerta de pendências dos usuários;Backlog de Ideias;2026-08-13;Gabriela Correa;Frota Legal - Projetos
+#29166;"#26116 - Melhoria no módulo ""Documentos""";Impedimento;2026-07-02;Gabriela Correa;Frota Legal - Projetos
 #28564;#25884 - Melhoria - Ativação de Integração Mônaco [DMGateway];Concluído;2026-06-30;Thayná Santos;Frota Legal - Projetos
 #30794;Adequação ao CNPJ Alfanumérico | Bateria de Testes Gerdau - TI;Concluído;2026-07-08;Thaís Neves;Frota Legal - Projetos
 #29000;#26096 - Inclusão de empresa MARVEL na API da Onisys no Frota Legal;Concluído;2026-07-01;Thais Oliveira;Frota Legal - Projetos
 #36706;Erro | APP reinicia ao tentar capturar as fotos obrigatórias do checklist Pré - uso;Concluído;2026-07-31;Gabrielle Andrade;Frota Legal - Projetos
-#29166;"#26116 - Melhoria no módulo ""Documentos""";Em Desenvolvimento;2026-07-02;Gabriela Correa;Frota Legal - Projetos
 #38065;Integração do sistema da demarco com o sistema da LM (GDF);Levantamento de Dores e Necessidades | Doing;2026-08-04;Thayná Santos;Frota Legal - Projetos
 #912;sdghsghh;Concluído;2024-12-18;Felipe Chagas;DmTask (legado)
 #949;#14388 - Erro validação de relatos;Concluído;2024-12-26;Hannah Moreira;DmTask (legado)
