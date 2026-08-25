@@ -24,7 +24,8 @@ ID;Título;Fase Atual;Criado em;Solicitante;Sistema
 #23090;Desenvolvimento de API para integração com Pater Logística (consulta de prontuário);Caixa de Entrada;2026-06-03;Sabrina Alcântara;DMCenter
 #25480;Integração via API entre G‑Info e Módulo de Performance (GSD Ajudante);Caixa de Entrada;2026-06-16;Stefane Cordeiro;DMCenter
 #28990;Inclusão da Coluna “Quantidade” no Relatório de Mudança de Faixas;Caixa de Entrada;2026-07-01;Guilherme Silva;DMCenter
-#44610;Correção na Integração – Liberação de Colaboradores após 5 Dias de Admissão;Caixa de Entrada;2026-08-20;Lais Barbosa;DMCenter
+#18824;Faixa Roxa: manter bloqueio de condutores no Módulo de Performance;Caixa de Entrada;2026-05-18;Lais Barbosa;DMCenter
+#46306;Módulo de Performance – Usuários não idenrificados para ativação de alertas;Caixa de Entrada;2026-08-25;Adriele Ribeiro;DMCenter
 #10178;[22998] Divergência entre a quantidade de registros dos eventos;Reprovados;2026-03-25;Thais Oliveira;DMCenter
 #31907;[26380] Falha na Sincronização de Status entre SAP e DMPerformance;Reprovados;2026-07-13;Adriele Ribeiro;DMCenter
 #28938;[25959] Falha na Integração e Processamento das Entrevistas de Fadiga e Mudança de Faixa;Pronto para Desenvolvimento;2026-07-01;Gabriela Correa;DMCenter
@@ -56,12 +57,12 @@ ID;Título;Fase Atual;Criado em;Solicitante;Sistema
 #40078;[27550] Grid importação CNH não exibe planilha recém-enviada;Pronto para Desenvolvimento;2026-08-07;Alessandro Menezes;DMCenter
 #40274;[27550] Grid importação CNH não exibe planilha recém-enviada;Pronto para Desenvolvimento;2026-08-08;Stefane Cordeiro;DMCenter
 #32813;[26676] Eventos Sascar BRF Agropecuária/Secundária não são gravados;Pronto para Desenvolvimento;2026-07-16;Adriele Ribeiro;DMCenter
+#44610;[28088] Bloqueio por admissão não libera após período de integração;Pronto para Desenvolvimento;2026-08-20;Lais Barbosa;DMCenter
 #24564;[25285] Usuário inativo no DMCenter impedindo acesso aos sistemas;Revisão de Código;2026-06-11;Hannah Moreira;DMCenter
 #34500;[26822][Migração] Ajuste da Pontuação Ponderada;Em Desenvolvimento;2026-07-23;Stefane Cordeiro;DMCenter
-#18824;Faixa Roxa: manter bloqueio de condutores no Módulo de Performance;Em Análise;2026-05-18;Lais Barbosa;DMCenter
-#42734;Ajuste na pontuação dos colaboradores;Em Análise;2026-08-14;Gabriel Costa;DMCenter
-#44403;Erro Status - Prontuário Frota Legal;Caixa de Entrada;2026-08-19;Thaís Neves;Frota Legal
+#42734;[28089] Relatório Mudança de Faixa MBRF diverge da faixa do módulo.;Em Análise;2026-08-14;Gabriel Costa;DMCenter
 #41659;Erro Plano de Ação - Tela em Branco;Em Análise;2026-08-12;Marques Pereira;Frota Legal
+#44403;Erro Status - Prontuário Frota Legal;Em Análise;2026-08-19;Thaís Neves;Frota Legal
 #21356;[24769]  Na Parametrização de Eventos de Telemetria -  Falha na Edição e Inclusão da Atividade;Reprovados;2026-05-28;Sabrina Alcântara;Frota Legal
 #32862;[26608] Mônaco: Integração consulta condutores inativos e dentro da periodicidade bimestral;Reprovados;2026-07-16;Gabriela Correa;Frota Legal
 #24332;[25266] GR não retorna resultados no Frota Legal;Reprovados;2026-06-10;Adriele Ribeiro;Frota Legal
@@ -124,9 +125,9 @@ ID;Título;Fase Atual;Criado em;Solicitante;Sistema
 #32632;[26501] Retorno da consulta CNH exibe dados do fornecedor anterior após migração para Mônaco;Concluído;2026-07-15;Thayná Santos;Frota Legal
 #32527;[26496] Histórico de consulta CNH exibe data de cadastro do condutor em vez da data real da consulta;Concluído;2026-07-15;Thayná Santos;Frota Legal
 #28985;[25961] Mônaco: tentativas falhas registradas como consulta + coluna Retorno Consulta CNH;Concluído;2026-07-01;Thayná Santos;Frota Legal
+#14168;[23592] Falha na integração Openteh: dados desatualizados;Concluído;2026-04-20;Lidiane Fortunato;Frota Legal
+#27438;[25712] Divergência de datas de ocorrências entre histórico do condutor e relatórios no Frota Legal;Concluído;2026-06-24;Gabrielle Andrade;Frota Legal
 #16865;[24073] APP bloqueia inspeção alegando falta de acesso ao equipamento;Impedimento;2026-05-06;Larice Nunes;Frota Legal
-#27438;[25712] Divergência de datas de ocorrências entre histórico do condutor e relatórios no Frota Legal;Validação Produção;2026-06-24;Gabrielle Andrade;Frota Legal
-#14168;[23592] Falha na integração Openteh: dados desatualizados;Validação Produção;2026-04-20;Lidiane Fortunato;Frota Legal
 #37622;[27345] App reinicia ao capturar foto obrigatória do checklist Pré-Uso;Validação Produção;2026-08-03;Gabrielle Andrade;Frota Legal
 #17199;[24257] Tela de treinamentos não exibe dados na listagem;Revisão de Código;2026-05-08;Marques Pereira;Frota Legal
 #18663;[24409] Atribuição indevida de eventos para colaboradores com cargo de ajudante;Revisão de Código;2026-05-15;Thais Oliveira;Frota Legal
