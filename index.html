@@ -539,7 +539,7 @@ table.dm-table{width:100%;border-collapse:collapse;font-size:12.8px;}
       <i class="fa-solid fa-cloud-arrow-up"></i>
     </button>
     <input type="file" id="importFileInput" accept=".csv" style="display:none;">
-    <input type="file" id="importXlsxFileInput" accept=".xlsx,.csv" multiple style="display:none;">
+    <input type="file" id="importXlsxFileInput" accept=".xlsx" multiple style="display:none;">
     <button class="icon-btn" id="refreshBtn" data-tip="Atualizar dados" aria-label="Atualizar dados">
       <i class="fa-solid fa-rotate"></i>
     </button>
@@ -748,10 +748,10 @@ table.dm-table{width:100%;border-collapse:collapse;font-size:12.8px;}
         <code class="mono">dados_anterior.csv</code> antes de qualquer substituição.
       </p>
       <button class="btn-clear" id="importChooseXlsx" style="width:100%;justify-content:center;background:var(--accent);color:#fff;border-color:var(--accent);">
-        <i class="fa-solid fa-cloud-arrow-up"></i> Importar planilhas (Excel + DmTask)
+        <i class="fa-solid fa-cloud-arrow-up"></i> Importar planilhas
       </button>
       <p style="font-size:11px;color:var(--text-muted);line-height:1.5;margin:8px 0 0;">
-        Selecione de uma vez todos os arquivos que quiser atualizar: os <code class="mono">.xlsx</code> do DMCenter/Frota Legal/Frota Legal - Projetos e/ou o <code class="mono">.csv</code> do DmTask.
+        Selecione de uma vez todas as planilhas <code class="mono">.xlsx</code> que quiser atualizar (DMCenter, Frota Legal, Frota Legal - Projetos).
         Sistemas não incluídos na seleção permanecem como estão. Tudo é enviado em um único envio, então o comparativo mostra a mudança completa.
       </p>
       <div style="display:flex;align-items:center;gap:10px;margin:14px 0;">
@@ -816,7 +816,6 @@ const STATUS_CONFIG = {
   "Aguardando informações":      { color:"var(--status-aguardando)",   bg:"var(--status-aguardando-bg)",   icon:"fa-hourglass-half" },
   "Em Análise":                  { color:"var(--status-analise)",      bg:"var(--status-analise-bg)",      icon:"fa-magnifying-glass-chart" },
   "Pronto para Desenvolvimento": { color:"var(--status-pronto)",       bg:"var(--status-pronto-bg)",       icon:"fa-bolt" },
-  "Pronto para Atuar":           { color:"var(--status-pronto)",       bg:"var(--status-pronto-bg)",       icon:"fa-hand-pointer" },
   "Em Desenvolvimento":          { color:"var(--status-andamento)",    bg:"var(--status-andamento-bg)",    icon:"fa-spinner" },
   "Revisão de Código":           { color:"var(--status-revisao)",      bg:"var(--status-revisao-bg)",      icon:"fa-code-branch" },
   "Teste QA":                    { color:"var(--status-descontinuado)",bg:"var(--status-descontinuado-bg)",icon:"fa-vial" },
@@ -829,7 +828,7 @@ const STATUS_CONFIG = {
 };
 const KANBAN_COLUMNS = [
   "Caixa de Entrada","Backlog de Ideias","Aguardando informações","Em Análise",
-  "Pronto para Desenvolvimento","Pronto para Atuar","Em Desenvolvimento","Revisão de Código","Teste QA",
+  "Pronto para Desenvolvimento","Em Desenvolvimento","Revisão de Código","Teste QA",
   "Correção Reprovados","Reprovados","Validação Produção","Pronto Para Publicar",
   "Impedimento","Concluído"
 ];
@@ -1894,29 +1893,6 @@ async function processarPlanilhaXlsx(file){
   return { sistema, linhas };
 }
 
-/* ---------------------------------------------------------------
-   15c. PROCESSAR CSV DMTASK (Correções e Ajustes) — sistema legado
-   Layout: ID;Tarefa;Detalhes;Board;Data;Solicitante;FaseAtual;
-           DataFaseAtual;Prioridade;Arquivado;Avaliacao;AvaliacaoComentario;Categoria
-   Traz todos os cards do arquivo, converte e-mail em nome, marca
-   Sistema como "DmTask (legado)".
-   --------------------------------------------------------------- */
-const DMTASK_SISTEMA_LABEL = "DmTask (legado)";
-
-function emailParaNome(email){
-  const local = String(email||"").split("@")[0];
-  if(!local) return String(email||"").trim();
-  return local.split(/[._]+/).filter(Boolean)
-    .map(p => p.charAt(0).toUpperCase() + p.slice(1).toLowerCase())
-    .join(" ");
-}
-
-function isoDatetimeParaData(dt){
-  const s = String(dt||"").trim();
-  const m = s.match(/^(\d{4}-\d{2}-\d{2})/);
-  return m ? m[1] : s;
-}
-
 function buildCsvFromItems(items){
   const header = ["ID","Título","Fase Atual","Criado em","Solicitante","Sistema"];
   const lines = [header.join(";")];
@@ -1926,53 +1902,11 @@ function buildCsvFromItems(items){
   return lines.join("\n");
 }
 
-function parseDmtaskCsv(file){
-  return new Promise((resolve,reject)=>{
-    Papa.parse(file, {
-      header:true,
-      skipEmptyLines:true,
-      delimiter:";",
-      complete: (result)=>resolve(result.data),
-      error: (err)=>reject(err)
-    });
-  });
-}
-
-async function processarPlanilhaDmtask(file){
-  const rows = await parseDmtaskCsv(file);
-  if(!rows.length) return [];
-
-  const headerRow = Object.keys(rows[0]);
-  const colId = headerRow.find(h=>h.trim().toLowerCase()==="id");
-  const colTarefa = headerRow.find(h=>h.trim().toLowerCase()==="tarefa");
-  const colData = headerRow.find(h=>h.trim().toLowerCase()==="data");
-  const colSolic = headerRow.find(h=>h.trim().toLowerCase()==="solicitante");
-  const colFase = headerRow.find(h=>h.trim().toLowerCase()==="faseatual");
-
-  if(!colId || !colTarefa || !colFase){
-    throw new Error(`A planilha "${file.name}" não tem as colunas esperadas do DmTask (ID, Tarefa, FaseAtual). Verifique se é o arquivo certo.`);
-  }
-
-  const items = [];
-  rows.forEach(r=>{
-    if(!String(r[colId]||"").trim()) return;
-    items.push({
-      idDm: "#"+String(r[colId]).trim(),
-      titulo: String(r[colTarefa]||"").trim(),
-      status: normalizeStatusValue(String(r[colFase]||"").trim()),
-      criadoEm: isoDatetimeParaData(r[colData]),
-      solicitante: emailParaNome(r[colSolic]),
-      board: DMTASK_SISTEMA_LABEL
-    });
-  });
-  return items;
-}
-
 /* ---------------------------------------------------------------
-   15d. FLUXO ÚNICO DE IMPORTAÇÃO
-   Aceita, numa única seleção, qualquer combinação de arquivos
-   .xlsx (DMCenter/Frota Legal/Frota Legal - Projetos) e .csv
-   (DmTask). Processa tudo, mescla com o que já está carregado
+   15c. FLUXO ÚNICO DE IMPORTAÇÃO
+   Aceita, numa única seleção, qualquer combinação de planilhas
+   .xlsx (DMCenter/Frota Legal/Frota Legal - Projetos). Processa
+   tudo, mescla com o que já está carregado
    (substituindo só os sistemas presentes nos arquivos escolhidos)
    e faz UM ÚNICO backup + upload — assim o comparativo sempre
    reflete a mudança completa daquela atualização.
@@ -1990,7 +1924,6 @@ document.getElementById("importXlsxFileInput").addEventListener("change", async 
   if(!token){ showImportStep("Token"); return; }
 
   const xlsxFiles = files.filter(f => /\.xlsx$/i.test(f.name));
-  const csvFiles  = files.filter(f => /\.csv$/i.test(f.name));
 
   showImportStep("Progress");
   const progressText = document.getElementById("importProgressText");
@@ -2009,15 +1942,8 @@ document.getElementById("importXlsxFileInput").addEventListener("change", async 
       novosItens = novosItens.concat(linhas);
     }
 
-    for(const file of csvFiles){
-      progressText.textContent = `Lendo ${file.name}...`;
-      const itensDmtask = await processarPlanilhaDmtask(file);
-      sistemasNovos.add(DMTASK_SISTEMA_LABEL);
-      novosItens = novosItens.concat(itensDmtask);
-    }
-
     if(!novosItens.length && sistemasNovos.size === 0){
-      throw new Error("Nenhum arquivo .xlsx ou .csv reconhecido foi selecionado.");
+      throw new Error("Nenhum arquivo .xlsx reconhecido foi selecionado.");
     }
 
     // mantém, dos dados já carregados, apenas os sistemas que NÃO foram reenviados agora
